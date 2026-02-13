@@ -5,14 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Konectd Advisory & Consulting</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #FFFFFF;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #F8F9FA;
+            color: #333333;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar.fixed-top {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .cta-button {
+            background-color: #007BFF;
+            color: #FFFFFF;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .section-padding {
+            padding: 100px 0;
+        }
+        .form-control {
+            border-radius: 10px;
+            border: 1px solid #DDDDDD;
+        }
+        footer {
+            background-color: #333333;
+            color: #FFFFFF;
+            padding: 60px 20px 40px;
+        }
+        footer h5 {
+            color: #FFFFFF;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        footer h6 {
+            color: #007BFF;
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .portfolio-section p {
+            margin-bottom: 20px;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.6em;
+            color: #007BFF;
+        }
+        .nav-link {
+            font-weight: 500;
+            color: #333333;
+        }
+        .nav-link:hover {
+            color: #007BFF;
+        }
+    </style>
 </head>
 <body>
-    <!-- Header/Nav with Contact active -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Konectd Advisory & Consulting</a>
+                <a class="navbar-brand" href="index.html">Konectd Advisory & Consulting</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -28,33 +110,65 @@
             </div>
         </nav>
     </header>
-    <main class="container my-5">
-        <h2>Contact Us for Personalized Guidance</h2>
-        <p>Ready to elevate your business? Our team is here to discuss your goals, provide a free initial assessment, and outline how we can help you prepare for growth or exit. Reach out today—let's connect you to success.</p>
-        <p>Phone: 507-509-5368</p>
-        <p>Email: hello@konectd.solutions</p>
-        <form>
-            <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name">
+
+    <section class="section-padding container">
+        <h1 class="text-center mb-5">Contact Us</h1>
+        <p class="text-center lead mb-5">Let's discuss how we can prepare your business for growth or exit. Fill out the form or use our direct contact info.</p>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <form>
+                    <div class="mb-4">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="5"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="cta-button">Send Message</button>
+                    </div>
+                </form>
+                <p class="text-center mt-4 small">Note: Integrate with a form service for functionality.</p>
             </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email">
-            </div>
-            <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" rows="3"></textarea>
-            </div>
-            <button type="submit" class="cta-button">Send Message</button>
-        </form>
-        <p>Note: This is a static form; integrate with Formspree, Google Forms, or similar for live submissions.</p>
-    </main>
-    <!-- Footer -->
+        </div>
+    </section>
+
     <footer>
-        <p>Powered by Konectd Solutions <img src="logo.png" alt="Konectd Solutions Logo" width="100"></p>
-        <p>&copy; 2026 Konectd Advisory & Consulting</p>
+        <div class="container portfolio-section">
+            <h5>Konectd Solutions</h5>
+            <p>Konectd Solutions is your trusted partner for small and medium business growth. We combine intelligent AI tools with full-service agency expertise and strategic support to help you capture opportunities, build trust, and scale sustainably — all from one reliable platform. Onboard with Konectd Marketing and gain access to experts across our full portfolio of services (additional costs may apply for non-marketing offerings).</p>
+
+            <h5>Get in Touch</h5>
+            <p>Call: <a href="tel:507-509-5368">507-509-5368</a><br>
+            Email: <a href="mailto:hello@konectd.solutions">hello@konectd.solutions</a></p>
+
+            <h5>The Full Konectd Solutions Portfolio</h5>
+            <p>Marketing is just one part of how we help businesses thrive. Konectd Solutions offers a complete ecosystem of services — all designed to support small and medium-sized companies like yours.</p>
+
+            <h6>Advisory & Consulting</h6>
+            <p>Strategic guidance to scale smarter — from operations to growth planning.</p>
+
+            <h6>Payment & Payroll</h6>
+            <p>Secure, streamlined payments and payroll — save time and reduce errors.</p>
+
+            <h6>Real Estate</h6>
+            <p>Property solutions, leasing support, and investment guidance tailored for business owners.</p>
+
+            <h6>Financing</h6>
+            <p>Access to capital, lines of credit, and funding options to fuel your next step.</p>
+
+            <h6>Marketing</h6>
+            <p>AI-powered customer acquisition, reputation, local SEO, social, and re-engagement — you're here now.</p>
+        </div>
+        <p class="text-center mt-4">Powered by Konectd Solutions <img src="logo.png" alt="Konectd Solutions Logo" width="150"></p>
+        <p class="text-center small">&copy; 2026 Konectd Advisory & Consulting</p>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
