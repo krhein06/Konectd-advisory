@@ -1,22 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
+    background-color: #FFFFFF;
+    color: #001F3F;
 }
 header {
-    background-color: #007BFF;
-    color: white;
+    background-color: #001F3F;
+    color: #FFFFFF;
     padding: 20px;
 }
-footer {
-    background-color: #343a40;
-    color: white;
+.hero {
+    background-image: url('https://thumbs.dreamstime.com/b/luxury-yacht-cruising-sunset-near-coastal-town-white-cruises-along-coastline-418955541.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
     text-align: center;
-    padding: 10px;
+    color: #FFFFFF;
+}
+.hero h1 {
+    font-size: 3em;
+    font-weight: 700;
+}
+.hero p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 20px;
 }
 .cta-button {
-    background-color: #FD7E14;
-    color: white;
-    padding: 10px 20px;
+    background-color: #FF4500;
+    color: #FFFFFF;
+    padding: 15px 30px;
     border: none;
     border-radius: 5px;
+    font-weight: 700;
+    margin: 10px;
+}
+.stats {
+    background-color: #F8F9FA;
+    padding: 50px 20px;
+    text-align: center;
+}
+.stat-item {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #001F3F;
+}
+.testimonial {
+    background-color: #FFFFFF;
+    border: 1px solid #DEE2E6;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+footer {
+    background-color: #001F3F;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
 }
