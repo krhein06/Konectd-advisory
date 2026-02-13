@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Industries - Konectd Advisory & Consulting</title>
+    <title>Contact - Konectd Advisory & Consulting</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
@@ -119,8 +119,8 @@
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="industries.html">Industries</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="industries.html">Industries</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -128,64 +128,58 @@
     </header>
 
     <main class="container my-5">
-        <h1 class="text-center mb-5">Industries We Serve</h1>
-        <p class="lead text-center mb-5">We partner with businesses across diverse sectors, with special expertise in those that consistently attract strong interest from private equity and strategic buyers due to their growth potential, resilience, and scalability.</p>
+        <h1 class="text-center mb-5">Contact Us</h1>
+        <p class="lead text-center mb-5">Ready to discuss how we can help prepare your $5M–$75M revenue business for growth or a successful exit? Reach out today.</p>
 
-        <table class="table table-striped table-hover">
-            <thead class="table-dark">
-                <tr>
-                    <th>Rank</th>
-                    <th>Industry</th>
-                    <th>Why It's Attractive for Equity Firms</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Construction Services & Engineering</td>
-                    <td>High demand for infrastructure; strong backlog visibility; recurring service revenue.</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Software / SaaS</td>
-                    <td>High recurring revenue, scalability, and strong margins; AI & cloud integration trends.</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Healthcare Services & Technology</td>
-                    <td>Resilient demand, aging population tailwinds, and digital health transformation.</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Manufacturing (Specialized / Niche)</td>
-                    <td>Defensive qualities, supply chain localization, and operational improvement potential.</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Business Services (B2B)</td>
-                    <td>Recurring contracts, fragmented markets ripe for consolidation.</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>E-commerce & Consumer Products</td>
-                    <td>Strong brand equity, direct-to-consumer models, and digital channel growth.</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Financial & Professional Services</td>
-                    <td>Stable cash flows, regulatory barriers, and fee-based recurring revenue.</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>Food & Beverage (Specialty / Branded)</td>
-                    <td>Consumer trends toward health & premium products; strong brand loyalty.</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <h3 class="text-center mb-4">Get in Touch</h3>
+                        <p class="text-center mb-4">
+                            Phone: <strong><a href="tel:507-509-5368" style="color:#001F3F;">507-509-5368</a></strong><br>
+                            Email: <strong><a href="mailto:hello@konectd.solutions" style="color:#001F3F;">hello@konectd.solutions</a></strong>
+                        </p>
 
-        <div class="text-center mt-5">
-            <p class="lead">Does your business fit one of these high-demand categories? Let's discuss how we can position it for maximum value.</p>
-            <a href="contact.html" class="cta-button">Get Your Free Valuation Assessment</a>
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="revenue" class="form-label">Approximate Annual Revenue</label>
+                                <select class="form-select" id="revenue">
+                                    <option selected>Select range...</option>
+                                    <option>$5M – $10M</option>
+                                    <option>$10M – $25M</option>
+                                    <option>$25M – $50M</option>
+                                    <option>$50M – $75M</option>
+                                    <option>Over $75M</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Tell us about your business & goals</label>
+                                <textarea class="form-control" id="message" rows="5"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="cta-button">Send Message</button>
+                            </div>
+                        </form>
+
+                        <p class="text-center mt-4 small text-muted">
+                            Note: This is currently a static form display. To make it functional, connect it to Formspree, Netlify Forms, or your preferred backend service.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
