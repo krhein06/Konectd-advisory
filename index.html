@@ -6,131 +6,119 @@
     <title>Konectd Advisory & Consulting</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #FFFFFF;
             color: #333333;
-            margin: 0;
-            padding: 0;
             line-height: 1.6;
+            margin: 0;
         }
         header {
-            background-color: #F8F9FA;
-            color: #333333;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .navbar.fixed-top {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #EEEEEE;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #003366 !important; /* Deep blue for logo feel */
+        }
+        .nav-link {
+            color: #333333;
+            font-weight: 500;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #003366;
         }
         .hero {
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://thumbs.dreamstime.com/b/luxury-yacht-cruising-sunset-near-coastal-town-white-cruises-along-coastline-418955541.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 200px 20px;
+            background-color: #F8F9FA;
+            padding: 180px 20px 120px;
             text-align: center;
-            color: #FFFFFF;
         }
         .hero h1 {
-            font-size: 4em;
+            font-size: 3.2rem;
             font-weight: 700;
-            margin-bottom: 0.5em;
+            color: #003366;
+            margin-bottom: 1.5rem;
         }
         .hero p {
-            font-size: 1.5em;
-            max-width: 1000px;
-            margin: 0 auto 40px;
+            font-size: 1.3rem;
+            max-width: 900px;
+            margin: 0 auto 2.5rem;
+            color: #555555;
         }
         .cta-button {
-            background-color: #007BFF;
-            color: #FFFFFF;
-            padding: 15px 40px;
+            background-color: #00AABB; /* Teal accent from konectd.com feel */
+            color: white;
+            padding: 14px 40px;
             border: none;
             border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2em;
-            margin: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
         }
         .cta-button:hover {
-            background-color: #0056b3;
+            background-color: #008899;
             transform: translateY(-2px);
         }
         .section-padding {
             padding: 100px 0;
         }
-        .stats {
-            background-color: #F8F9FA;
-            padding: 80px 20px;
-            text-align: center;
+        .card {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            transition: transform 0.3s;
         }
-        .stat-item {
-            font-size: 3.5em;
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        .card-title {
+            color: #003366;
             font-weight: 700;
-            color: #007BFF;
-        }
-        .stat-label {
-            font-size: 1.2em;
-            color: #666666;
-        }
-        .testimonial {
-            background-color: #FFFFFF;
-            padding: 30px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            font-style: italic;
-            color: #555555;
         }
         footer {
-            background-color: #333333;
+            background-color: #003366;
             color: #FFFFFF;
-            padding: 60px 20px 40px;
+            padding: 80px 20px 40px;
         }
         footer h5 {
-            color: #FFFFFF;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
+            color: #FFFFFF;
         }
         footer h6 {
-            color: #007BFF;
+            color: #00AABB;
             font-weight: 700;
-            margin-top: 30px;
-            margin-bottom: 10px;
+            margin: 2rem 0 0.5rem;
+        }
+        footer p {
+            font-size: 1rem;
+            color: #DDDDDD;
         }
         footer a {
-            color: #007BFF;
+            color: #00AABB;
             text-decoration: none;
         }
         footer a:hover {
             text-decoration: underline;
         }
-        .portfolio-section p {
-            margin-bottom: 20px;
-        }
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.6em;
-            color: #007BFF;
-        }
-        .nav-link {
-            font-weight: 500;
-            color: #333333;
-        }
-        .nav-link:hover {
-            color: #007BFF;
+        .portfolio-intro {
+            margin-bottom: 2rem;
         }
     </style>
 </head>
 <body>
+
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
                 <a class="navbar-brand" href="index.html">Konectd Advisory & Consulting</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -149,96 +137,41 @@
     </header>
 
     <section class="hero">
-        <h1>Experts at Preparing $5M–$75M Revenue Companies for Growth or Exit</h1>
-        <p>Our advisory specialists work hand-in-hand with business owners to optimize operations, enhance valuation, and position your company for explosive growth or a seamless exit. Leveraging our deep relationships with top equity firms, we've helped countless businesses attract premium investments and achieve maximum value. Powered by Konectd Solutions, we guarantee a strategic path forward tailored to your unique goals.</p>
-        <a href="contact.html" class="cta-button">Get a Free Consultation</a>
-        <a href="services.html" class="cta-button">Explore Services</a>
-    </section>
-
-    <section class="section-padding container">
-        <h2 class="text-center mb-5">Maximize Your Business Value with Expert Guidance</h2>
-        <p class="text-center lead mb-5">At Konectd Advisory & Consulting, we understand the complexities of scaling or selling a mid-market business. Our team of seasoned advisors knows exactly what equity firms look for—strong fundamentals, scalable models, and untapped potential.</p>
-        <div class="row text-center">
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body">
-                        <h3>Targeted Equity Connections</h3>
-                        <p>We curate a premium database of equity firms ready to invest in businesses like yours.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body">
-                        <h3>State-of-the-Art Preparation</h3>
-                        <p>AI-driven tools for customized growth or exit plans and valuation reports.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body">
-                        <h3>Complete Transparency</h3>
-                        <p>Upfront fees, timelines, and processes to build trust every step of the way.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="stats">
         <div class="container">
-            <h2 class="text-center mb-5">Our Impact at a Glance</h2>
-            <div class="row text-center">
-                <div class="col-md-3 mb-4">
-                    <div class="stat-item">5+</div>
-                    <p class="stat-label">Integrated Services</p>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="stat-item">100+</div>
-                    <p class="stat-label">Equity Firm Relationships</p>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="stat-item">25%</div>
-                    <p class="stat-label">Average Valuation Increase</p>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="stat-item">200+</div>
-                    <p class="stat-label">Businesses Supported</p>
-                </div>
-            </div>
+            <h1>Experts at Preparing $5M–$75M Revenue Companies for Growth or Exit</h1>
+            <p>Our advisory specialists help business owners optimize operations, increase valuation, and get ready for growth or a successful exit — leveraging strong relationships with equity firms to maximize value. Powered by Konectd Solutions.</p>
+            <a href="contact.html" class="cta-button">Get a Free Consultation</a>
         </div>
     </section>
 
-    <section class="section-padding container">
-        <h2 class="text-center mb-5">Why Business Owners Trust Konectd</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="testimonial">
-                    <p>"Konectd prepared our business for exit seamlessly, boosting our value by 30%."</p>
-                    <p class="text-end"><strong>John Doe, CEO</strong></p>
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5" style="color:#003366; font-weight:700;">Why Choose Konectd Advisory & Consulting</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 text-center">
+                        <h3 class="card-title">Targeted Equity Access</h3>
+                        <p>Curated network of equity firms ready to invest in mid-market businesses like yours.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 text-center">
+                        <h3 class="card-title">Valuation Optimization</h3>
+                        <p>Strategic preparation to unlock higher multiples and better terms.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 text-center">
+                        <h3 class="card-title">Full Konectd Integration</h3>
+                        <p>Seamless access to payments, marketing, real estate, financing, and more.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="testimonial">
-                    <p>"Their equity connections brought multiple offers in months."</p>
-                    <p class="text-end"><strong>Jane Smith, Founder</strong></p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="testimonial">
-                    <p>"Transparent and effective—smooth transition guaranteed."</p>
-                    <p class="text-end"><strong>Mike Johnson, Owner</strong></p>
-                </div>
-            </div>
-        </div>
-        <div class="text-center mt-5">
-            <a href="about.html" class="cta-button">Read More Testimonials</a>
         </div>
     </section>
 
     <footer>
-        <div class="container portfolio-section">
+        <div class="container">
             <h5>Konectd Solutions</h5>
             <p>Konectd Solutions is your trusted partner for small and medium business growth. We combine intelligent AI tools with full-service agency expertise and strategic support to help you capture opportunities, build trust, and scale sustainably — all from one reliable platform. Onboard with Konectd Marketing and gain access to experts across our full portfolio of services (additional costs may apply for non-marketing offerings).</p>
 
@@ -247,7 +180,7 @@
             Email: <a href="mailto:hello@konectd.solutions">hello@konectd.solutions</a></p>
 
             <h5>The Full Konectd Solutions Portfolio</h5>
-            <p>Marketing is just one part of how we help businesses thrive. Konectd Solutions offers a complete ecosystem of services — all designed to support small and medium-sized companies like yours.</p>
+            <p class="portfolio-intro">Marketing is just one part of how we help businesses thrive. Konectd Solutions offers a complete ecosystem of services — all designed to support small and medium-sized companies like yours.</p>
 
             <h6>Advisory & Consulting</h6>
             <p>Strategic guidance to scale smarter — from operations to growth planning.</p>
@@ -264,8 +197,10 @@
             <h6>Marketing</h6>
             <p>AI-powered customer acquisition, reputation, local SEO, social, and re-engagement — you're here now.</p>
         </div>
-        <p class="text-center mt-4">Powered by Konectd Solutions <img src="logo.png" alt="Konectd Solutions Logo" width="150"></p>
-        <p class="text-center small">&copy; 2026 Konectd Advisory & Consulting</p>
+        <div class="text-center mt-5">
+            <p>Powered by Konectd Solutions <img src="logo.png" alt="Konectd Solutions Logo" width="180"></p>
+            <p class="small">&copy; 2026 Konectd Advisory & Consulting</p>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
