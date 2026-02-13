@@ -5,14 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Konectd Advisory & Consulting</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #FFFFFF;
+            color: #001F3F;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #001F3F;
+            color: #FFFFFF;
+        }
+        .hero {
+            background-image: url('https://thumbs.dreamstime.com/b/luxury-yacht-cruising-sunset-near-coastal-town-white-cruises-along-coastline-418955541.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 20px;
+            text-align: center;
+            color: #FFFFFF;
+        }
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 0.5em;
+        }
+        .hero p {
+            font-size: 1.4em;
+            max-width: 900px;
+            margin: 0 auto 30px;
+        }
+        .cta-button {
+            background-color: #FF4500;
+            color: #FFFFFF;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #e03e00;
+        }
+        .stats {
+            background-color: #F8F9FA;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .stat-item {
+            font-size: 3em;
+            font-weight: 700;
+            color: #001F3F;
+        }
+        .testimonial {
+            background-color: #FFFFFF;
+            border: 1px solid #DEE2E6;
+            padding: 25px;
+            margin: 20px;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        footer {
+            background-color: #001F3F;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .portfolio-section {
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            text-align: left;
+        }
+        .portfolio-section h3 {
+            color: #FF4500;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .portfolio-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .portfolio-section li {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .portfolio-section strong {
+            color: #FFFFFF;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5em;
+        }
+        .nav-link {
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-    <!-- Header/Nav with Services active -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Konectd Advisory & Consulting</a>
+                <a class="navbar-brand" href="index.html">Konectd Advisory & Consulting</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -28,23 +126,76 @@
             </div>
         </nav>
     </header>
+
     <main class="container my-5">
-        <h2>Our Comprehensive Services</h2>
-        <p>We offer end-to-end support to prepare your business for the next level. Our services are designed to address every aspect of growth and exit readiness, ensuring you achieve optimal outcomes.</p>
-        <ul class="list-group">
-            <li class="list-group-item"><strong>Advisory & Consulting</strong>: In-depth strategic planning, including market analysis, operational audits, and exit roadmaps. We help identify growth levers and mitigate risks to boost your appeal to equity firms.</li>
-            <li class="list-group-item"><strong>Payments & Payroll</strong>: Efficient systems to optimize cash flow and compliance, reducing overhead and improving financial transparency for investors.</li>
-            <li class="list-group-item"><strong>Marketing</strong>: Data-driven campaigns that enhance brand visibility, customer acquisition, and market positioning—key for attracting acquisition interest.</li>
-            <li class="list-group-item"><strong>Commercial Real Estate</strong>: Expert advice on property strategies for expansion, including leasing, acquisitions, and portfolio optimization to support scaling.</li>
-            <li class="list-group-item"><strong>Financing</strong>: Tailored funding solutions, from debt to equity raises, connecting you to lenders and investors for sustainable growth capital.</li>
-        </ul>
-        <p>Each service is customizable, backed by our equity firm network, to deliver measurable value increases and prepare you for market success.</p>
+        <h1 class="text-center mb-5">Our Comprehensive Services</h1>
+        <p class="lead text-center mb-5">We offer end-to-end support to prepare your business for the next level. Our services are designed to address every aspect of growth and exit readiness, ensuring you achieve optimal outcomes.</p>
+        
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100 border-primary">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">Advisory & Consulting</h3>
+                        <p class="card-text">In-depth strategic planning, including market analysis, operational audits, valuation enhancement, and exit roadmaps. We help identify growth levers and mitigate risks to boost your appeal to equity firms.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100 border-primary">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">Payments & Payroll</h3>
+                        <p class="card-text">Efficient, secure systems to optimize cash flow, ensure compliance, and improve financial transparency—critical for impressing investors during due diligence.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100 border-primary">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">Marketing</h3>
+                        <p class="card-text">Data-driven, AI-powered campaigns that enhance brand visibility, accelerate customer acquisition, and strengthen market positioning—key drivers of higher business multiples.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100 border-primary">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">Commercial Real Estate</h3>
+                        <p class="card-text">Expert guidance on property strategies for expansion, including leasing, acquisitions, and portfolio optimization to support scalable growth without unnecessary capital tie-up.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100 border-primary">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">Financing</h3>
+                        <p class="card-text">Tailored funding solutions—from debt facilities to equity introductions—connecting you to the right capital sources to fuel sustainable growth or bridge to exit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="contact.html" class="cta-button">Discuss How We Can Help Your Business</a>
+        </div>
     </main>
-    <!-- Footer -->
+
     <footer>
-        <p>Powered by Konectd Solutions <img src="logo.png" alt="Konectd Solutions Logo" width="100"></p>
+        <div class="portfolio-section">
+            <h3>The Full Konectd Solutions Portfolio</h3>
+            <ul>
+                <li><strong>Advisory & Consulting</strong>: Strategic guidance to scale smarter — from operations to growth planning.</li>
+                <li><strong>Payment & Payroll</strong>: Secure, streamlined payments and payroll — save time and reduce errors.</li>
+                <li><strong>Real Estate</strong>: Property solutions, leasing support, and investment guidance tailored for business owners.</li>
+                <li><strong>Financing</strong>: Access to capital, lines of credit, and funding options to fuel your next step.</li>
+                <li><strong>Marketing</strong>: AI-powered customer acquisition, reputation, local SEO, social, and re-engagement — you're here now.</li>
+            </ul>
+            <p>Onboarding with Konectd provides access to experts across services (additional costs may apply for non-advisory offerings).</p>
+        </div>
+        <p>Powered by Konectd Solutions <img src="logo.png" alt="Konectd Solutions Logo" width="150"></p>
+        <p>Call: <a href="tel:507-509-5368" style="color:#FF4500;">507-509-5368</a> | Email: <a href="mailto:hello@konectd.solutions" style="color:#FF4500;">hello@konectd.solutions</a></p>
         <p>&copy; 2026 Konectd Advisory & Consulting</p>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
