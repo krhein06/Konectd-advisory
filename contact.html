@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Konectd Advisory & Consulting to book a confidential fit call for exit readiness or sell-side advisory." />
+  <meta name="description" content="Book a confidential fit call with Konectd Advisory & Consulting. Exit readiness, diligence preparation, and sell-side advisory for $5M–$75M revenue business owners." />
   <title>Contact | Konectd Advisory & Consulting</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -38,7 +38,7 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* ===== Top Bar ===== */
+    /* ===== Top Bar (inline on mobile) ===== */
     .top-bar{
       position:fixed; top:0; left:0; right:0;
       z-index:1100;
@@ -50,21 +50,32 @@
     }
     .top-bar .container{
       display:flex;
+      flex-wrap:nowrap;
       justify-content:flex-end;
       align-items:center;
       gap:1.25rem;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
     }
+    .top-bar .container::-webkit-scrollbar{ display:none; }
     .top-bar a{
       color:var(--light);
       text-decoration:none;
-      font-weight:800;
-      display:flex;
+      display:inline-flex;
       align-items:center;
       gap:0.5rem;
+      white-space:nowrap;
+      transition: color 0.2s;
+      font-weight: 800;
     }
     .top-bar a:hover{ color:var(--primary); }
+    @media (max-width:768px){
+      .top-bar{ font-size:0.85rem; }
+      .top-bar .container{ justify-content:center; gap:0.85rem; }
+    }
 
-    /* ===== Header ===== */
+    /* ===== Header / Brand / Nav ===== */
     .site-header{
       position:fixed; left:0; right:0;
       top: var(--topbar-h);
@@ -78,60 +89,176 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
+      gap:1rem;
     }
 
+    .brand-lockup{
+      display:grid;
+      gap:0.25rem;
+      text-decoration:none;
+    }
+
+    /* Keep inline always */
     .brand-title-row{
       display:inline-flex;
       align-items:baseline;
       gap:0.55rem;
       white-space:nowrap;
+      line-height:1.05;
     }
     .brand-wordmark{
-      font-size: clamp(1.6rem, 3.8vw, 2.1rem);
+      font-size: clamp(1.55rem, 3.8vw, 2.1rem);
       font-weight: 900;
-      background: linear-gradient(90deg, var(--primary), var(--primary2));
+      letter-spacing: -0.8px;
+      line-height: 1;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--primary2) 45%, #a5f3fc 100%);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
+      position:relative;
+      display:inline-block;
+    }
+    .brand-wordmark::after{
+      content:"";
+      position:absolute;
+      inset:-6px -10px;
+      background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.18) 35%, rgba(255,255,255,0) 70%);
+      transform: translateX(-45%);
+      pointer-events:none;
+      mix-blend-mode: screen;
+      filter: blur(0.2px);
+      animation: sheen 7.5s ease-in-out infinite;
+      opacity:0;
+    }
+    @keyframes sheen{
+      0%,55%{ transform: translateX(-45%); opacity:0; }
+      65%{ opacity:0.9; }
+      100%{ transform: translateX(45%); opacity:0; }
     }
     .brand-inline-suffix{
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-size: clamp(1.05rem, 2.6vw, 1.25rem);
       font-weight: 900;
       color:#e2e8f0;
+      letter-spacing:-0.2px;
     }
+
+    .brand-powered{
+      display:flex;
+      align-items:center;
+      gap:0.5rem;
+      font-size:0.85rem;
+      color: var(--gray);
+      white-space:nowrap;
+      font-weight: 700;
+    }
+    .brand-powered img{ height:18px; width:auto; object-fit:contain; }
 
     .nav-links{
       display:flex;
+      align-items:center;
       gap:1.25rem;
-      list-style:none;
       margin:0;
       padding:0;
+      list-style:none;
     }
     .nav-links a{
-      color:var(--light);
+      color: var(--light);
       text-decoration:none;
-      font-weight:900;
+      font-weight: 900;
+      letter-spacing:-0.1px;
+      padding:0.35rem 0.25rem;
+      border-radius:10px;
+      transition: color 0.2s, background-color 0.2s, transform 0.2s;
+      white-space:nowrap;
     }
-    .nav-links a:hover{ color:var(--primary2); }
-
+    .nav-links a:hover{
+      color:#a5f3fc;
+      background: rgba(30,41,59,0.65);
+      transform: translateY(-1px);
+    }
     .nav-cta{
       background: var(--primary);
-      padding:0.55rem 0.95rem;
-      border-radius:9999px;
+      color:#0f172a !important;
+      padding:0.55rem 0.95rem !important;
+      border-radius:9999px !important;
+      font-weight: 900 !important;
+    }
+    .nav-cta:hover{
+      background: var(--primary2) !important;
       color:#0f172a !important;
     }
 
+    /* Mobile menu */
     .menu-btn{
       display:none;
       border:1px solid rgba(148,163,184,0.25);
-      background: transparent;
+      background: rgba(15,23,42,0.35);
       color: var(--light);
-      border-radius:10px;
-      padding:0.5rem 0.7rem;
+      border-radius:12px;
+      padding:0.55rem 0.75rem;
+      font-weight:900;
+      line-height:1;
+    }
+    .menu-btn:hover{
+      border-color: rgba(14,165,233,0.55);
+      color:#a5f3fc;
     }
 
-    @media (max-width:992px){
+    .menu-overlay{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:1040;
+      background: rgba(0,0,0,0.45);
+    }
+
+    .mobile-drawer{
+      display:none;
+      position:fixed;
+      top: var(--stack-h);
+      left:0; right:0;
+      z-index:1050;
+      background: rgba(15,23,42,0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(148,163,184,0.18);
+      padding: 1rem 1rem 1.25rem;
+    }
+    .drawer-title{ color:#fff; font-weight:900; }
+    .drawer-links{
+      display:grid;
+      gap:0.5rem;
+      margin-top:0.75rem;
+    }
+    .drawer-links a{
+      color: var(--light);
+      text-decoration:none;
+      font-weight:900;
+      padding:0.9rem 0.9rem;
+      border-radius:14px;
+      background: rgba(30,41,59,0.55);
+      border: 1px solid rgba(148,163,184,0.16);
+    }
+    .drawer-links a:hover{
+      border-color: rgba(14,165,233,0.55);
+      color:#a5f3fc;
+    }
+    .drawer-links a.drawer-cta{
+      background: var(--primary);
+      color:#0f172a;
+      border-color:transparent;
+    }
+    .drawer-links a.drawer-cta:hover{
+      background: var(--primary2);
+      color:#0f172a;
+    }
+
+    .is-open .menu-overlay{ display:block; }
+    .is-open .mobile-drawer{ display:block; }
+    body.menu-open{ overflow:hidden; }
+
+    @media (max-width: 992px){
       .nav-links{ display:none; }
-      .menu-btn{ display:block; }
+      .menu-btn{ display:inline-flex; align-items:center; gap:0.55rem; }
     }
 
     /* ===== Hero ===== */
@@ -143,130 +270,249 @@
         url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80')
         no-repeat center / cover;
       background-attachment: fixed;
+      border-bottom: 1px solid rgba(30,41,59,0.6);
     }
     .page-hero h1{
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      font-weight:900;
+      font-size: clamp(2rem, 5.6vw, 3.4rem);
+      font-weight: 900;
       color:#fff;
+      margin:0 0 0.9rem;
+      line-height:1.12;
     }
     .page-hero p{
-      color:#cbd5e1;
-      max-width:900px;
+      max-width: 980px;
       margin:0 auto;
+      color:#cbd5e1;
+      font-size: 1.05rem;
+    }
+    @media (max-width: 992px){
+      .page-hero{ background-attachment: scroll; background-position: center top; }
     }
 
-    @media (max-width:992px){
-      .page-hero{ background-attachment: scroll; }
+    /* ===== Content ===== */
+    .section-padding{ padding: 80px 1rem; }
+    .section-title{
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 900;
+      color:#fff;
+      text-align:center;
+      margin-bottom:3rem;
     }
 
-    /* ===== Form ===== */
-    .section-padding{ padding:80px 1rem; }
+    .cardx{
+      background: rgba(30,41,59,0.45);
+      border: 1px solid rgba(148,163,184,0.14);
+      border-radius: 18px;
+      padding: 1.5rem 1.35rem;
+      height:100%;
+    }
+    .cardx h3{
+      color:#fff;
+      font-weight: 900;
+      margin:0 0 0.55rem;
+      font-size: 1.2rem;
+    }
+    .cardx p{ color: var(--gray); margin:0; }
 
     .formwrap{
-      max-width:750px;
-      margin:0 auto;
       background: var(--dark2);
-      border-radius:18px;
-      padding:2rem;
+      border: 1px solid rgba(148,163,184,0.12);
+      border-radius: 18px;
+      padding: 1.6rem 1.35rem;
     }
-
     label{
-      font-weight:800;
       color:#cbd5e1;
+      font-weight: 800;
+      margin-bottom:0.35rem;
+    }
+    .form-control, .form-select, textarea{
+      background: rgba(15,23,42,0.65) !important;
+      border: 1px solid rgba(148,163,184,0.18) !important;
+      color:#fff !important;
+      border-radius: 12px !important;
+      padding: 0.85rem 0.9rem !important;
+    }
+    .form-control:focus, .form-select:focus, textarea:focus{
+      border-color: rgba(14,165,233,0.65) !important;
+      box-shadow: none !important;
+      outline:none !important;
+    }
+    .hint{
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-top: 0.35rem;
     }
 
-    .form-control, .form-select{
-      background: rgba(15,23,42,0.65);
-      border:1px solid rgba(148,163,184,0.2);
-      color:#fff;
-      border-radius:12px;
+    .btn-pill{
+      display:inline-block;
+      padding: 0.9rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 900;
+      text-decoration:none;
+      border: 1px solid rgba(14,165,233,0.4);
+      background: rgba(15,23,42,0.35);
+      color:#a5f3fc;
+      transition: transform 0.2s, background-color 0.2s, color 0.2s;
+      margin: 0.25rem 0;
+      cursor:pointer;
+    }
+    .btn-pill:hover{ transform: translateY(-2px); }
+    .btn-pill.primary{
+      background: var(--primary);
+      color: #0f172a;
+      border-color: transparent;
+    }
+    .btn-pill.primary:hover{
+      background: var(--primary2);
+      color: #0f172a;
     }
 
-    .form-control:focus, .form-select:focus{
-      border-color:var(--primary);
-      box-shadow:none;
-    }
-
-    .btn-submit{
-      background:var(--primary);
-      border:none;
-      padding:0.9rem 1.3rem;
-      border-radius:9999px;
-      font-weight:900;
-      color:#0f172a;
-    }
-
-    .btn-submit:hover{ background:var(--primary2); }
-
-    /* ===== Footer ===== */
+    /* ===== Footer + Portfolio + Newsletter ===== */
     footer{
       background:#0f172a;
-      padding:70px 1rem 40px;
-      border-top:1px solid #1e293b;
+      padding: 70px 1rem 40px;
+      border-top: 1px solid #1e293b;
     }
-
     .footer-grid{
       display:grid;
-      grid-template-columns:1.3fr 1fr 1.3fr;
-      gap:1.5rem;
+      grid-template-columns: 1.3fr 1fr 1.3fr;
+      gap: 1.25rem;
+      align-items:start;
     }
-
     .footer-box{
       background: rgba(30,41,59,0.45);
-      border-radius:16px;
-      padding:1.25rem;
+      border: 1px solid rgba(148,163,184,0.14);
+      border-radius: 16px;
+      padding: 1.25rem 1.15rem;
+      height:100%;
     }
-
     .footer-box h6{
-      font-weight:900;
       color:#fff;
+      font-weight: 900;
+      margin:0 0 0.6rem;
+      font-size:1.05rem;
     }
-
+    .footer-box p, .footer-box li{
+      color: var(--gray);
+      margin:0;
+      font-size:0.95rem;
+    }
     .footer-links{
       list-style:none;
       padding:0;
+      margin:0.25rem 0 0;
+      display:grid;
+      gap:0.45rem;
     }
-
     .footer-links a{
-      color:#e2e8f0;
+      color: var(--light);
       text-decoration:none;
       font-weight:800;
     }
-
-    .footer-links a:hover{ color:var(--primary2); }
+    .footer-links a:hover{ color: var(--primary2); }
 
     .newsletter-form{
       display:flex;
-      gap:0.5rem;
+      gap:0.6rem;
+      margin-top:0.7rem;
       flex-wrap:wrap;
     }
-
     .newsletter-input{
-      flex:1;
-      background:rgba(15,23,42,0.65);
-      border:1px solid rgba(148,163,184,0.2);
-      border-radius:12px;
+      flex: 1 1 180px;
+      background: rgba(15,23,42,0.65);
+      border: 1px solid rgba(148,163,184,0.18);
       color:#fff;
-      padding:0.6rem 0.8rem;
+      border-radius: 12px;
+      padding: 0.75rem 0.85rem;
+      outline:none;
     }
-
+    .newsletter-input:focus{ border-color: rgba(14,165,233,0.65); }
     .newsletter-btn{
-      background:var(--primary);
+      flex: 0 0 auto;
+      background: var(--primary);
       border:none;
-      border-radius:9999px;
-      padding:0.6rem 1rem;
-      font-weight:900;
       color:#0f172a;
+      font-weight: 900;
+      border-radius: 9999px;
+      padding: 0.75rem 1rem;
+    }
+    .newsletter-btn:hover{ background: var(--primary2); }
+
+    .portfolio-title{
+      color:#fff;
+      font-weight: 900;
+      text-align:center;
+      font-size: clamp(1.8rem, 4.5vw, 2.35rem);
+      margin: 3.2rem 0 1.25rem;
+    }
+    .portfolio-sub{
+      text-align:center;
+      max-width: 900px;
+      margin: 0 auto 2rem;
+      color: #cbd5e1;
+      font-size:1.03rem;
     }
 
-    @media(max-width:992px){
-      .footer-grid{ grid-template-columns:1fr; }
+    .service-card{
+      background: var(--dark2);
+      border-radius: 16px;
+      padding: 1.6rem 1.1rem;
+      text-align:center;
+      border: 1px solid rgba(148,163,184,0.12);
+      height:100%;
+      transition: transform 0.25s, background-color 0.25s, border-color 0.25s;
+    }
+    .service-card:hover{
+      background:#334155;
+      transform: translateY(-5px);
+      border-color: rgba(14,165,233,0.45);
+    }
+    .service-icon{
+      font-size: 2.7rem;
+      color: var(--primary2);
+      margin-bottom: 0.9rem;
+      display:block;
+    }
+    .service-title{
+      color: var(--primary2);
+      font-weight: 900;
+      font-size: 1.1rem;
+      margin-bottom: 0.45rem;
+    }
+    .service-title a{
+      color: var(--primary2);
+      text-decoration:none;
+    }
+    .service-title a:hover{ text-decoration: underline; }
+    .service-desc{ color: var(--gray); font-size:0.92rem; margin:0; }
+    .highlighted-card{ border: 2px solid var(--primary) !important; }
+
+    .powered-strip{
+      text-align:center;
+      margin-top: 2.5rem;
+      color:#cbd5e1;
+      font-size: 1rem;
+    }
+    .powered-strip img{
+      height: 28px;
+      vertical-align: middle;
+      margin-left: 0.6rem;
+    }
+    .copyright{
+      text-align:center;
+      color: var(--gray);
+      margin-top: 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 992px){
+      .footer-grid{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-
+  <!-- Top Bar -->
   <div class="top-bar">
     <div class="container">
       <a href="tel:+15075095368"><i class="bi bi-telephone-fill"></i>(507) 509-5368</a>
@@ -274,105 +520,372 @@
     </div>
   </div>
 
+  <!-- Header -->
   <header class="site-header">
     <div class="container">
       <div class="nav-wrap">
-        <div class="brand-title-row">
-          <span class="brand-wordmark">Konectd</span>
-          <span class="brand-inline-suffix">Advisory & Consulting</span>
-        </div>
+        <a href="index.html" class="brand-lockup" aria-label="Konectd Advisory & Consulting home">
+          <div class="brand-title-row">
+            <span class="brand-wordmark">Konectd</span>
+            <span class="brand-inline-suffix">Advisory &amp; Consulting</span>
+          </div>
+          <div class="brand-powered">
+            <span>Powered by</span>
+            <img src="ks-konectd-solutions-logo 1.png" alt="Konectd Solutions" />
+          </div>
+        </a>
 
-        <ul class="nav-links">
-          <li><a href="why-us.html">Why Us</a></li>
-          <li><a href="industries.html">Industries</a></li>
-          <li><a href="exit-readiness-checklist.html">Exit Checklist</a></li>
-          <li><a class="nav-cta" href="contact.html">Book a Fit Call</a></li>
-        </ul>
+        <nav aria-label="Primary navigation">
+          <ul class="nav-links">
+            <li><a href="why-us.html">Why Us</a></li>
+            <li><a href="industries.html">Industries</a></li>
+            <li><a href="exit-readiness-checklist.html">Exit Readiness Checklist</a></li>
+            <li><a class="nav-cta" href="contact.html">Book a Fit Call</a></li>
+          </ul>
+        </nav>
 
-        <button class="menu-btn"><i class="bi bi-list"></i></button>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false">
+          <i class="bi bi-list" style="font-size:1.2rem;"></i> Menu
+        </button>
       </div>
     </div>
   </header>
 
+  <!-- Mobile overlay + drawer -->
+  <div class="menu-overlay" id="menuOverlay" tabindex="-1" aria-hidden="true"></div>
+
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="drawer-title">Menu</div>
+        <button class="menu-btn" id="menuCloseBtn" type="button" aria-label="Close menu">
+          <i class="bi bi-x-lg" style="font-size:1.05rem;"></i> Close
+        </button>
+      </div>
+
+      <div class="drawer-links">
+        <a href="index.html">Home</a>
+        <a href="why-us.html">Why Us</a>
+        <a href="industries.html">Industries</a>
+        <a href="exit-readiness-checklist.html">Exit Readiness Checklist</a>
+        <a class="drawer-cta" href="contact.html">Book a Fit Call</a>
+      </div>
+    </div>
+  </div>
+
   <main>
+    <!-- HERO -->
     <section class="page-hero">
-      <h1>Confidential Fit Call</h1>
-      <p>Let’s determine your readiness, timing, and potential buyer alignment in a short, focused conversation.</p>
+      <div class="container">
+        <h1>Book a Confidential Fit Call</h1>
+        <p>
+          A short, focused conversation to clarify your goals, timing, and the highest-impact actions to improve valuation drivers
+          and reduce diligence risk—without turning your business into a public listing.
+        </p>
+      </div>
     </section>
 
+    <!-- CONTENT -->
     <section class="section-padding">
-      <div class="formwrap">
-        <form>
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label>First Name</label>
-              <input type="text" class="form-control" required>
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+
+        <div class="row g-4">
+          <div class="col-lg-5">
+            <div class="cardx">
+              <h3><i class="bi bi-lock-fill" style="color:var(--primary2);margin-right:0.5rem;"></i>Confidentiality</h3>
+              <p>We treat these conversations as confidential. We do not share company information without explicit authorization.</p>
             </div>
-            <div class="col-md-6">
-              <label>Last Name</label>
-              <input type="text" class="form-control" required>
+
+            <div class="cardx mt-4">
+              <h3><i class="bi bi-clipboard-check" style="color:var(--primary2);margin-right:0.5rem;"></i>What we’ll cover</h3>
+              <p style="margin-bottom:0.75rem;color:var(--gray);">In ~20 minutes, we’ll aim to clarify objectives, timeline, and readiness.</p>
+              <ul style="margin:0;padding-left:1.15rem;color:#cbd5e1;">
+                <li>Revenue profile, margin quality, and customer concentration</li>
+                <li>Owner involvement and leadership depth</li>
+                <li>Documentation readiness and common diligence risks</li>
+                <li>High-level buyer profile and outreach strategy</li>
+                <li>Timeline, workload, and next steps</li>
+              </ul>
             </div>
-            <div class="col-md-6">
-              <label>Email</label>
-              <input type="email" class="form-control" required>
-            </div>
-            <div class="col-md-6">
-              <label>Company</label>
-              <input type="text" class="form-control" required>
-            </div>
-            <div class="col-md-6">
-              <label>Annual Revenue</label>
-              <select class="form-select">
-                <option>$5M–$10M</option>
-                <option>$10M–$25M</option>
-                <option>$25M–$50M</option>
-                <option>$50M–$75M</option>
-                <option>$75M+</option>
-              </select>
-            </div>
-            <div class="col-12">
-              <label>Notes</label>
-              <textarea class="form-control" rows="4"></textarea>
-            </div>
-            <div class="col-12 text-end">
-              <button class="btn-submit">Request Call</button>
+
+            <div class="cardx mt-4">
+              <h3><i class="bi bi-telephone-fill" style="color:var(--primary2);margin-right:0.5rem;"></i>Direct contact</h3>
+              <p>
+                Phone: <a href="tel:+15075095368" style="color:var(--primary2);text-decoration:none;font-weight:900;">(507) 509-5368</a><br/>
+                Email: <a href="mailto:hello@konectd.solutions" style="color:var(--primary2);text-decoration:none;font-weight:900;">hello@konectd.solutions</a>
+              </p>
             </div>
           </div>
-        </form>
+
+          <div class="col-lg-7">
+            <div class="formwrap">
+              <form id="contactForm" action="#" method="post">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="firstName" class="form-label">First name</label>
+                    <input id="firstName" name="firstName" class="form-control" type="text" required />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="lastName" class="form-label">Last name</label>
+                    <input id="lastName" name="lastName" class="form-control" type="text" required />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input id="email" name="email" class="form-control" type="email" required />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input id="phone" name="phone" class="form-control" type="tel" placeholder="Optional" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="company" class="form-label">Company name</label>
+                    <input id="company" name="company" class="form-control" type="text" required />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="revenue" class="form-label">Annual revenue</label>
+                    <select id="revenue" name="revenue" class="form-select" required>
+                      <option value="" selected disabled>Select one</option>
+                      <option>$5M–$10M</option>
+                      <option>$10M–$25M</option>
+                      <option>$25M–$50M</option>
+                      <option>$50M–$75M</option>
+                      <option>$75M+</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="timeline" class="form-label">Timing</label>
+                    <select id="timeline" name="timeline" class="form-select" required>
+                      <option value="" selected disabled>Select one</option>
+                      <option>Exploring (12+ months)</option>
+                      <option>6–12 months</option>
+                      <option>3–6 months</option>
+                      <option>Now / urgent</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="industry" class="form-label">Industry</label>
+                    <select id="industry" name="industry" class="form-select" required>
+                      <option value="" selected disabled>Select one</option>
+                      <option>Home Services</option>
+                      <option>B2B Services</option>
+                      <option>Industrial / Field Services</option>
+                      <option>Healthcare Services</option>
+                      <option>Tech-Enabled Services</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="notes" class="form-label">Anything we should know before the call?</label>
+                    <textarea id="notes" name="notes" class="form-control" rows="5" placeholder="Goals, constraints, what you’re considering, or specific questions."></textarea>
+                    <div class="hint">Tip: include customer concentration, owner involvement, and whether you have clean financials.</div>
+                  </div>
+
+                  <div class="col-12 d-flex flex-wrap justify-content-between align-items-center gap-2 mt-2">
+                    <div style="color:var(--gray);font-size:0.92rem;">
+                      Demo form: replace the handler with your CRM / scheduling link when ready.
+                    </div>
+                    <button type="submit" class="btn-pill primary">Request a Fit Call</button>
+                  </div>
+                </div>
+              </form>
+
+              <div class="mt-4" style="border-top:1px solid rgba(148,163,184,0.14);padding-top:1rem;color:var(--gray);font-size:0.95rem;">
+                Prefer to prepare first? Download the checklist:
+                <a href="exit-readiness-checklist.html" style="color:var(--primary2);font-weight:900;text-decoration:none;">Exit Readiness Checklist →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 cardx">
+          <h3><i class="bi bi-info-circle-fill" style="color:var(--primary2);margin-right:0.5rem;"></i>What happens after you submit?</h3>
+          <p style="margin:0;">
+            We’ll reach out to schedule a 20-minute fit call. If there’s a clear path to improving valuation drivers and reducing diligence risk,
+            we’ll outline a recommended plan and timeline.
+          </p>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- FOOTER (links + newsletter + portfolio services) -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-box">
-          <h6>Konectd Advisory</h6>
-          <p>Confidential sell-side advisory and exit readiness for owner-led companies.</p>
+          <h6>Konectd Advisory &amp; Consulting</h6>
+          <p>Confidential sell-side advisory and exit readiness for owner-led companies. We help strengthen valuation drivers, reduce diligence risk, and reach qualified buyers.</p>
+          <p class="mt-3">
+            <strong style="color:#fff;">Phone:</strong> <a href="tel:+15075095368" style="color:var(--primary2);text-decoration:none;font-weight:900;">(507) 509-5368</a><br/>
+            <strong style="color:#fff;">Email:</strong> <a href="mailto:hello@konectd.solutions" style="color:var(--primary2);text-decoration:none;font-weight:900;">hello@konectd.solutions</a>
+          </p>
         </div>
+
         <div class="footer-box">
-          <h6>Links</h6>
+          <h6>Quick Links</h6>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="why-us.html">Why Us</a></li>
             <li><a href="industries.html">Industries</a></li>
-            <li><a href="exit-readiness-checklist.html">Checklist</a></li>
+            <li><a href="exit-readiness-checklist.html">Exit Readiness Checklist</a></li>
+            <li><a href="contact.html">Contact / Book a Call</a></li>
           </ul>
         </div>
+
         <div class="footer-box">
           <h6>Newsletter</h6>
-          <form class="newsletter-form">
-            <input class="newsletter-input" type="email" placeholder="Email address" required>
-            <button class="newsletter-btn">Sign Up</button>
+          <p>Get practical exit readiness insights, valuation levers, and diligence preparation guidance—no spam.</p>
+          <form class="newsletter-form" id="newsletterForm" action="#" method="post">
+            <input class="newsletter-input" type="email" name="email" placeholder="Email address" required />
+            <button class="newsletter-btn" type="submit">Sign Up</button>
           </form>
+          <p class="mt-2" style="color:var(--gray);font-size:0.85rem;">By subscribing, you agree to receive emails from Konectd. You can unsubscribe anytime.</p>
         </div>
       </div>
 
-      <div style="text-align:center;margin-top:2rem;color:#94a3b8;">
-        &copy; 2026 Konectd Advisory & Consulting
+      <h2 class="portfolio-title">The Full Konectd Solutions Portfolio</h2>
+      <p class="portfolio-sub">
+        Marketing is just one part of how we help businesses thrive. Konectd Solutions offers a complete ecosystem of services—built to support small and medium-sized companies.
+      </p>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card highlighted-card">
+            <i class="bi bi-briefcase-fill service-icon"></i>
+            <div class="service-title">Advisory &amp; Consulting</div>
+            <p class="service-desc">Strategic guidance to scale smarter—from operations to growth planning.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-credit-card-2-front-fill service-icon"></i>
+            <div class="service-title">Payment &amp; Payroll</div>
+            <p class="service-desc">Secure payments and payroll—save time and reduce errors.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-building-fill service-icon"></i>
+            <div class="service-title">Real Estate</div>
+            <p class="service-desc">Leasing support and property strategy tailored for business owners.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-bank2 service-icon"></i>
+            <div class="service-title">Financing</div>
+            <p class="service-desc">Access to capital and funding options to fuel your next step.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-megaphone-fill service-icon"></i>
+            <div class="service-title"><a href="https://konectd.com" target="_blank" rel="noopener">Marketing</a></div>
+            <p class="service-desc">AI-powered acquisition, local SEO, reputation, and re-engagement.</p>
+          </div>
+        </div>
       </div>
+
+      <div class="powered-strip">
+        Powered by Konectd Solutions <img src="logo.png" alt="Konectd Solutions Logo" />
+      </div>
+      <div class="copyright">&copy; 2026 Konectd Advisory &amp; Consulting</div>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Offsets for fixed topbar + header (prevents overlap / alignment issues)
+    (function(){
+      const topBar = document.querySelector('.top-bar');
+      const header = document.querySelector('.site-header');
+
+      function setOffsets(){
+        const topH = topBar ? Math.ceil(topBar.getBoundingClientRect().height) : 0;
+        const headH = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+        document.documentElement.style.setProperty('--topbar-h', topH + 'px');
+        document.documentElement.style.setProperty('--header-h', headH + 'px');
+        document.documentElement.style.setProperty('--stack-h', (topH + headH) + 'px');
+      }
+
+      window.addEventListener('load', setOffsets);
+      window.addEventListener('resize', setOffsets);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(setOffsets).catch(()=>{});
+      }
+    })();
+
+    // Mobile menu
+    (function(){
+      const root = document.documentElement;
+      const body = document.body;
+
+      const menuBtn = document.getElementById('menuBtn');
+      const menuCloseBtn = document.getElementById('menuCloseBtn');
+      const overlay = document.getElementById('menuOverlay');
+      const drawer = document.getElementById('mobileDrawer');
+
+      function openMenu(){
+        body.classList.add('menu-open');
+        root.classList.add('is-open');
+        menuBtn?.setAttribute('aria-expanded','true');
+        menuCloseBtn?.focus();
+      }
+      function closeMenu(){
+        body.classList.remove('menu-open');
+        root.classList.remove('is-open');
+        menuBtn?.setAttribute('aria-expanded','false');
+        menuBtn?.focus();
+      }
+
+      menuBtn?.addEventListener('click', openMenu);
+      menuCloseBtn?.addEventListener('click', closeMenu);
+      overlay?.addEventListener('click', closeMenu);
+
+      document.addEventListener('keydown', (e)=>{
+        if (e.key === 'Escape' && root.classList.contains('is-open')) closeMenu();
+      });
+
+      drawer?.addEventListener('click', (e)=>{
+        const t = e.target;
+        if (t && t.tagName === 'A') closeMenu();
+      });
+
+      window.addEventListener('resize', ()=>{
+        if (window.innerWidth > 992 && root.classList.contains('is-open')) closeMenu();
+      });
+    })();
+
+    // Demo-only submits (replace with real handlers)
+    (function(){
+      const contactForm = document.getElementById('contactForm');
+      contactForm?.addEventListener('submit', function(e){
+        e.preventDefault();
+        alert('Thanks — your request was submitted (demo). Connect this form to your CRM when ready.');
+        contactForm.reset();
+      });
+
+      const newsletterForm = document.getElementById('newsletterForm');
+      newsletterForm?.addEventListener('submit', function(e){
+        e.preventDefault();
+        alert('Thanks — you are subscribed (demo). Connect this form to your email provider when ready.');
+        newsletterForm.reset();
+      });
+    })();
+  </script>
 </body>
 </html>
