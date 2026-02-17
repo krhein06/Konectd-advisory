@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Industries | Konectd Advisory & Consulting</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+    :root{
+      --primary:#0ea5e9;
+      --dark:#0f172a;
+      --gray:#94a3b8;
+      --light:#e2e8f0;
+
+      --topbar-h:0px;
+      --header-h:0px;
+      --stack-h:0px;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      font-family:'Roboto', sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      margin:0;
+      line-height:1.6;
+      padding-top: var(--stack-h);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .top-bar{
+      position:fixed; top:0; left:0; right:0;
+      z-index:1100;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(30, 41, 59, 0.6);
+      font-size: 0.9rem;
+      padding: 0.6rem 1rem;
+    }
+    .top-bar .container{
+      display:flex; flex-wrap:nowrap; justify-content:flex-end; align-items:center;
+      gap:1.25rem;
+      overflow-x:auto; -webkit-overflow-scrolling: touch; scrollbar-width:none;
+    }
+    .top-bar .container::-webkit-scrollbar{ display:none; }
+    .top-bar a{
+      color: var(--light);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      white-space:nowrap;
+      flex:0 0 auto;
+      transition: color 0.2s;
+    }
+    .top-bar a:hover{ color: var(--primary); }
+
+    .site-header{
+      position:fixed; left:0; right:0;
+      top: var(--topbar-h);
+      z-index:1000;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+      padding: 0.9rem 1rem;
+    }
+    .brand-lockup{ display:grid; gap:0.25rem; align-items:start; }
+    .brand-title-row{
+      display:inline-flex; align-items:baseline; gap:0.55rem; white-space:nowrap; line-height:1.05;
+    }
+    .brand-wordmark{
+      font-size: clamp(1.55rem, 3.8vw, 2.1rem);
+      font-weight:900;
+      letter-spacing:-0.8px;
+      line-height:1;
+      background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 45%, #a5f3fc 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      position:relative;
+      display:inline-block;
+    }
+    .brand-inline-suffix{
+      font-size: clamp(1.05rem, 2.6vw, 1.25rem);
+      font-weight:800;
+      color:#e2e8f0;
+      letter-spacing:-0.2px;
+    }
+    .brand-powered{ display:flex; align-items:center; gap:0.5rem; font-size:0.85rem; color: var(--gray); white-space:nowrap; }
+    .brand-powered img{ height:18px; width:auto; object-fit:contain; }
+
+    .page-hero{
+      padding: calc(var(--stack-h) + 70px) 1rem 40px;
+      background: linear-gradient(rgba(15,23,42,0.92), rgba(15,23,42,0.92));
+      border-bottom: 1px solid rgba(30,41,59,0.6);
+    }
+    .page-hero h1{
+      font-weight: 900;
+      color: #fff;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin: 0 0 0.75rem;
+      line-height: 1.1;
+      text-align:center;
+    }
+    .page-hero p{
+      max-width: 1050px;
+      margin: 0 auto;
+      color: var(--gray);
+      font-size: 1.05rem;
+      text-align:center;
+    }
+
+    .section-padding{ padding: 70px 1rem; }
+    .section-title{
+      font-weight: 900;
+      color:#fff;
+      text-align:center;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin-bottom: 2.5rem;
+    }
+
+    .industry-card{
+      background:#1e293b;
+      border-radius:16px;
+      padding:2rem 1.6rem;
+      border: 1px solid rgba(148,163,184,0.12);
+      height:100%;
+    }
+    .industry-card:hover{ border-color: rgba(14,165,233,0.55); transform: translateY(-2px); transition: transform 0.2s; }
+    .industry-card h3{
+      color: var(--primary);
+      font-weight: 900;
+      margin-bottom: 0.9rem;
+      font-size: 1.35rem;
+    }
+    .industry-card p{ color: var(--gray); margin:0 0 0.85rem; }
+    .pillrow{ display:flex; flex-wrap:wrap; gap:0.5rem; margin-top: 0.35rem; }
+    .pill{
+      background: rgba(15,23,42,0.6);
+      border: 1px solid rgba(14,165,233,0.4);
+      color: #a5f3fc;
+      font-weight: 700;
+      padding: 0.35rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+    .profile-box{
+      background: rgba(30,41,59,0.65);
+      border: 1px solid rgba(14,165,233,0.25);
+      border-radius: 18px;
+      padding: 1.8rem 1.4rem;
+      max-width: 1050px;
+      margin: 0 auto;
+      color: var(--gray);
+    }
+    .profile-box strong{ color:#fff; }
+
+    @media (max-width: 768px){
+      .top-bar{ font-size:0.85rem; }
+      .top-bar .container{ justify-content:center; gap:0.85rem; }
+      .page-hero{ padding: calc(var(--stack-h) + 55px) 1rem 30px; }
+      .section-padding{ padding: 55px 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <a href="tel:+15075095368"><i class="bi bi-telephone-fill me-2"></i>(507) 509-5368</a>
+      <a href="mailto:hello@konectd.solutions">hello@konectd.solutions</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="brand-lockup text-decoration-none">
+        <div class="brand-title-row">
+          <span class="brand-wordmark">Konectd</span>
+          <span class="brand-inline-suffix">Advisory &amp; Consulting</span>
+        </div>
+        <div class="brand-powered">
+          <span>Powered by</span>
+          <img src="ks-konectd-solutions-logo 1.png" alt="Konectd Solutions" />
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Industry Focus</h1>
+      <p>
+        We focus on sectors where sophisticated acquirers consistently deploy capital—especially businesses with predictable revenue streams, mission-critical services,
+        and scalable operating models in fragmented markets.  [oai_citation:3‡info.alpineinvestors.com](https://info.alpineinvestors.com/hubfs/Public%20Files/Alpine%20General%20Investment%20Criteria.pdf?_hsenc=p2ANqtz-88IY2DiWeN5Ns3kFHjwNhdy2YSRTiKxj64WKLaMFgCP7Zbsf1E3eEwTvs9Tjv87Qk_ihGn6lLzds5ser6PSTycRr_o3Q&_hsmi=402198577&utm_campaign=Deal+Announcements&utm_content=402198577&utm_medium=email&utm_source=hs_email)
+      </p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Repeat &amp; Essential Services</h2>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="industry-card">
+            <h3>HVAC, Plumbing &amp; Electrical</h3>
+            <p><strong>Why buyers want it:</strong> non-discretionary demand, recurring service calls, membership plans, and strong local brand economics. Fragmentation creates roll-up opportunity and purchasing leverage.</p>
+            <p><strong>What increases valuation:</strong> service mix &gt; install mix, tech utilization, call center discipline, and add-on acquisition playbook.</p>
+            <div class="pillrow">
+              <span class="pill">Recurring demand</span><span class="pill">Fragmented market</span><span class="pill">Add-on M&amp;A ready</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="industry-card">
+            <h3>Restoration &amp; Emergency Services</h3>
+            <p><strong>Why buyers want it:</strong> time-sensitive work, insurance-driven revenue, and repeat referrals from adjusters and property managers. Buyers like the defensibility of response infrastructure.</p>
+            <p><strong>What increases valuation:</strong> referral diversity, cycle-time KPI rigor, and documented compliance/safety standards.</p>
+            <div class="pillrow">
+              <span class="pill">Insurance tailwind</span><span class="pill">High urgency</span><span class="pill">Operational moat</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="industry-card">
+            <h3>Facilities Maintenance (Interior/Exterior)</h3>
+            <p><strong>Why buyers want it:</strong> contract-based recurring revenue and “mission-critical” uptime support for multi-site operators (retail, industrial, healthcare).</p>
+            <p><strong>What increases valuation:</strong> contract structure, renewal rates, dispatch efficiency, and regional density.</p>
+            <div class="pillrow">
+              <span class="pill">Contracted revenue</span><span class="pill">Route density</span><span class="pill">Multi-location</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="industry-card">
+            <h3>Commercial Landscaping</h3>
+            <p><strong>Why buyers want it:</strong> sticky maintenance contracts and the ability to add higher-margin enhancements. Consolidation increases route density and labor utilization.</p>
+            <p><strong>What increases valuation:</strong> customer retention, branch-level P&amp;Ls, and dependable labor strategy.</p>
+            <div class="pillrow">
+              <span class="pill">Recurring contracts</span><span class="pill">Density economics</span><span class="pill">Upsell potential</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="industry-card">
+            <h3>Roofing &amp; Exterior Residential Services</h3>
+            <p><strong>Why buyers want it:</strong> durable replacement cycle, storm-driven demand spikes, and repeatable sales/production systems.</p>
+            <p><strong>What increases valuation:</strong> compliance, claims discipline, lead-gen diversification, and production controls that reduce rework.</p>
+            <div class="pillrow">
+              <span class="pill">Replacement cycle</span><span class="pill">Systematizable ops</span><span class="pill">Scalable sales</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="industry-card">
+            <h3>Access &amp; Security Systems</h3>
+            <p><strong>Why buyers want it:</strong> recurring monitoring/service, compliance-driven demand, and high switching costs for commercial clients.</p>
+            <p><strong>What increases valuation:</strong> service contract base, response SLAs, and technician utilization.</p>
+            <div class="pillrow">
+              <span class="pill">Switching costs</span><span class="pill">Service revenue</span><span class="pill">Compliance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-5" style="border-color: rgba(148,163,184,0.25);" />
+
+      <h2 class="section-title">Business &amp; Professional Services</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="industry-card">
+            <h3>Managed IT &amp; MSP</h3>
+            <p><strong>Why buyers want it:</strong> recurring managed services contracts, embedded client relationships, and consistent add-on demand (security, cloud, compliance).</p>
+            <p><strong>What increases valuation:</strong> MRR quality, churn control, service desk maturity, and standardized tool stack.</p>
+            <div class="pillrow">
+              <span class="pill">MRR</span><span class="pill">High retention</span><span class="pill">Cross-sell</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="industry-card">
+            <h3>Accounting / Tax / CAAS</h3>
+            <p><strong>Why buyers want it:</strong> sticky client relationships, predictable annual workflows, and recurring advisory expansion.</p>
+            <p><strong>What increases valuation:</strong> client mix, pricing discipline, staff leverage model, and tech-enabled delivery.</p>
+            <div class="pillrow">
+              <span class="pill">Recurring workflows</span><span class="pill">Advisory expansion</span><span class="pill">Low churn</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="industry-card">
+            <h3>Property &amp; Association Management</h3>
+            <p><strong>Why buyers want it:</strong> recurring management fees, scale efficiencies, and strong retention when service quality is high.</p>
+            <p><strong>What increases valuation:</strong> retention/renewals, standardized reporting, and diversified portfolio mix.</p>
+            <div class="pillrow">
+              <span class="pill">Recurring fees</span><span class="pill">Scale efficiencies</span><span class="pill">Retention</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-5" style="border-color: rgba(148,163,184,0.25);" />
+
+      <h2 class="section-title">Healthcare &amp; Human Services Enablement</h2>
+      <div class="row g-4">
+        <div class="col-lg-6 col-md-6">
+          <div class="industry-card">
+            <h3>Revenue Cycle Management (RCM)</h3>
+            <p><strong>Why buyers want it:</strong> mission-critical function tied to provider cash flow, recurring contract structures, and data/process moats.</p>
+            <p><strong>What increases valuation:</strong> payer mix expertise, compliance maturity, and measured collections performance.</p>
+            <div class="pillrow">
+              <span class="pill">Mission-critical</span><span class="pill">Recurring contracts</span><span class="pill">Process moat</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="industry-card">
+            <h3>Home Care / Care Services Ecosystem</h3>
+            <p><strong>Why buyers want it:</strong> demographic tailwinds and recurring needs. Buyers prefer businesses with strong compliance, staffing systems, and diversified referral sources.</p>
+            <p><strong>What increases valuation:</strong> caregiver retention, scheduling efficiency, and documented clinical oversight where applicable.</p>
+            <div class="pillrow">
+              <span class="pill">Demographic tailwind</span><span class="pill">Repeat demand</span><span class="pill">Compliance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-5" style="border-color: rgba(148,163,184,0.25);" />
+
+      <h2 class="section-title">Software &amp; Data (Selective)</h2>
+      <div class="profile-box">
+        <p style="margin:0;">
+          We are selective in software. The strongest buyer appetite tends to cluster around <strong>B2B vertical SaaS</strong> and <strong>software-enabled data</strong> with durable retention and clear mission-critical workflows—often in the <strong>$3M–$150M ARR</strong> range.  [oai_citation:4‡info.alpineinvestors.com](https://info.alpineinvestors.com/hubfs/Public%20Files/Alpine%20General%20Investment%20Criteria.pdf?_hsenc=p2ANqtz-88IY2DiWeN5Ns3kFHjwNhdy2YSRTiKxj64WKLaMFgCP7Zbsf1E3eEwTvs9Tjv87Qk_ihGn6lLzds5ser6PSTycRr_o3Q&_hsmi=402198577&utm_campaign=Deal+Announcements&utm_content=402198577&utm_medium=email&utm_source=hs_email)
+        </p>
+        <hr class="my-4" style="border-color: rgba(148,163,184,0.25);" />
+        <p style="margin:0;">
+          <strong>Examples of attractive software characteristics:</strong> vertical specificity, high switching costs, low churn, clear expansion motion, and compliance/regulatory adjacency (where relevant).
+        </p>
+      </div>
+
+      <div class="mt-5 text-center">
+        <a href="contact.html" style="text-decoration:none;font-weight:900;color:var(--primary);">Talk to us about your industry →</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      const topBar = document.querySelector('.top-bar');
+      const header = document.querySelector('.site-header');
+
+      function setOffsets() {
+        const topH = topBar ? Math.ceil(topBar.getBoundingClientRect().height) : 0;
+        const headH = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+        document.documentElement.style.setProperty('--topbar-h', topH + 'px');
+        document.documentElement.style.setProperty('--header-h', headH + 'px');
+        document.documentElement.style.setProperty('--stack-h', (topH + headH) + 'px');
+      }
+
+      window.addEventListener('load', setOffsets);
+      window.addEventListener('resize', setOffsets);
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(setOffsets).catch(()=>{}); }
+    })();
+  </script>
+</body>
+</html>
