@@ -8,7 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
-<style>
+  <style>
     /* HERO: fixed on desktop; on mobile/tablet, avoid fixed attachment + improve fit */
     .hero{
       padding: 140px 1rem 120px;
@@ -145,11 +145,55 @@
       <a href="mailto:hello@konectd.solutions">hello@konectd.solutions</a>
     </div>
   </div>
-  <!-- To avoid inconsistencies, reuse the same CSS block from index.html -->
-</head>
-<body>
 
-  <!-- COPY TOP BAR + HEADER + MOBILE MENU FROM index.html HERE -->
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-wrap">
+        <a href="index.html" class="brand-lockup">
+          <div class="brand-title-row">
+            <span class="brand-wordmark">Konectd</span>
+            <span class="brand-inline-suffix">Advisory &amp; Consulting</span>
+          </div>
+          <div class="brand-powered">
+            <span>Powered by</span>
+            <img src="ks-konectd-solutions-logo 1.png" alt="Konectd Solutions" />
+          </div>
+        </a>
+
+        <nav aria-label="Primary navigation">
+          <ul class="nav-links">
+            <li><a href="why-us.html">Why Us</a></li>
+            <li><a href="industries.html">Industries</a></li>
+            <li><a href="exit-readiness-checklist.html">Exit Checklist</a></li>
+            <li><a class="nav-cta" href="contact.html">Book Fit Call</a></li>
+          </ul>
+        </nav>
+
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false">
+          <i class="bi bi-list" style="font-size:1.2rem;"></i> Menu
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu-overlay" id="menuOverlay" tabindex="-1" aria-hidden="true"></div>
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="drawer-title">Menu</div>
+        <button class="menu-btn" id="menuCloseBtn" type="button" aria-label="Close menu">
+          <i class="bi bi-x-lg" style="font-size:1.05rem;"></i> Close
+        </button>
+      </div>
+      <div class="drawer-links">
+        <a href="why-us.html">Why Us</a>
+        <a href="industries.html">Industries</a>
+        <a href="exit-readiness-checklist.html">Exit Checklist</a>
+        <a class="drawer-cta" href="contact.html">Book Fit Call</a>
+      </div>
+    </div>
+  </div>
 
   <main>
     <section class="hero" style="background:
