@@ -1,581 +1,667 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Confidential exit readiness and sell-side advisory for $5M–$75M revenue business owners. Strengthen valuation drivers, reduce diligence risk, and reach qualified buyers.">
-    <meta name="keywords" content="sell-side advisory, exit readiness, mid-market M&A, business valuation, private equity outreach">
-    <title>Konectd Advisory & Consulting</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Confidential exit readiness and sell-side advisory for $5M–$75M revenue business owners. Strengthen valuation drivers, reduce diligence risk, and reach qualified buyers." />
+  <meta name="keywords" content="sell-side advisory, exit readiness, mid-market M&A, business valuation, private equity outreach" />
+  <title>Konectd Advisory & Consulting</title>
 
-        :root {
-            --primary: #0ea5e9;
-            --primary-dark: #0284c7;
-            --dark: #0f172a;
-            --dark-light: #1e293b;
-            --gray: #94a3b8;
-            --light: #e2e8f0;
-        }
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
-        * {
-            box-sizing: border-box;
-        }
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
-            margin: 0;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+    :root {
+      --primary: #0ea5e9;
+      --primary-dark: #0284c7;
+      --dark: #0f172a;
+      --dark-light: #1e293b;
+      --gray: #94a3b8;
+      --light: #e2e8f0;
 
-        /* Top Bar */
-        .top-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1100;
-            background: rgba(15, 23, 42, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(30, 41, 59, 0.6);
-            color: var(--gray);
-            font-size: 0.9rem;
-            padding: 0.6rem 1rem;
-        }
+      /* dynamic fixed-bar offsets */
+      --topbar-h: 0px;
+      --header-h: 0px;
+      --stack-h: 0px;
+    }
 
-        .top-bar .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 1.25rem;
-        }
+    * { box-sizing: border-box; }
 
-        .top-bar a {
-            color: var(--light);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.2s;
-        }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--dark);
+      color: var(--light);
+      margin: 0;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
 
-        .top-bar a:hover {
-            color: var(--primary);
-        }
+      /* prevents fixed top-bar/header overlap */
+      padding-top: var(--stack-h);
+    }
 
-        /* Header */
-        header {
-            position: fixed;
-            top: 44px; /* top-bar height */
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(15, 23, 42, 0.88);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(30, 41, 59, 0.5);
-            padding: 1rem 1rem;
-        }
+    /* Top Bar */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1100;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(30, 41, 59, 0.6);
+      color: var(--gray);
+      font-size: 0.9rem;
+      padding: 0.6rem 1rem;
+    }
 
-        .logo-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.25rem;
-        }
+    .top-bar .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1.25rem;
+    }
 
-        .main-logo {
-            font-size: 2.1rem;
-            font-weight: 900;
-            background: linear-gradient(90deg, var(--primary), #38bdf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
-            line-height: 1;
-        }
+    .top-bar a {
+      color: var(--light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
 
-        .powered {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.85rem;
-            color: var(--gray);
-        }
+    .top-bar a:hover { color: var(--primary); }
 
-        .powered img {
-            height: 18px;
-            width: auto;
-        }
+    /* Header – Brand Lockup */
+    .site-header {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: var(--topbar-h);
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+      padding: 0.9rem 1rem;
+    }
 
-        /* Hero */
-        .hero {
-            padding: 220px 1rem 140px;
-            text-align: center;
-            background: linear-gradient(rgba(15,23,42,0.88), rgba(15,23,42,0.88)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center/cover fixed;
-        }
+    .brand-lockup {
+      display: grid;
+      gap: 0.15rem;
+      align-items: start;
+    }
 
-        .hero h1 {
-            font-size: clamp(2.4rem, 8vw, 4.2rem);
-            font-weight: 900;
-            color: white;
-            margin: 0 0 1.4rem;
-            line-height: 1.1;
-        }
+    .brand-wordmark {
+      font-size: clamp(1.65rem, 4.4vw, 2.15rem);
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      line-height: 1;
+      background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 45%, #a5f3fc 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      display: inline-block;
+    }
 
-        .hero p {
-            font-size: clamp(1.1rem, 4vw, 1.45rem);
-            max-width: 920px;
-            margin: 0 auto 2rem;
-            color: var(--light);
-        }
+    /* Optional metallic sweep */
+    .brand-wordmark::after {
+      content: "";
+      position: absolute;
+      inset: -6px -10px;
+      background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.18) 35%,
+        rgba(255,255,255,0) 70%
+      );
+      transform: translateX(-45%);
+      pointer-events: none;
+      mix-blend-mode: screen;
+      filter: blur(0.2px);
+      animation: sheen 7.5s ease-in-out infinite;
+      opacity: 0;
+    }
 
-        .proof-chips {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.75rem;
-            margin: 1.5rem 0 2.5rem;
-        }
+    @keyframes sheen {
+      0%, 55% { transform: translateX(-45%); opacity: 0; }
+      65%     { opacity: 0.9; }
+      100%    { transform: translateX(45%); opacity: 0; }
+    }
 
-        .proof-chip {
-            background: rgba(30, 41, 59, 0.6);
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
+    .brand-subline {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      letter-spacing: -0.2px;
+      margin-top: 0.05rem;
+    }
 
-        .cta-button {
-            background-color: var(--primary);
-            color: var(--dark);
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 9999px;
-            font-weight: 700;
-            font-size: clamp(1rem, 3.5vw, 1.25rem);
-            transition: all 0.3s;
-            display: inline-block;
-            margin: 0.5rem;
-        }
+    .brand-powered {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0.25rem;
+    }
 
-        .cta-button:hover {
-            background-color: #38bdf8;
-            transform: translateY(-3px);
-        }
+    .brand-powered img {
+      height: 18px;
+      width: auto;
+      object-fit: contain;
+    }
 
-        .secondary-cta {
-            display: block;
-            margin-top: 1.25rem;
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 1rem;
-        }
+    /* Hero */
+    .hero {
+      padding: calc(var(--stack-h) + 90px) 1rem 110px;
+      text-align: center;
+      background:
+        linear-gradient(rgba(15,23,42,0.88), rgba(15,23,42,0.88)),
+        url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')
+        no-repeat center/cover fixed;
+    }
 
-        .secondary-cta:hover {
-            color: #38bdf8;
-        }
+    .hero h1 {
+      font-size: clamp(2.4rem, 8vw, 4.2rem);
+      font-weight: 900;
+      color: white;
+      margin: 0 0 1.4rem;
+      line-height: 1.1;
+    }
 
-        .section-padding {
-            padding: 80px 1rem;
-        }
+    .hero p {
+      font-size: clamp(1.1rem, 4vw, 1.45rem);
+      max-width: 920px;
+      margin: 0 auto 2rem;
+      color: var(--light);
+    }
 
-        .section-title {
-            font-size: clamp(2rem, 6vw, 3rem);
-            font-weight: 900;
-            color: white;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
+    .proof-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin: 1.5rem 0 2.5rem;
+    }
 
-        .diff-card {
-            background-color: #1e293b;
-            border-radius: 16px;
-            padding: 2rem 1.5rem;
-            transition: all 0.4s;
-            border: 1px solid transparent;
-            height: 100%;
-        }
+    .proof-chip {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
 
-        .diff-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-8px);
-        }
+    .cta-button {
+      background-color: var(--primary);
+      color: var(--dark);
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: clamp(1rem, 3.5vw, 1.25rem);
+      transition: all 0.3s;
+      display: inline-block;
+      margin: 0.5rem;
+      text-decoration: none;
+    }
 
-        .diff-icon {
-            font-size: 3.2rem;
-            color: var(--primary);
-            margin-bottom: 1.25rem;
-        }
+    .cta-button:hover {
+      background-color: #38bdf8;
+      transform: translateY(-3px);
+      color: var(--dark);
+    }
 
-        .diff-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-        }
+    .secondary-cta {
+      display: block;
+      margin-top: 1.25rem;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+    }
 
-        .diff-text {
-            color: var(--gray);
-            font-size: 1rem;
-        }
+    .secondary-cta:hover { color: #38bdf8; }
 
-        .process-step {
-            background-color: #1e293b;
-            border-radius: 16px;
-            padding: 2.2rem 1.5rem 1.8rem;
-            position: relative;
-            height: 100%;
-        }
+    .section-padding { padding: 80px 1rem; }
 
-        .step-number {
-            position: absolute;
-            top: -1.2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--primary);
-            color: var(--dark);
-            font-weight: 900;
-            font-size: 1.25rem;
-            width: 2.6rem;
-            height: 2.6rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .section-title {
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 900;
+      color: white;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
 
-        .process-title {
-            font-size: 1.45rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin: 1.5rem 0 0.75rem;
-            text-align: center;
-        }
+    .diff-card {
+      background-color: #1e293b;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      transition: all 0.4s;
+      border: 1px solid transparent;
+      height: 100%;
+    }
 
-        .process-text {
-            color: var(--gray);
-            font-size: 0.98rem;
-            text-align: center;
-        }
+    .diff-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-8px);
+    }
 
-        footer {
-            background-color: #0f172a;
-            padding: 80px 1rem 40px;
-            border-top: 1px solid #1e293b;
-        }
+    .diff-icon {
+      font-size: 3.2rem;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+    }
 
-        footer h5 {
-            color: white;
-            font-weight: 700;
-            font-size: 1.6rem;
-            margin-bottom: 1.25rem;
-            text-align: center;
-        }
+    .diff-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
 
-        footer h2 {
-            color: white;
-            font-weight: 900;
-            font-size: 2.5rem;
-            text-align: center;
-            margin: 4rem 0 2rem;
-        }
+    .diff-text {
+      color: var(--gray);
+      font-size: 1rem;
+    }
 
-        footer p.intro {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto 3rem;
-            color: #cbd5e1;
-            font-size: 1.05rem;
-        }
+    .process-step {
+      background-color: #1e293b;
+      border-radius: 16px;
+      padding: 2.2rem 1.5rem 1.8rem;
+      position: relative;
+      height: 100%;
+    }
 
-        .service-card {
-            background-color: #1e293b;
-            border-radius: 16px;
-            padding: 2rem 1.2rem;
-            text-align: center;
-            transition: all 0.3s;
-            height: 100%;
-        }
+    .step-number {
+      position: absolute;
+      top: -1.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--primary);
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 1.25rem;
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        .service-card:hover {
-            background-color: #334155;
-            transform: translateY(-6px);
-        }
+    .process-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 1.5rem 0 0.75rem;
+      text-align: center;
+    }
 
-        .service-icon {
-            font-size: 3.2rem;
-            color: var(--primary);
-            margin-bottom: 1.25rem;
-            display: block;
-        }
+    .process-text {
+      color: var(--gray);
+      font-size: 0.98rem;
+      text-align: center;
+    }
 
-        .service-title {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-        }
+    footer {
+      background-color: #0f172a;
+      padding: 80px 1rem 40px;
+      border-top: 1px solid #1e293b;
+    }
 
-        .service-title a {
-            color: var(--primary);
-            text-decoration: none;
-        }
+    footer h5 {
+      color: white;
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
 
-        .service-title a:hover {
-            text-decoration: underline;
-        }
+    footer h2 {
+      color: white;
+      font-weight: 900;
+      font-size: 2.5rem;
+      text-align: center;
+      margin: 4rem 0 2rem;
+    }
 
-        .service-desc {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin: 0;
-        }
+    footer p.intro {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      color: #cbd5e1;
+      font-size: 1.05rem;
+    }
 
-        .highlighted-card {
-            border: 2px solid var(--primary) !important;
-        }
+    .service-card {
+      background-color: #1e293b;
+      border-radius: 16px;
+      padding: 2rem 1.2rem;
+      text-align: center;
+      transition: all 0.3s;
+      height: 100%;
+    }
 
-        .powered {
-            text-align: center;
-            margin-top: 4rem;
-            color: #cbd5e1;
-            font-size: 1rem;
-        }
+    .service-card:hover {
+      background-color: #334155;
+      transform: translateY(-6px);
+    }
 
-        .powered img {
-            height: 32px;
-            vertical-align: middle;
-            margin-left: 0.75rem;
-        }
+    .service-icon {
+      font-size: 3.2rem;
+      color: var(--primary);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
 
-        /* Mobile-first adjustments */
-        @media (max-width: 768px) {
-            .hero { padding: 160px 1rem 100px; }
-            .hero h1 { font-size: 3rem; line-height: 1.15; }
-            .hero p { font-size: 1.25rem; }
-            .section-padding { padding: 60px 0; }
-            .section-title { font-size: 2.4rem; margin-bottom: 2.5rem; }
-            .cta-button { padding: 14px 40px; font-size: 1.1rem; width: 100%; max-width: 320px; }
-            .proof-chips { flex-wrap: wrap; justify-content: center; }
-            .process-step { padding: 2rem 1.2rem; }
-            .step-number { width: 2.4rem; height: 2.4rem; font-size: 1.15rem; }
-            .process-title { font-size: 1.35rem; }
-            footer { padding: 60px 1rem 40px; }
-            .service-card { padding: 1.8rem 1rem; }
-            .service-icon { font-size: 3rem; }
-            .service-title { font-size: 1.25rem; }
-        }
+    .service-title {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
 
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2.4rem; }
-            .hero p { font-size: 1.1rem; }
-            .section-title { font-size: 2rem; }
-            .top-bar .container { flex-direction: column; gap: 0.5rem; text-align: center; }
-            .powered img { height: 24px; }
-        }
-    </style>
+    .service-title a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .service-title a:hover { text-decoration: underline; }
+
+    .service-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .highlighted-card { border: 2px solid var(--primary) !important; }
+
+    /* Footer powered block (kept from your original, but de-conflicted) */
+    .footer-powered {
+      text-align: center;
+      margin-top: 4rem;
+      color: #cbd5e1;
+      font-size: 1rem;
+    }
+
+    .footer-powered img {
+      height: 32px;
+      vertical-align: middle;
+      margin-left: 0.75rem;
+    }
+
+    /* Mobile-first adjustments */
+    @media (max-width: 768px) {
+      .hero { padding: calc(var(--stack-h) + 60px) 1rem 90px; }
+      .hero h1 { font-size: 3rem; line-height: 1.15; }
+      .hero p { font-size: 1.25rem; }
+      .section-padding { padding: 60px 0; }
+      .section-title { font-size: 2.4rem; margin-bottom: 2.5rem; }
+      .cta-button { padding: 14px 40px; font-size: 1.1rem; width: 100%; max-width: 320px; }
+      .proof-chips { flex-wrap: wrap; justify-content: center; }
+      .process-step { padding: 2rem 1.2rem; }
+      .step-number { width: 2.4rem; height: 2.4rem; font-size: 1.15rem; }
+      .process-title { font-size: 1.35rem; }
+      footer { padding: 60px 1rem 40px; }
+      .service-card { padding: 1.8rem 1rem; }
+      .service-icon { font-size: 3rem; }
+      .service-title { font-size: 1.25rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero p { font-size: 1.1rem; }
+      .section-title { font-size: 2rem; }
+      .top-bar .container { flex-direction: column; gap: 0.5rem; text-align: center; justify-content: center; }
+      .brand-powered { font-size: 0.8rem; }
+      .brand-powered img { height: 16px; }
+      .footer-powered img { height: 24px; }
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="container">
-            <a href="tel:+15075095368" class="d-flex align-items-center">
-                <i class="bi bi-telephone-fill me-2"></i>
-                (507) 509-5368
-            </a>
-            <a href="mailto:hello@konectd.solutions">
-                hello@konectd.solutions
-            </a>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <a href="tel:+15075095368" class="d-flex align-items-center">
+        <i class="bi bi-telephone-fill me-2"></i>
+        (507) 509-5368
+      </a>
+      <a href="mailto:hello@konectd.solutions">
+        hello@konectd.solutions
+      </a>
+    </div>
+  </div>
+
+  <!-- Header – Stylized Brand -->
+  <header class="site-header">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="brand-lockup text-decoration-none">
+        <div class="brand-wordmark">Konectd</div>
+        <div class="brand-subline">Advisory &amp; Consulting</div>
+        <div class="brand-powered">
+          <span>Powered by</span>
+          <img src="ks-konectd-solutions-logo 1.png" alt="Konectd Solutions" />
         </div>
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Confidential exit readiness + sell-side advisory for $5M–$75M revenue business owners</h1>
+      <p>We help owner-led companies strengthen valuation drivers, reduce diligence risk, and run targeted outreach to qualified buyers—without turning your business into a public listing.</p>
+
+      <div class="proof-chips">
+        <span class="proof-chip">Confidential process</span>
+        <span class="proof-chip">Targeted buyer outreach</span>
+        <span class="proof-chip">Diligence-ready prep</span>
+      </div>
+
+      <a href="contact.html" class="cta-button">Book a confidential 20-minute fit call</a>
+      <a href="#" class="secondary-cta">Download the Exit Readiness Checklist</a>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <h2 class="section-title">The Konectd Difference</h2>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-4 col-md-6">
+          <div class="diff-card">
+            <i class="bi bi-bullseye diff-icon"></i>
+            <h3 class="diff-title">Targeted Buyer Outreach</h3>
+            <p class="diff-text">We actively market your business to a curated network of qualified buyers — going beyond passive listings to create real opportunities.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="diff-card">
+            <i class="bi bi-people-fill diff-icon"></i>
+            <h3 class="diff-title">True Partnership Approach</h3>
+            <p class="diff-text">We work side-by-side with you as partners, tailoring strategies to your unique goals for growth or exit.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="diff-card">
+            <i class="bi bi-bar-chart-line-fill diff-icon"></i>
+            <h3 class="diff-title">Hands-On Optimization</h3>
+            <p class="diff-text">Collaborative preparation to position your business optimally, focusing on what matters most to buyers.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="diff-card">
+            <i class="bi bi-shield-lock-fill diff-icon"></i>
+            <h3 class="diff-title">Confidential &amp; Controlled Process</h3>
+            <p class="diff-text">Discreet, high-touch management so you maintain control without unnecessary exposure or distractions.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="diff-card">
+            <i class="bi bi-boxes diff-icon"></i>
+            <h3 class="diff-title">Integrated Konectd Ecosystem</h3>
+            <p class="diff-text">Seamless collaboration across marketing, financing, payments, real estate, and more — all in one platform.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding" style="background-color: #1e293b;">
+    <div class="container">
+      <h2 class="section-title" style="color: #ffffff;">Our Collaborative Process</h2>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-3 col-md-6">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <h3 class="process-title">Initial Discovery</h3>
+            <p class="process-text">We start with a deep dive into your business, goals, and vision to understand what success looks like for you.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <h3 class="process-title">Tailored Strategy</h3>
+            <p class="process-text">Together, we craft a customized plan to optimize your operations and position your business for the right opportunities.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <h3 class="process-title">Active Outreach</h3>
+            <p class="process-text">We proactively market to targeted buyers and equity firms, keeping you involved every step of the way.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <h3 class="process-title">Guided Execution</h3>
+            <p class="process-text">As partners, we navigate negotiations and due diligence to help you achieve the outcome you're aiming for.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <a href="contact.html" class="cta-button">Start Your Journey Today</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <h5>Konectd Solutions</h5>
+
+      <p style="text-align:center; max-width:900px; margin:0 auto 3rem; color:#cbd5e1; font-size:1.1rem;">
+        Konectd Solutions is your trusted partner for small and medium business growth. We combine intelligent AI tools with full-service agency expertise and strategic support to help you capture opportunities, build trust, and scale sustainably — all from one reliable platform. Onboard with Konectd Marketing and gain access to experts across our full portfolio of services (additional costs may apply for non-marketing offerings).
+      </p>
+
+      <h5 style="text-align:center;">Get in Touch</h5>
+      <p style="text-align:center; color:#94a3b8;">
+        Call: <a href="tel:507-509-5368" style="color:#0ea5e9;">507-509-5368</a><br />
+        Email: <a href="mailto:hello@konectd.solutions" style="color:#0ea5e9;">hello@konectd.solutions</a>
+      </p>
+
+      <h2>The Full Konectd Solutions Portfolio</h2>
+      <p class="intro">
+        Marketing is just one part of how we help businesses thrive. Konectd Solutions offers a complete ecosystem of services — all designed to support small and medium-sized companies like yours.
+      </p>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card highlighted-card">
+            <i class="bi bi-briefcase-fill service-icon"></i>
+            <h6 class="service-title">Advisory &amp; Consulting</h6>
+            <p class="service-desc">Strategic guidance to scale smarter — from operations to growth planning.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-credit-card-2-front-fill service-icon"></i>
+            <h6 class="service-title">Payment &amp; Payroll</h6>
+            <p class="service-desc">Secure, streamlined payments and payroll — save time and reduce errors.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-building-fill service-icon"></i>
+            <h6 class="service-title">Real Estate</h6>
+            <p class="service-desc">Property solutions, leasing support, and investment guidance tailored for business owners.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-bank2 service-icon"></i>
+            <h6 class="service-title">Financing</h6>
+            <p class="service-desc">Access to capital, lines of credit, and funding options to fuel your next step.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-megaphone-fill service-icon"></i>
+            <h6 class="service-title">
+              <a href="https://konectd.com" target="_blank" rel="noopener">Marketing</a>
+            </h6>
+            <p class="service-desc">AI-powered customer acquisition, reputation, local SEO, social, and re-engagement — you're here now.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Header – Logo & Powered By -->
-    <header>
-        <div class="container">
-            <div class="flex flex-col items-start">
-                <div class="text-3xl md:text-4xl font-bold metallic-text tracking-tight">
-                    Konectd Advisory & Consulting
-                </div>
-                <div class="flex items-center mt-1 gap-2 text-sm text-[#94a3b8]">
-                    <span>Powered by</span>
-                    <img src="logo.png" alt="Konectd Solutions" class="h-5 md:h-6 object-contain">
-                </div>
-            </div>
-        </div>
-    </header>
+    <div class="footer-powered">
+      Powered by Konectd Solutions
+      <img src="logo.png" alt="Konectd Solutions Logo" />
+    </div>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Confidential exit readiness + sell-side advisory for $5M–$75M revenue business owners</h1>
-            <p>We help owner-led companies strengthen valuation drivers, reduce diligence risk, and run targeted outreach to qualified buyers—without turning your business into a public listing.</p>
-            <div class="proof-chips">
-                <span class="proof-chip">Confidential process</span>
-                <span class="proof-chip">Targeted buyer outreach</span>
-                <span class="proof-chip">Diligence-ready prep</span>
-            </div>
-            <a href="contact.html" class="cta-button">Book a confidential 20-minute fit call</a>
-            <a href="#" class="secondary-cta">Download the Exit Readiness Checklist</a>
-        </div>
-    </section>
+    <p class="text-center small mt-3" style="color:#94a3b8;">&copy; 2026 Konectd Advisory &amp; Consulting</p>
+  </footer>
 
-    <section class="section-padding">
-        <div class="container">
-            <h2 class="section-title">The Konectd Difference</h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="diff-card">
-                        <i class="bi bi-bullseye diff-icon"></i>
-                        <h3 class="diff-title">Targeted Buyer Outreach</h3>
-                        <p class="diff-text">We actively market your business to a curated network of qualified buyers — going beyond passive listings to create real opportunities.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="diff-card">
-                        <i class="bi bi-people-fill diff-icon"></i>
-                        <h3 class="diff-title">True Partnership Approach</h3>
-                        <p class="diff-text">We work side-by-side with you as partners, tailoring strategies to your unique goals for growth or exit.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="diff-card">
-                        <i class="bi bi-bar-chart-line-fill diff-icon"></i>
-                        <h3 class="diff-title">Hands-On Optimization</h3>
-                        <p class="diff-text">Collaborative preparation to position your business optimally, focusing on what matters most to buyers.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="diff-card">
-                        <i class="bi bi-shield-lock-fill diff-icon"></i>
-                        <h3 class="diff-title">Confidential & Controlled Process</h3>
-                        <p class="diff-text">Discreet, high-touch management so you maintain control without unnecessary exposure or distractions.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="diff-card">
-                        <i class="bi bi-boxes diff-icon"></i>
-                        <h3 class="diff-title">Integrated Konectd Ecosystem</h3>
-                        <p class="diff-text">Seamless collaboration across marketing, financing, payments, real estate, and more — all in one platform.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <section class="section-padding" style="background-color: #1e293b;">
-        <div class="container">
-            <h2 class="section-title" style="color: #ffffff;">Our Collaborative Process</h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-3 col-md-6">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <h3 class="process-title">Initial Discovery</h3>
-                        <p class="process-text">We start with a deep dive into your business, goals, and vision to understand what success looks like for you.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <h3 class="process-title">Tailored Strategy</h3>
-                        <p class="process-text">Together, we craft a customized plan to optimize your operations and position your business for the right opportunities.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <h3 class="process-title">Active Outreach</h3>
-                        <p class="process-text">We proactively market to targeted buyers and equity firms, keeping you involved every step of the way.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <h3 class="process-title">Guided Execution</h3>
-                        <p class="process-text">As partners, we navigate negotiations and due diligence to help you achieve the outcome you're aiming for.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5">
-                <a href="contact.html" class="cta-button">Start Your Journey Today</a>
-            </div>
-        </div>
-    </section>
+  <!-- Fix mobile overlap: measure fixed top-bar + header and set CSS vars -->
+  <script>
+    (function () {
+      const topBar = document.querySelector('.top-bar');
+      const header = document.querySelector('.site-header');
 
-    <footer>
-        <div class="container">
-            <h5>Konectd Solutions</h5>
-            <p style="text-align:center; max-width:900px; margin:0 auto 3rem; color:#cbd5e1; font-size:1.1rem;">
-                Konectd Solutions is your trusted partner for small and medium business growth. We combine intelligent AI tools with full-service agency expertise and strategic support to help you capture opportunities, build trust, and scale sustainably — all from one reliable platform. Onboard with Konectd Marketing and gain access to experts across our full portfolio of services (additional costs may apply for non-marketing offerings).
-            </p>
+      function setOffsets() {
+        const topH = topBar ? Math.ceil(topBar.getBoundingClientRect().height) : 0;
+        const headH = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
 
-            <h5 style="text-align:center;">Get in Touch</h5>
-            <p style="text-align:center; color:#94a3b8;">
-                Call: <a href="tel:507-509-5368" style="color:#0ea5e9;">507-509-5368</a><br>
-                Email: <a href="mailto:hello@konectd.solutions" style="color:#0ea5e9;">hello@konectd.solutions</a>
-            </p>
+        document.documentElement.style.setProperty('--topbar-h', topH + 'px');
+        document.documentElement.style.setProperty('--header-h', headH + 'px');
+        document.documentElement.style.setProperty('--stack-h', (topH + headH) + 'px');
+      }
 
-            <h2>The Full Konectd Solutions Portfolio</h2>
-            <p class="intro">
-                Marketing is just one part of how we help businesses thrive. Konectd Solutions offers a complete ecosystem of services — all designed to support small and medium-sized companies like yours.
-            </p>
+      window.addEventListener('load', setOffsets);
+      window.addEventListener('resize', setOffsets);
 
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="service-card highlighted-card">
-                        <i class="bi bi-briefcase-fill service-icon"></i>
-                        <h6 class="service-title">Advisory & Consulting</h6>
-                        <p class="service-desc">Strategic guidance to scale smarter — from operations to growth planning.</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="service-card">
-                        <i class="bi bi-credit-card-2-front-fill service-icon"></i>
-                        <h6 class="service-title">Payment & Payroll</h6>
-                        <p class="service-desc">Secure, streamlined payments and payroll — save time and reduce errors.</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="service-card">
-                        <i class="bi bi-building-fill service-icon"></i>
-                        <h6 class="service-title">Real Estate</h6>
-                        <p class="service-desc">Property solutions, leasing support, and investment guidance tailored for business owners.</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="service-card">
-                        <i class="bi bi-bank2 service-icon"></i>
-                        <h6 class="service-title">Financing</h6>
-                        <p class="service-desc">Access to capital, lines of credit, and funding options to fuel your next step.</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="service-card">
-                        <i class="bi bi-megaphone-fill service-icon"></i>
-                        <h6 class="service-title">
-                            <a href="https://konectd.com" target="_blank">Marketing</a>
-                        </h6>
-                        <p class="service-desc">AI-powered customer acquisition, reputation, local SEO, social, and re-engagement — you're here now.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="powered">
-            Powered by Konectd Solutions 
-            <img src="logo.png" alt="Konectd Solutions Logo">
-        </div>
-        <p class="text-center small mt-3" style="color:#94a3b8;">&copy; 2026 Konectd Advisory & Consulting</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(setOffsets).catch(() => {});
+      }
+    })();
+  </script>
 </body>
 </html>
