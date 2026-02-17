@@ -3,307 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exit Readiness Checklist | Konectd Advisory & Consulting</title>
+  <title>Exit Readiness Checklist | Konectd Advisory</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-
-    :root{
-      --primary:#0ea5e9;
-      --dark:#0f172a;
-      --gray:#94a3b8;
-      --light:#e2e8f0;
-
-      --topbar-h:0px;
-      --header-h:0px;
-      --stack-h:0px;
-    }
-
-    *{ box-sizing:border-box; }
-    body{
-      font-family:'Roboto', sans-serif;
-      background: var(--dark);
-      color: var(--light);
-      margin:0;
-      padding-top: var(--stack-h);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    .top-bar{
-      position:fixed; top:0; left:0; right:0;
-      z-index:1100;
-      background: rgba(15, 23, 42, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(30, 41, 59, 0.6);
-      font-size: 0.9rem;
-      padding: 0.6rem 1rem;
-    }
-    .top-bar .container{
-      display:flex; flex-wrap:nowrap; justify-content:flex-end; align-items:center;
-      gap:1.25rem;
-      overflow-x:auto; -webkit-overflow-scrolling: touch; scrollbar-width:none;
-    }
-    .top-bar .container::-webkit-scrollbar{ display:none; }
-    .top-bar a{
-      color: var(--light);
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      gap:0.5rem;
-      white-space:nowrap;
-      flex:0 0 auto;
-      transition: color 0.2s;
-    }
-    .top-bar a:hover{ color: var(--primary); }
-
-    .site-header{
-      position:fixed; left:0; right:0;
-      top: var(--topbar-h);
-      z-index:1000;
-      background: rgba(15, 23, 42, 0.88);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(30, 41, 59, 0.5);
-      padding: 0.9rem 1rem;
-    }
-    .brand-lockup{ display:grid; gap:0.25rem; align-items:start; }
-    .brand-title-row{ display:inline-flex; align-items:baseline; gap:0.55rem; white-space:nowrap; line-height:1.05; }
-    .brand-wordmark{
-      font-size: clamp(1.55rem, 3.8vw, 2.1rem);
-      font-weight:900;
-      letter-spacing:-0.8px;
-      line-height:1;
-      background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 45%, #a5f3fc 100%);
-      -webkit-background-clip:text;
-      background-clip:text;
-      -webkit-text-fill-color:transparent;
-      display:inline-block;
-    }
-    .brand-inline-suffix{
-      font-size: clamp(1.05rem, 2.6vw, 1.25rem);
-      font-weight:800;
-      color:#e2e8f0;
-      letter-spacing:-0.2px;
-    }
-    .brand-powered{ display:flex; align-items:center; gap:0.5rem; font-size:0.85rem; color: var(--gray); white-space:nowrap; }
-    .brand-powered img{ height:18px; width:auto; object-fit:contain; }
-
-    .page-hero{
-      padding: calc(var(--stack-h) + 70px) 1rem 35px;
-      background: linear-gradient(rgba(15,23,42,0.92), rgba(15,23,42,0.92));
-      border-bottom: 1px solid rgba(30,41,59,0.6);
-      text-align:center;
-    }
-    .page-hero h1{
-      font-weight: 900;
-      color: #fff;
-      font-size: clamp(2rem, 5vw, 3.1rem);
-      margin:0 0 0.6rem;
-      line-height:1.1;
-    }
-    .page-hero p{ color: var(--gray); max-width: 980px; margin:0 auto; font-size:1.05rem; }
-
-    .section-padding{ padding: 60px 1rem; }
-    .sheet{
-      max-width: 1100px;
-      margin: 0 auto;
-      background:#1e293b;
-      border: 1px solid rgba(148,163,184,0.14);
-      border-radius: 18px;
-      padding: 2rem 1.6rem;
-    }
-
-    .group-title{
-      color: var(--primary);
-      font-weight: 900;
-      font-size: 1.35rem;
-      margin: 1.6rem 0 0.8rem;
-    }
-    .subnote{ color: var(--gray); margin: 0 0 0.75rem; }
-
-    .checklist{
-      list-style:none;
-      padding-left:0;
-      margin:0;
-    }
-    .checklist li{
-      display:flex;
-      gap:0.75rem;
-      align-items:flex-start;
-      padding: 0.7rem 0.6rem;
-      border-radius: 12px;
-      border: 1px solid rgba(148,163,184,0.12);
-      margin-bottom: 0.6rem;
-      background: rgba(15,23,42,0.45);
-    }
-    .checklist i{
-      color: #a5f3fc;
-      font-size: 1.15rem;
-      margin-top: 0.1rem;
-      flex: 0 0 auto;
-    }
-    .checklist strong{ color:#fff; }
-
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:0.75rem;
-      margin-top: 1.25rem;
-      justify-content:center;
-    }
-    .btnpill{
-      border-radius:9999px;
-      padding:0.85rem 1.2rem;
-      font-weight: 900;
-      text-decoration:none;
-      display:inline-block;
-      border: 1px solid rgba(14,165,233,0.45);
-      color:#a5f3fc;
-      background: rgba(15,23,42,0.35);
-    }
-    .btnpill.primary{
-      background: var(--primary);
-      color: #0f172a;
-      border-color: transparent;
-    }
-    .btnpill:hover{ transform: translateY(-1px); }
-
-    /* Print-friendly */
-    @media print{
-      .top-bar, .site-header, .actions { display:none !important; }
-      body{ padding-top:0 !important; background:#fff !important; color:#000 !important; }
-      .sheet{ border:none !important; background:#fff !important; }
-      .group-title{ color:#000 !important; }
-      .checklist li{ background:#fff !important; border: 1px solid #ddd !important; }
-    }
-
-    @media (max-width: 768px){
-      .top-bar{ font-size:0.85rem; }
-      .top-bar .container{ justify-content:center; gap:0.85rem; }
-      .page-hero{ padding: calc(var(--stack-h) + 55px) 1rem 28px; }
-      .section-padding{ padding: 50px 1rem; }
-    }
-  </style>
+  <!-- COPY SAME CSS BLOCK FROM index.html -->
 </head>
-
 <body>
-  <div class="top-bar">
-    <div class="container">
-      <a href="tel:+15075095368"><i class="bi bi-telephone-fill me-2"></i>(507) 509-5368</a>
-      <a href="mailto:hello@konectd.solutions">hello@konectd.solutions</a>
-    </div>
-  </div>
 
-  <header class="site-header">
-    <div class="container d-flex align-items-center justify-content-between">
-      <a href="index.html" class="brand-lockup text-decoration-none">
-        <div class="brand-title-row">
-          <span class="brand-wordmark">Konectd</span>
-          <span class="brand-inline-suffix">Advisory &amp; Consulting</span>
-        </div>
-        <div class="brand-powered">
-          <span>Powered by</span>
-          <img src="ks-konectd-solutions-logo 1.png" alt="Konectd Solutions" />
-        </div>
-      </a>
-    </div>
-  </header>
+  <!-- COPY HEADER + MOBILE MENU FROM index.html -->
 
-  <section class="page-hero">
-    <div class="container">
-      <h1>Exit Readiness Checklist</h1>
-      <p>
-        Use this to quickly identify what increases valuation, what slows diligence, and what commonly triggers a retrade.
-        You can print this page or save as PDF from your browser.
-      </p>
-    </div>
-  </section>
-
-  <section class="section-padding">
-    <div class="sheet">
-      <div class="subnote">
-        <strong style="color:#fff;">How to use:</strong> If you’re “Yes” on most items, you’re likely ready for confidential market outreach. If not, a short readiness sprint can materially improve terms and certainty.
+  <main>
+    <section class="hero" style="background:
+      linear-gradient(rgba(15,23,42,0.92), rgba(15,23,42,0.92)),
+      url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80')
+      no-repeat center / cover; background-attachment: fixed;">
+      <div class="container">
+        <h1>Exit Readiness Checklist</h1>
+        <p>
+          A practical framework to evaluate how prepared your company is for market engagement.
+        </p>
       </div>
+    </section>
 
-      <div class="group-title">1) Financial Readiness</div>
-      <p class="subnote">Buyers need clean, explainable results and confidence in cash flow quality.</p>
-      <ul class="checklist">
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>3 years of financial statements</strong> (P&amp;L, balance sheet, cash flow) with consistent chart of accounts.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Monthly financials within 15–20 days</strong> of month-end close (or a defined close process).</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>EBITDA normalization bridge</strong> (owner comp, one-time items, discretionary add-backs) with documentation.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Revenue segmentation</strong>: recurring vs. project, customer cohort trends, churn/retention (where applicable).</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Customer concentration analysis</strong> (top 10 customers + % of revenue/gross profit).</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Working capital visibility</strong>: A/R aging, WIP (if applicable), seasonality, and cash conversion cycle.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Forecasting model</strong> with assumptions buyers can underwrite (capacity, pricing, volume, margin).</div></li>
-      </ul>
+    <section class="section-padding">
+      <div class="container" style="max-width:900px;">
 
-      <div class="group-title">2) Operational Readiness</div>
-      <p class="subnote">Buyers pay more for businesses that scale without the owner as the bottleneck.</p>
-      <ul class="checklist">
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Documented SOPs</strong> for sales, delivery/ops, customer service, billing, and quality control.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Leadership bench</strong> (ops lead, sales lead, finance/bookkeeping) with defined responsibilities.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>KPI cadence</strong>: weekly scorecards, utilization, win rates, gross margin, backlog, on-time delivery, etc.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Pricing discipline</strong>: documented pricing logic, discount approvals, margin guardrails.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Technology stack clarity</strong>: CRM, accounting, dispatch/PSA, reporting, security controls.</div></li>
-      </ul>
+        <div class="diff-card">
+          <h3 style="color:#fff;font-weight:900;">Financial Readiness</h3>
+          <ul style="color:var(--gray);">
+            <li>Three years of clean financial statements</li>
+            <li>Normalized EBITDA bridge</li>
+            <li>Customer concentration breakdown</li>
+            <li>Recurring vs project revenue clarity</li>
+            <li>Margin trend documentation</li>
+          </ul>
+        </div>
 
-      <div class="group-title">3) Legal, Compliance &amp; Risk</div>
-      <p class="subnote">Diligence friction here is where deals slow—or get repriced.</p>
-      <ul class="checklist">
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Contract repository</strong>: customer, vendor, lease, insurance, and employment agreements centralized.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Assignability</strong>: key contracts reviewed for change-of-control language.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Licensing/permits</strong> documented and current; safety and training logs in place.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Insurance coverage</strong> appropriate to operations; claims history organized.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Any known issues documented</strong> (disputes, audits, litigation, regulatory inquiries) with mitigation plan.</div></li>
-      </ul>
+        <div class="diff-card mt-4">
+          <h3 style="color:#fff;font-weight:900;">Operational Strength</h3>
+          <ul style="color:var(--gray);">
+            <li>SOPs documented and repeatable</li>
+            <li>Leadership depth beyond founder</li>
+            <li>KPI dashboards and reporting cadence</li>
+            <li>Diversified vendor relationships</li>
+          </ul>
+        </div>
 
-      <div class="group-title">4) Commercial Strength &amp; “Why You Win”</div>
-      <p class="subnote">Buyers underwrite the “why now” growth story, not just the past.</p>
-      <ul class="checklist">
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Clear positioning</strong>: who you serve, what you do better, and why customers choose you.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Lead flow diversity</strong>: no single channel is a point of failure.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Customer retention metrics</strong>: repeat rates, contract renewals, NPS/reviews, referral sources.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Growth levers defined</strong>: pricing, geographic expansion, add-on services, route density, sales team scaling.</div></li>
-      </ul>
+        <div class="diff-card mt-4">
+          <h3 style="color:#fff;font-weight:900;">Legal & Risk</h3>
+          <ul style="color:var(--gray);">
+            <li>Assignable contracts centralized</li>
+            <li>No unresolved litigation exposure</li>
+            <li>IP and licensing properly documented</li>
+          </ul>
+        </div>
 
-      <div class="group-title">5) Buyer Readiness Materials</div>
-      <p class="subnote">These reduce buyer uncertainty and protect leverage.</p>
-      <ul class="checklist">
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>One-page “at-a-glance”</strong> overview (financial highlights, service lines, geography, team, customers).</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Confidential information memo</strong> (CIM) draft or outline with compelling narrative.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Data room plan</strong>: folder structure + owner assigned to document collection.</div></li>
-        <li><i class="bi bi-check-circle-fill"></i><div><strong>Transaction goals</strong>: target timeline, preferred structure, role post-close, and “must-haves.”</div></li>
-      </ul>
+        <div class="diff-card mt-4">
+          <h3 style="color:#fff;font-weight:900;">Growth Narrative</h3>
+          <ul style="color:var(--gray);">
+            <li>3–5 year growth roadmap</li>
+            <li>Clear competitive differentiation</li>
+            <li>Identified expansion or add-on opportunities</li>
+          </ul>
+        </div>
 
-      <div class="actions">
-        <a class="btnpill primary" href="contact.html">Book a confidential fit call</a>
-        <a class="btnpill" href="#" onclick="window.print(); return false;">Print / Save as PDF</a>
-        <a class="btnpill" href="industries.html">View industry focus</a>
+        <div class="text-center mt-5">
+          <a href="contact.html" class="cta-button">Discuss Your Readiness</a>
+        </div>
+
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    (function () {
-      const topBar = document.querySelector('.top-bar');
-      const header = document.querySelector('.site-header');
+  <!-- COPY FOOTER + JS FROM index.html -->
 
-      function setOffsets() {
-        const topH = topBar ? Math.ceil(topBar.getBoundingClientRect().height) : 0;
-        const headH = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
-        document.documentElement.style.setProperty('--topbar-h', topH + 'px');
-        document.documentElement.style.setProperty('--header-h', headH + 'px');
-        document.documentElement.style.setProperty('--stack-h', (topH + headH) + 'px');
-      }
-
-      window.addEventListener('load', setOffsets);
-      window.addEventListener('resize', setOffsets);
-      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(setOffsets).catch(()=>{}); }
-    })();
-  </script>
 </body>
 </html>
