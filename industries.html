@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Industries Konectd Advisory & Consulting supports with confidential exit readiness and sell-side advisory." />
+  <meta name="description" content="Industries Konectd Advisory & Consulting focuses on for confidential exit readiness and sell-side advisory." />
   <title>Industries | Konectd Advisory & Consulting</title>
 
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <!-- Site CSS -->
   <link rel="stylesheet" href="assets/site.css" />
 </head>
 
 <body>
+
   <!-- Top Bar -->
   <div class="top-bar">
     <div class="container">
@@ -24,18 +28,19 @@
   <header class="site-header">
     <div class="container">
       <div class="nav-wrap">
-        <a href="index.html" class="brand-lockup" aria-label="Konectd Advisory & Consulting Home">
+
+        <a href="index.html" class="brand-lockup">
           <div class="brand-title-row">
             <span class="brand-wordmark">Konectd</span>
             <span class="brand-inline-suffix">Advisory &amp; Consulting</span>
           </div>
           <div class="brand-powered">
             <span>Powered by</span>
-            <img src="ks-konectd-solutions-logo 1.png" alt="Konectd Solutions" />
+            <img src="ks-konectd-solutions-logo 1.png" alt="Konectd Solutions">
           </div>
         </a>
 
-        <nav aria-label="Primary navigation">
+        <nav>
           <ul class="nav-links">
             <li><a href="why-us.html">Why Us</a></li>
             <li><a href="industries.html">Industries</a></li>
@@ -44,21 +49,22 @@
           </ul>
         </nav>
 
-        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false">
+        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false">
           <i class="bi bi-list"></i><span>Menu</span>
         </button>
+
       </div>
     </div>
   </header>
 
-  <!-- Mobile Menu Overlay + Drawer -->
-  <div class="menu-overlay" id="menuOverlay" tabindex="-1" aria-hidden="true"></div>
+  <!-- Mobile Drawer -->
+  <div class="menu-overlay" id="menuOverlay"></div>
 
-  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
+  <div class="mobile-drawer" id="mobileDrawer">
     <div class="container">
-      <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex justify-content-between align-items-center">
         <div class="drawer-title">Menu</div>
-        <button class="menu-btn" id="menuCloseBtn" type="button" aria-label="Close menu">
+        <button class="menu-btn" id="menuCloseBtn">
           <i class="bi bi-x-lg"></i><span>Close</span>
         </button>
       </div>
@@ -74,202 +80,182 @@
   </div>
 
   <main>
+
     <!-- HERO -->
-    <section class="hero" style="padding: 210px 1rem 120px; background:
-      linear-gradient(rgba(15,23,42,0.88), rgba(15,23,42,0.88)),
-      url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80')
-      no-repeat center/cover;">
+    <section class="section-padding" style="padding-top:200px;">
       <div class="container text-center">
-        <h1>Industries We Know</h1>
-        <p class="mx-auto" style="max-width: 980px;">
-          We focus on durable, mission-critical, and service-driven businesses where professionalization, reporting clarity, and operational leverage can create meaningful valuation lift.
+
+        <h1 style="font-weight:900;color:#fff;margin-bottom:1rem;">
+          Industries We Understand — and Position for Premium Outcomes
+        </h1>
+
+        <p style="max-width:950px;margin:0 auto 1.5rem;color:#cbd5e1;">
+          We focus on durable, service-driven, and operationally improvable businesses
+          where institutional buyers see consolidation opportunity, margin expansion,
+          and leadership scalability.
         </p>
 
-        <div class="proof-chips">
-          <span class="proof-chip">Recurring demand</span>
-          <span class="proof-chip">Operational leverage</span>
-          <span class="proof-chip">Fragmented markets</span>
+        <!-- Pills -->
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem;">
+          <span class="btn-pill">Recurring Revenue</span>
+          <span class="btn-pill">Fragmented Markets</span>
+          <span class="btn-pill">Operational Leverage</span>
+          <span class="btn-pill">Scalable Platforms</span>
         </div>
 
-        <a href="contact.html" class="btn-pill primary">Book a confidential fit call</a>
-        <a href="#focus" class="secondary-cta">Explore our focus areas ↓</a>
       </div>
     </section>
 
-    <!-- Content -->
-    <section class="section-padding" id="focus">
+    <!-- INDUSTRIES GRID -->
+    <section class="section-padding">
       <div class="container">
-        <h2 class="section-title">Where We Focus</h2>
-
         <div class="row g-4">
-          <div class="col-lg-4 col-md-6">
-            <div class="card-dark">
-              <div class="kicker">Services</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-house-gear-fill me-2" style="color:var(--primary);"></i>Home Services
-              </h3>
-              <p style="color:var(--gray);margin:0;">
-                HVAC, plumbing, electrical, restoration, pest control, roofing, and related categories with consistent local demand. Buyers are attracted to fragmentation, route density, and the ability to standardize operations.
+
+          <!-- Home Services -->
+          <div class="col-lg-6">
+            <div class="card-dark h-100">
+              <div class="kicker">High Fragmentation + Roll-Up Potential</div>
+              <h3 style="color:#fff;font-weight:900;">Home & Field Services</h3>
+              <p style="color:var(--gray);">
+                HVAC, plumbing, electrical, roofing, restoration, pest control, and route-based service businesses with consistent demand.
               </p>
-              <ul class="mt-3" style="color:#cbd5e1;">
-                <li><strong>Why acquired:</strong> consolidation + repeatability + cross-sell potential</li>
-                <li><strong>Key drivers:</strong> membership plans, attach rates, utilization, reviews</li>
-                <li><strong>Diligence focus:</strong> job costing, warranty exposure, dispatch discipline</li>
+              <ul style="color:#cbd5e1;">
+                <li><strong>Why acquired:</strong> consolidation + recurring service agreements</li>
+                <li><strong>Drivers:</strong> membership penetration, route density, margin consistency</li>
+                <li><strong>Diligence focus:</strong> job costing, labor productivity, warranty risk</li>
               </ul>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="card-dark">
-              <div class="kicker">Contracts</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-building-check me-2" style="color:var(--primary);"></i>B2B &amp; Facility Services
-              </h3>
-              <p style="color:var(--gray);margin:0;">
-                Commercial cleaning, security, fire/life safety, specialty maintenance, and compliance-heavy services. Attractive when contracts are sticky and delivery is standardized.
+          <!-- B2B Services -->
+          <div class="col-lg-6">
+            <div class="card-dark h-100">
+              <div class="kicker">Predictable Contract Revenue</div>
+              <h3 style="color:#fff;font-weight:900;">B2B & Facility Services</h3>
+              <p style="color:var(--gray);">
+                Commercial cleaning, security, inspection, compliance-driven and recurring service contracts.
               </p>
-              <ul class="mt-3" style="color:#cbd5e1;">
-                <li><strong>Why acquired:</strong> predictable revenue + multi-location expansion</li>
-                <li><strong>Key drivers:</strong> renewal rates, SLA performance, contract length</li>
-                <li><strong>Diligence focus:</strong> labor mix, churn, service-level penalties</li>
+              <ul style="color:#cbd5e1;">
+                <li><strong>Why acquired:</strong> multi-year contracts + cash flow predictability</li>
+                <li><strong>Drivers:</strong> renewal rates, churn control, contract depth</li>
+                <li><strong>Diligence focus:</strong> customer concentration & SLA risk</li>
               </ul>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="card-dark">
-              <div class="kicker">Field Ops</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-wrench-adjustable-circle me-2" style="color:var(--primary);"></i>Industrial &amp; Field Services
-              </h3>
-              <p style="color:var(--gray);margin:0;">
-                Maintenance, repair, testing/inspection, and specialized field operations. Buyers favor strong safety culture, utilization reporting, and durable customer relationships.
+          <!-- Healthcare -->
+          <div class="col-lg-6">
+            <div class="card-dark h-100">
+              <div class="kicker">Demographic Tailwinds</div>
+              <h3 style="color:#fff;font-weight:900;">Healthcare Services</h3>
+              <p style="color:var(--gray);">
+                Service-based healthcare platforms with recurring utilization and scalable operations.
               </p>
-              <ul class="mt-3" style="color:#cbd5e1;">
-                <li><strong>Why acquired:</strong> mission-critical demand + geographic expansion</li>
-                <li><strong>Key drivers:</strong> backlog visibility, utilization, safety record</li>
-                <li><strong>Diligence focus:</strong> insurance history, key-person dependency</li>
+              <ul style="color:#cbd5e1;">
+                <li><strong>Why acquired:</strong> aging population demand + platform strategy</li>
+                <li><strong>Drivers:</strong> referral stability, multi-site scalability</li>
+                <li><strong>Diligence focus:</strong> compliance & payer mix risk</li>
               </ul>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="card-dark">
-              <div class="kicker">Recurring Need</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-heart-pulse-fill me-2" style="color:var(--primary);"></i>Healthcare Services
-              </h3>
-              <p style="color:var(--gray);margin:0;">
-                Service models supported by demographic demand and recurring utilization where compliance and documentation are strong.
+          <!-- Tech Enabled -->
+          <div class="col-lg-6">
+            <div class="card-dark h-100">
+              <div class="kicker">Margin Expansion & Automation</div>
+              <h3 style="color:#fff;font-weight:900;">Tech-Enabled Services</h3>
+              <p style="color:var(--gray);">
+                Service businesses leveraging automation, analytics, and workflow systems to increase scalability.
               </p>
-              <ul class="mt-3" style="color:#cbd5e1;">
-                <li><strong>Why acquired:</strong> demand tailwinds + platform/add-on expansion</li>
-                <li><strong>Key drivers:</strong> retention, referrals, multi-site playbook</li>
-                <li><strong>Diligence focus:</strong> compliance, credentialing, payer mix</li>
+              <ul style="color:#cbd5e1;">
+                <li><strong>Why acquired:</strong> scalable delivery + high retention</li>
+                <li><strong>Drivers:</strong> recurring revenue & automation leverage</li>
+                <li><strong>Diligence focus:</strong> churn drivers & tech dependency</li>
               </ul>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="card-dark">
-              <div class="kicker">Efficiency</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-diagram-3-fill me-2" style="color:var(--primary);"></i>Tech-Enabled Services
-              </h3>
-              <p style="color:var(--gray);margin:0;">
-                Services businesses that leverage software, data, automation, or workflow tools to deliver outcomes more efficiently—especially with recurring contracts.
-              </p>
-              <ul class="mt-3" style="color:#cbd5e1;">
-                <li><strong>Why acquired:</strong> margin expansion + repeatable delivery model</li>
-                <li><strong>Key drivers:</strong> retention, ARPA growth, automation leverage</li>
-                <li><strong>Diligence focus:</strong> churn drivers, security posture, rev rec</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="card-dark">
-              <div class="kicker">Standardization</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-clipboard-data-fill me-2" style="color:var(--primary);"></i>Professional Services
-              </h3>
-              <p style="color:var(--gray);margin:0;">
-                Specialized professional service lines where delivery can be standardized and customer concentration is controlled.
-              </p>
-              <ul class="mt-3" style="color:#cbd5e1;">
-                <li><strong>Why acquired:</strong> recurring revenue + roll-up potential</li>
-                <li><strong>Key drivers:</strong> delivery playbooks, leadership depth</li>
-                <li><strong>Diligence focus:</strong> founder dependence, pipeline quality</li>
-              </ul>
-            </div>
-          </div>
         </div>
 
+        <!-- CTA -->
         <div class="text-center mt-5">
-          <a href="exit-readiness-checklist.html" class="btn-pill primary">Download the Exit Readiness Checklist</a>
+          <a href="contact.html" class="btn-pill primary">Discuss Your Business Confidentially</a>
           <div class="mt-3">
-            <a href="contact.html" class="btn-pill">Book a fit call</a>
+            <a href="exit-readiness-checklist.html" class="btn-pill">
+              Download the Exit Readiness Checklist
+            </a>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- Services Strip -->
-    <section class="services-strip">
-      <div class="container">
-        <h2>The Full Konectd Solutions Portfolio</h2>
-        <p>
-          Marketing is just one part of how we help businesses thrive. Konectd Solutions offers a complete ecosystem of services—designed to support small and medium-sized companies.
-        </p>
-
-        <div class="row g-4 justify-content-center">
-          <div class="col-lg-2 col-md-4 col-6">
-            <div class="service-card highlighted-card">
-              <i class="bi bi-briefcase-fill service-icon"></i>
-              <div class="service-title">Advisory &amp; Consulting</div>
-              <p class="service-desc">Strategic guidance to scale smarter—from operations to growth planning.</p>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6">
-            <div class="service-card">
-              <i class="bi bi-credit-card-2-front-fill service-icon"></i>
-              <div class="service-title">Payment &amp; Payroll</div>
-              <p class="service-desc">Secure, streamlined payments and payroll—save time and reduce errors.</p>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6">
-            <div class="service-card">
-              <i class="bi bi-building-fill service-icon"></i>
-              <div class="service-title">Real Estate</div>
-              <p class="service-desc">Property solutions, leasing support, and investment guidance for owners.</p>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6">
-            <div class="service-card">
-              <i class="bi bi-bank2 service-icon"></i>
-              <div class="service-title">Financing</div>
-              <p class="service-desc">Access to capital, lines of credit, and funding options to fuel growth.</p>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6">
-            <div class="service-card">
-              <i class="bi bi-megaphone-fill service-icon"></i>
-              <div class="service-title"><a href="https://konectd.com" target="_blank" rel="noopener">Marketing</a></div>
-              <p class="service-desc">AI-powered acquisition, reputation, local SEO, and re-engagement.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- Footer -->
+  <!-- SERVICES STRIP -->
+  <section class="services-strip">
+    <div class="container">
+      <h2>The Full Konectd Solutions Portfolio</h2>
+      <p>
+        Advisory, marketing, payments, financing, and real estate — all built to support owner-led businesses.
+      </p>
+
+      <div class="row g-4 justify-content-center">
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card highlighted-card">
+            <i class="bi bi-briefcase-fill service-icon"></i>
+            <div class="service-title">Advisory & Consulting</div>
+            <p class="service-desc">Strategic growth & exit readiness.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-credit-card-2-front-fill service-icon"></i>
+            <div class="service-title">Payment & Payroll</div>
+            <p class="service-desc">Streamlined payments & payroll.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-building-fill service-icon"></i>
+            <div class="service-title">Real Estate</div>
+            <p class="service-desc">Leasing & property strategy.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-bank2 service-icon"></i>
+            <div class="service-title">Financing</div>
+            <p class="service-desc">Capital & funding solutions.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-megaphone-fill service-icon"></i>
+            <div class="service-title">
+              <a href="https://konectd.com" target="_blank">Marketing</a>
+            </div>
+            <p class="service-desc">AI-powered customer acquisition.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
-      <h5>Konectd Advisory &amp; Consulting</h5>
+
+      <h5>Konectd Advisory & Consulting</h5>
 
       <p class="footer-intro">
-        Confidential exit readiness and sell-side advisory for $5M–$75M revenue business owners. Strengthen valuation drivers, reduce diligence risk, and reach qualified buyers—without turning your business into a public listing.
+        Confidential exit readiness and sell-side advisory for owner-led companies.
       </p>
 
       <ul class="footer-links">
@@ -282,26 +268,33 @@
 
       <div class="footer-newsletter">
         <h6>Newsletter Signup</h6>
-        <p>Exit readiness insights, valuation levers, and diligence preparation guidance—no spam.</p>
-        <form class="newsletter-form" data-newsletter="true" action="#" method="post">
-          <input type="email" name="email" placeholder="Email address" required />
+        <p>Exit readiness insights and valuation guidance.</p>
+        <form class="newsletter-form" data-newsletter="true">
+          <input type="email" placeholder="Email address" required>
           <button type="submit">Sign Up</button>
         </form>
       </div>
 
       <div class="footer-contact">
-        Call: <a href="tel:+15075095368">(507) 509-5368</a> &nbsp;|&nbsp;
+        Call: <a href="tel:+15075095368">(507) 509-5368</a> |
         Email: <a href="mailto:hello@konectd.solutions">hello@konectd.solutions</a>
       </div>
 
       <div class="footer-powered">
-        Powered by Konectd Solutions <img src="logo.png" alt="Konectd Solutions Logo" />
+        Powered by Konectd Solutions
+        <img src="logo.png" alt="Konectd Solutions Logo">
       </div>
-      <div class="footer-copyright">&copy; 2026 Konectd Advisory &amp; Consulting</div>
+
+      <div class="footer-copyright">
+        &copy; 2026 Konectd Advisory & Consulting
+      </div>
+
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/site.js"></script>
+
 </body>
 </html>
