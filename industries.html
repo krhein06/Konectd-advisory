@@ -3,15 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Industries Konectd Advisory & Consulting focuses on for confidential exit readiness and sell-side advisory." />
   <title>Industries | Konectd Advisory & Consulting</title>
 
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
-  <!-- Site CSS -->
+  <!-- ✅ Site-wide stylesheet -->
   <link rel="stylesheet" href="assets/site.css" />
+
+  <!-- Minimal page-specific layout helpers (no content changes) -->
+  <style>
+    /* Use existing theme tokens from site.css; keep this small and structural */
+    .page-hero{
+      padding: calc(var(--stack-h) + 70px) 1rem 40px;
+      background: linear-gradient(rgba(15,23,42,0.92), rgba(15,23,42,0.92));
+      border-bottom: 1px solid rgba(30,41,59,0.6);
+    }
+    .page-hero h1{
+      font-weight: 900;
+      color: #fff;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin: 0 0 0.75rem;
+      line-height: 1.1;
+      text-align:center;
+    }
+    .page-hero p{
+      max-width: 1050px;
+      margin: 0 auto;
+      color: var(--gray);
+      font-size: 1.05rem;
+      text-align:center;
+    }
+
+    /* Industry card styling aligned to existing palette */
+    .industry-card{
+      background: var(--dark-light);
+      border-radius: 16px;
+      padding: 2rem 1.6rem;
+      border: 1px solid rgba(148,163,184,0.12);
+      height: 100%;
+    }
+    .industry-card:hover{
+      border-color: rgba(14,165,233,0.55);
+      transform: translateY(-2px);
+      transition: transform 0.2s;
+    }
+    .industry-card h3{
+      color: var(--primary);
+      font-weight: 900;
+      margin-bottom: 0.9rem;
+      font-size: 1.35rem;
+    }
+    .industry-card p{ color: var(--gray); margin: 0 0 0.85rem; }
+
+    /* Pills */
+    .pillrow{ display:flex; flex-wrap:wrap; gap:0.5rem; margin-top: 0.35rem; }
+    .pill{
+      background: rgba(15,23,42,0.6);
+      border: 1px solid rgba(14,165,233,0.4);
+      color: #a5f3fc;
+      font-weight: 700;
+      padding: 0.35rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+    .profile-box{
+      background: rgba(30,41,59,0.65);
+      border: 1px solid rgba(14,165,233,0.25);
+      border-radius: 18px;
+      padding: 1.8rem 1.4rem;
+      max-width: 1050px;
+      margin: 0 auto;
+      color: var(--gray);
+    }
+    .profile-box strong{ color:#fff; }
+  </style>
 </head>
 
 <body>
@@ -29,18 +97,18 @@
     <div class="container">
       <div class="nav-wrap">
 
-        <a href="index.html" class="brand-lockup">
+        <a href="index.html" class="brand-lockup text-decoration-none" aria-label="Konectd Advisory & Consulting Home">
           <div class="brand-title-row">
             <span class="brand-wordmark">Konectd</span>
             <span class="brand-inline-suffix">Advisory &amp; Consulting</span>
           </div>
           <div class="brand-powered">
             <span>Powered by</span>
-            <img src="ks-konectd-solutions-logo 1.png" alt="Konectd Solutions">
+            <img src="ks-konectd-solutions-logo 1.png" alt="Konectd Solutions" />
           </div>
         </a>
 
-        <nav>
+        <nav aria-label="Primary navigation">
           <ul class="nav-links">
             <li><a href="why-us.html">Why Us</a></li>
             <li><a href="industries.html">Industries</a></li>
@@ -49,7 +117,7 @@
           </ul>
         </nav>
 
-        <button class="menu-btn" id="menuBtn">
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false">
           <i class="bi bi-list"></i><span>Menu</span>
         </button>
 
@@ -57,14 +125,14 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
-  <div class="menu-overlay" id="menuOverlay"></div>
+  <!-- Mobile Menu Overlay + Drawer -->
+  <div class="menu-overlay" id="menuOverlay" tabindex="-1" aria-hidden="true"></div>
 
-  <div class="mobile-drawer" id="mobileDrawer">
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
         <div class="drawer-title">Menu</div>
-        <button class="menu-btn" id="menuCloseBtn">
+        <button class="menu-btn" id="menuCloseBtn" type="button" aria-label="Close menu">
           <i class="bi bi-x-lg"></i><span>Close</span>
         </button>
       </div>
@@ -78,342 +146,201 @@
       </div>
     </div>
   </div>
-<body>
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="container">
-      <a href="tel:+15075095368"><i class="bi bi-telephone-fill me-2"></i>(507) 509-5368</a>
-      <a href="mailto:hello@konectd.solutions">hello@konectd.solutions</a>
-    </div>
-  </div>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container d-flex align-items-center justify-content-between">
-      <a href="index.html" class="brand-lockup text-decoration-none">
-        <div class="brand-title-row">
-          <span class="brand-wordmark">Konectd</span>
-          <span class="brand-inline-suffix">Advisory &amp; Consulting</span>
-        </div>
-        <div class="brand-powered">
-          <span>Powered by</span>
-          <img src="ks-konectd-solutions-logo 1.png" alt="Konectd Solutions" />
-        </div>
-      </a>
-    </div>
-  </header>
-
-  <!-- Page Hero -->
-  <section class="page-hero">
-    <div class="container">
-      <h1>Industry Focus</h1>
-      <p>
-        We focus on sectors where sophisticated acquirers consistently deploy capital—especially businesses with predictable revenue streams, mission-critical services,
-        and scalable operating models in fragmented markets.  [oai_citation:3‡info.alpineinvestors.com](https://info.alpineinvestors.com/hubfs/Public%20Files/Alpine%20General%20Investment%20Criteria.pdf?_hsenc=p2ANqtz-88IY2DiWeN5Ns3kFHjwNhdy2YSRTiKxj64WKLaMFgCP7Zbsf1E3eEwTvs9Tjv87Qk_ihGn6lLzds5ser6PSTycRr_o3Q&_hsmi=402198577&utm_campaign=Deal+Announcements&utm_content=402198577&utm_medium=email&utm_source=hs_email)
-      </p>
-    </div>
-  </section>
-
-  <section class="section-padding">
-    <div class="container">
-      <h2 class="section-title">Repeat &amp; Essential Services</h2>
-
-      <div class="row g-4">
-        <div class="col-lg-4 col-md-6">
-          <div class="industry-card">
-            <h3>HVAC, Plumbing &amp; Electrical</h3>
-            <p><strong>Why buyers want it:</strong> non-discretionary demand, recurring service calls, membership plans, and strong local brand economics. Fragmentation creates roll-up opportunity and purchasing leverage.</p>
-            <p><strong>What increases valuation:</strong> service mix &gt; install mix, tech utilization, call center discipline, and add-on acquisition playbook.</p>
-            <div class="pillrow">
-              <span class="pill">Recurring demand</span><span class="pill">Fragmented market</span><span class="pill">Add-on M&amp;A ready</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="industry-card">
-            <h3>Restoration &amp; Emergency Services</h3>
-            <p><strong>Why buyers want it:</strong> time-sensitive work, insurance-driven revenue, and repeat referrals from adjusters and property managers. Buyers like the defensibility of response infrastructure.</p>
-            <p><strong>What increases valuation:</strong> referral diversity, cycle-time KPI rigor, and documented compliance/safety standards.</p>
-            <div class="pillrow">
-              <span class="pill">Insurance tailwind</span><span class="pill">High urgency</span><span class="pill">Operational moat</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="industry-card">
-            <h3>Facilities Maintenance (Interior/Exterior)</h3>
-            <p><strong>Why buyers want it:</strong> contract-based recurring revenue and “mission-critical” uptime support for multi-site operators (retail, industrial, healthcare).</p>
-            <p><strong>What increases valuation:</strong> contract structure, renewal rates, dispatch efficiency, and regional density.</p>
-            <div class="pillrow">
-              <span class="pill">Contracted revenue</span><span class="pill">Route density</span><span class="pill">Multi-location</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="industry-card">
-            <h3>Commercial Landscaping</h3>
-            <p><strong>Why buyers want it:</strong> sticky maintenance contracts and the ability to add higher-margin enhancements. Consolidation increases route density and labor utilization.</p>
-            <p><strong>What increases valuation:</strong> customer retention, branch-level P&amp;Ls, and dependable labor strategy.</p>
-            <div class="pillrow">
-              <span class="pill">Recurring contracts</span><span class="pill">Density economics</span><span class="pill">Upsell potential</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="industry-card">
-            <h3>Roofing &amp; Exterior Residential Services</h3>
-            <p><strong>Why buyers want it:</strong> durable replacement cycle, storm-driven demand spikes, and repeatable sales/production systems.</p>
-            <p><strong>What increases valuation:</strong> compliance, claims discipline, lead-gen diversification, and production controls that reduce rework.</p>
-            <div class="pillrow">
-              <span class="pill">Replacement cycle</span><span class="pill">Systematizable ops</span><span class="pill">Scalable sales</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="industry-card">
-            <h3>Access &amp; Security Systems</h3>
-            <p><strong>Why buyers want it:</strong> recurring monitoring/service, compliance-driven demand, and high switching costs for commercial clients.</p>
-            <p><strong>What increases valuation:</strong> service contract base, response SLAs, and technician utilization.</p>
-            <div class="pillrow">
-              <span class="pill">Switching costs</span><span class="pill">Service revenue</span><span class="pill">Compliance</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <hr class="my-5" style="border-color: rgba(148,163,184,0.25);" />
-
-      <h2 class="section-title">Business &amp; Professional Services</h2>
-      <div class="row g-4">
-        <div class="col-lg-4 col-md-6">
-          <div class="industry-card">
-            <h3>Managed IT &amp; MSP</h3>
-            <p><strong>Why buyers want it:</strong> recurring managed services contracts, embedded client relationships, and consistent add-on demand (security, cloud, compliance).</p>
-            <p><strong>What increases valuation:</strong> MRR quality, churn control, service desk maturity, and standardized tool stack.</p>
-            <div class="pillrow">
-              <span class="pill">MRR</span><span class="pill">High retention</span><span class="pill">Cross-sell</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="industry-card">
-            <h3>Accounting / Tax / CAAS</h3>
-            <p><strong>Why buyers want it:</strong> sticky client relationships, predictable annual workflows, and recurring advisory expansion.</p>
-            <p><strong>What increases valuation:</strong> client mix, pricing discipline, staff leverage model, and tech-enabled delivery.</p>
-            <div class="pillrow">
-              <span class="pill">Recurring workflows</span><span class="pill">Advisory expansion</span><span class="pill">Low churn</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="industry-card">
-            <h3>Property &amp; Association Management</h3>
-            <p><strong>Why buyers want it:</strong> recurring management fees, scale efficiencies, and strong retention when service quality is high.</p>
-            <p><strong>What increases valuation:</strong> retention/renewals, standardized reporting, and diversified portfolio mix.</p>
-            <div class="pillrow">
-              <span class="pill">Recurring fees</span><span class="pill">Scale efficiencies</span><span class="pill">Retention</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <hr class="my-5" style="border-color: rgba(148,163,184,0.25);" />
-
-      <h2 class="section-title">Healthcare &amp; Human Services Enablement</h2>
-      <div class="row g-4">
-        <div class="col-lg-6 col-md-6">
-          <div class="industry-card">
-            <h3>Revenue Cycle Management (RCM)</h3>
-            <p><strong>Why buyers want it:</strong> mission-critical function tied to provider cash flow, recurring contract structures, and data/process moats.</p>
-            <p><strong>What increases valuation:</strong> payer mix expertise, compliance maturity, and measured collections performance.</p>
-            <div class="pillrow">
-              <span class="pill">Mission-critical</span><span class="pill">Recurring contracts</span><span class="pill">Process moat</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6">
-          <div class="industry-card">
-            <h3>Home Care / Care Services Ecosystem</h3>
-            <p><strong>Why buyers want it:</strong> demographic tailwinds and recurring needs. Buyers prefer businesses with strong compliance, staffing systems, and diversified referral sources.</p>
-            <p><strong>What increases valuation:</strong> caregiver retention, scheduling efficiency, and documented clinical oversight where applicable.</p>
-            <div class="pillrow">
-              <span class="pill">Demographic tailwind</span><span class="pill">Repeat demand</span><span class="pill">Compliance</span>
-            </div>
-          </div>
-        </div>
-      </div>
   <main>
-    <!-- HERO -->
-    <section class="hero" style="padding: 210px 1rem 120px; background:
-      linear-gradient(rgba(15,23,42,0.88), rgba(15,23,42,0.88)),
-      url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80')
-      no-repeat center/cover;">
-      <div class="container text-center">
-        <h1>Industries We Know</h1>
-        <p class="mx-auto" style="max-width: 980px;">
-          We focus on durable, mission-critical, and service-driven businesses where professionalization, reporting clarity, and operational leverage can create meaningful valuation lift.
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Industry Focus</h1>
+        <p>
+          We focus on sectors where sophisticated acquirers consistently deploy capital—especially businesses with predictable revenue streams, mission-critical services,
+          and scalable operating models in fragmented markets.  [oai_citation:3‡info.alpineinvestors.com](https://info.alpineinvestors.com/hubfs/Public%20Files/Alpine%20General%20Investment%20Criteria.pdf?_hsenc=p2ANqtz-88IY2DiWeN5Ns3kFHjwNhdy2YSRTiKxj64WKLaMFgCP7Zbsf1E3eEwTvs9Tjv87Qk_ihGn6lLzds5ser6PSTycRr_o3Q&_hsmi=402198577&utm_campaign=Deal+Announcements&utm_content=402198577&utm_medium=email&utm_source=hs_email)
         </p>
-
-        <div class="proof-chips">
-          <span class="proof-chip">Recurring demand</span>
-          <span class="proof-chip">Operational leverage</span>
-          <span class="proof-chip">Fragmented markets</span>
-        </div>
-
-        <a href="contact.html" class="btn-pill primary">Book a confidential fit call</a>
-        <a href="#focus" class="secondary-cta">Explore our focus areas ↓</a>
       </div>
     </section>
 
-    <!-- Content -->
-    <section class="section-padding" id="focus">
+    <section class="section-padding">
       <div class="container">
-        <h2 class="section-title">Where We Focus</h2>
+        <h2 class="section-title">Repeat &amp; Essential Services</h2>
 
         <div class="row g-4">
           <div class="col-lg-4 col-md-6">
-            <div class="card-dark">
-              <div class="kicker">Services</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-house-gear-fill me-2" style="color:var(--primary);"></i>Home Services
-              </h3>
-              <p style="color:var(--gray);margin:0;">
-                HVAC, plumbing, electrical, restoration, pest control, roofing, and related categories with consistent local demand. Buyers are attracted to fragmentation, route density, and the ability to standardize operations.
-              </p>
-              <ul class="mt-3" style="color:#cbd5e1;">
-                <li><strong>Why acquired:</strong> consolidation + repeatability + cross-sell potential</li>
-                <li><strong>Key drivers:</strong> membership plans, attach rates, utilization, reviews</li>
-                <li><strong>Diligence focus:</strong> job costing, warranty exposure, dispatch discipline</li>
-              </ul>
+            <div class="industry-card">
+              <h3>HVAC, Plumbing &amp; Electrical</h3>
+              <p><strong>Why buyers want it:</strong> non-discretionary demand, recurring service calls, membership plans, and strong local brand economics. Fragmentation creates roll-up opportunity and purchasing leverage.</p>
+              <p><strong>What increases valuation:</strong> service mix &gt; install mix, tech utilization, call center discipline, and add-on acquisition playbook.</p>
+              <div class="pillrow">
+                <span class="pill">Recurring demand</span><span class="pill">Fragmented market</span><span class="pill">Add-on M&amp;A ready</span>
+              </div>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
-            <div class="card-dark">
-              <div class="kicker">Contracts</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-building-check me-2" style="color:var(--primary);"></i>B2B &amp; Facility Services
-              </h3>
-              <p style="color:var(--gray);margin:0;">
-                Commercial cleaning, security, fire/life safety, specialty maintenance, and compliance-heavy services. Attractive when contracts are sticky and delivery is standardized.
-              </p>
-              <ul class="mt-3" style="color:#cbd5e1;">
-                <li><strong>Why acquired:</strong> predictable revenue + multi-location expansion</li>
-                <li><strong>Key drivers:</strong> renewal rates, SLA performance, contract length</li>
-                <li><strong>Diligence focus:</strong> labor mix, churn, service-level penalties</li>
-              </ul>
+            <div class="industry-card">
+              <h3>Restoration &amp; Emergency Services</h3>
+              <p><strong>Why buyers want it:</strong> time-sensitive work, insurance-driven revenue, and repeat referrals from adjusters and property managers. Buyers like the defensibility of response infrastructure.</p>
+              <p><strong>What increases valuation:</strong> referral diversity, cycle-time KPI rigor, and documented compliance/safety standards.</p>
+              <div class="pillrow">
+                <span class="pill">Insurance tailwind</span><span class="pill">High urgency</span><span class="pill">Operational moat</span>
+              </div>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
-            <div class="card-dark">
-              <div class="kicker">Field Ops</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-wrench-adjustable-circle me-2" style="color:var(--primary);"></i>Industrial &amp; Field Services
-              </h3>
-              <p style="color:var(--gray);margin:0;">
-                Maintenance, repair, testing/inspection, and specialized field operations. Buyers favor strong safety culture, utilization reporting, and durable customer relationships.
-              </p>
-              <ul class="mt-3" style="color:#cbd5e1;">
-                <li><strong>Why acquired:</strong> mission-critical demand + geographic expansion</li>
-                <li><strong>Key drivers:</strong> backlog visibility, utilization, safety record</li>
-                <li><strong>Diligence focus:</strong> insurance history, key-person dependency</li>
-              </ul>
+            <div class="industry-card">
+              <h3>Facilities Maintenance (Interior/Exterior)</h3>
+              <p><strong>Why buyers want it:</strong> contract-based recurring revenue and “mission-critical” uptime support for multi-site operators (retail, industrial, healthcare).</p>
+              <p><strong>What increases valuation:</strong> contract structure, renewal rates, dispatch efficiency, and regional density.</p>
+              <div class="pillrow">
+                <span class="pill">Contracted revenue</span><span class="pill">Route density</span><span class="pill">Multi-location</span>
+              </div>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
-            <div class="card-dark">
-              <div class="kicker">Recurring Need</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-heart-pulse-fill me-2" style="color:var(--primary);"></i>Healthcare Services
-              </h3>
-              <p style="color:var(--gray);margin:0;">
-                Service models supported by demographic demand and recurring utilization where compliance and documentation are strong.
-              </p>
-              <ul class="mt-3" style="color:#cbd5e1;">
-                <li><strong>Why acquired:</strong> demand tailwinds + platform/add-on expansion</li>
-                <li><strong>Key drivers:</strong> retention, referrals, multi-site playbook</li>
-                <li><strong>Diligence focus:</strong> compliance, credentialing, payer mix</li>
-              </ul>
+            <div class="industry-card">
+              <h3>Commercial Landscaping</h3>
+              <p><strong>Why buyers want it:</strong> sticky maintenance contracts and the ability to add higher-margin enhancements. Consolidation increases route density and labor utilization.</p>
+              <p><strong>What increases valuation:</strong> customer retention, branch-level P&amp;Ls, and dependable labor strategy.</p>
+              <div class="pillrow">
+                <span class="pill">Recurring contracts</span><span class="pill">Density economics</span><span class="pill">Upsell potential</span>
+              </div>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
-            <div class="card-dark">
-              <div class="kicker">Efficiency</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-diagram-3-fill me-2" style="color:var(--primary);"></i>Tech-Enabled Services
-              </h3>
-              <p style="color:var(--gray);margin:0;">
-                Services businesses that leverage software, data, automation, or workflow tools to deliver outcomes more efficiently—especially with recurring contracts.
-              </p>
-              <ul class="mt-3" style="color:#cbd5e1;">
-                <li><strong>Why acquired:</strong> margin expansion + repeatable delivery model</li>
-                <li><strong>Key drivers:</strong> retention, ARPA growth, automation leverage</li>
-                <li><strong>Diligence focus:</strong> churn drivers, security posture, rev rec</li>
-              </ul>
+            <div class="industry-card">
+              <h3>Roofing &amp; Exterior Residential Services</h3>
+              <p><strong>Why buyers want it:</strong> durable replacement cycle, storm-driven demand spikes, and repeatable sales/production systems.</p>
+              <p><strong>What increases valuation:</strong> compliance, claims discipline, lead-gen diversification, and production controls that reduce rework.</p>
+              <div class="pillrow">
+                <span class="pill">Replacement cycle</span><span class="pill">Systematizable ops</span><span class="pill">Scalable sales</span>
+              </div>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
-            <div class="card-dark">
-              <div class="kicker">Standardization</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-clipboard-data-fill me-2" style="color:var(--primary);"></i>Professional Services
-              </h3>
-              <p style="color:var(--gray);margin:0;">
-                Specialized professional service lines where delivery can be standardized and customer concentration is controlled.
-              </p>
-              <ul class="mt-3" style="color:#cbd5e1;">
-                <li><strong>Why acquired:</strong> recurring revenue + roll-up potential</li>
-                <li><strong>Key drivers:</strong> delivery playbooks, leadership depth</li>
-                <li><strong>Diligence focus:</strong> founder dependence, pipeline quality</li>
-              </ul>
+            <div class="industry-card">
+              <h3>Access &amp; Security Systems</h3>
+              <p><strong>Why buyers want it:</strong> recurring monitoring/service, compliance-driven demand, and high switching costs for commercial clients.</p>
+              <p><strong>What increases valuation:</strong> service contract base, response SLAs, and technician utilization.</p>
+              <div class="pillrow">
+                <span class="pill">Switching costs</span><span class="pill">Service revenue</span><span class="pill">Compliance</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="text-center mt-5">
-          <a href="exit-readiness-checklist.html" class="btn-pill primary">Download the Exit Readiness Checklist</a>
-          <div class="mt-3">
-            <a href="contact.html" class="btn-pill">Book a fit call</a>
+        <hr class="my-5" style="border-color: rgba(148,163,184,0.25);" />
+
+        <h2 class="section-title">Business &amp; Professional Services</h2>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="industry-card">
+              <h3>Managed IT &amp; MSP</h3>
+              <p><strong>Why buyers want it:</strong> recurring managed services contracts, embedded client relationships, and consistent add-on demand (security, cloud, compliance).</p>
+              <p><strong>What increases valuation:</strong> MRR quality, churn control, service desk maturity, and standardized tool stack.</p>
+              <div class="pillrow">
+                <span class="pill">MRR</span><span class="pill">High retention</span><span class="pill">Cross-sell</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="industry-card">
+              <h3>Accounting / Tax / CAAS</h3>
+              <p><strong>Why buyers want it:</strong> sticky client relationships, predictable annual workflows, and recurring advisory expansion.</p>
+              <p><strong>What increases valuation:</strong> client mix, pricing discipline, staff leverage model, and tech-enabled delivery.</p>
+              <div class="pillrow">
+                <span class="pill">Recurring workflows</span><span class="pill">Advisory expansion</span><span class="pill">Low churn</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="industry-card">
+              <h3>Property &amp; Association Management</h3>
+              <p><strong>Why buyers want it:</strong> recurring management fees, scale efficiencies, and strong retention when service quality is high.</p>
+              <p><strong>What increases valuation:</strong> retention/renewals, standardized reporting, and diversified portfolio mix.</p>
+              <div class="pillrow">
+                <span class="pill">Recurring fees</span><span class="pill">Scale efficiencies</span><span class="pill">Retention</span>
+              </div>
+            </div>
           </div>
         </div>
+
+        <hr class="my-5" style="border-color: rgba(148,163,184,0.25);" />
+
+        <h2 class="section-title">Healthcare &amp; Human Services Enablement</h2>
+        <div class="row g-4">
+          <div class="col-lg-6 col-md-6">
+            <div class="industry-card">
+              <h3>Revenue Cycle Management (RCM)</h3>
+              <p><strong>Why buyers want it:</strong> mission-critical function tied to provider cash flow, recurring contract structures, and data/process moats.</p>
+              <p><strong>What increases valuation:</strong> payer mix expertise, compliance maturity, and measured collections performance.</p>
+              <div class="pillrow">
+                <span class="pill">Mission-critical</span><span class="pill">Recurring contracts</span><span class="pill">Process moat</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="industry-card">
+              <h3>Home Care / Care Services Ecosystem</h3>
+              <p><strong>Why buyers want it:</strong> demographic tailwinds and recurring needs. Buyers prefer businesses with strong compliance, staffing systems, and diversified referral sources.</p>
+              <p><strong>What increases valuation:</strong> caregiver retention, scheduling efficiency, and documented clinical oversight where applicable.</p>
+              <div class="pillrow">
+                <span class="pill">Demographic tailwind</span><span class="pill">Repeat demand</span><span class="pill">Compliance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5" style="border-color: rgba(148,163,184,0.25);" />
+
+        <h2 class="section-title">Software &amp; Data (Selective)</h2>
+        <div class="profile-box">
+          <p style="margin:0;">
+            We are selective in software. The strongest buyer appetite tends to cluster around <strong>B2B vertical SaaS</strong> and <strong>software-enabled data</strong> with durable retention and clear mission-critical workflows—often in the <strong>$3M–$150M ARR</strong> range.  [oai_citation:4‡info.alpineinvestors.com](https://info.alpineinvestors.com/hubfs/Public%20Files/Alpine%20General%20Investment%20Criteria.pdf?_hsenc=p2ANqtz-88IY2DiWeN5Ns3kFHjwNhdy2YSRTiKxj64WKLaMFgCP7Zbsf1E3eEwTvs9Tjv87Qk_ihGn6lLzds5ser6PSTycRr_o3Q&_hsmi=402198577&utm_campaign=Deal+Announcements&utm_content=402198577&utm_medium=email&utm_source=hs_email)
+          </p>
+          <hr class="my-4" style="border-color: rgba(148,163,184,0.25);" />
+          <p style="margin:0;">
+            <strong>Examples of attractive software characteristics:</strong> vertical specificity, high switching costs, low churn, clear expansion motion, and compliance/regulatory adjacency (where relevant).
+          </p>
+        </div>
+
+        <div class="mt-5 text-center">
+          <a href="contact.html" style="text-decoration:none;font-weight:900;color:var(--primary);">Talk to us about your industry →</a>
+        </div>
+
       </div>
     </section>
 
-    <!-- SERVICES STRIP -->
+  </main>
+
+  <!-- Services Strip -->
   <section class="services-strip">
     <div class="container">
       <h2>The Full Konectd Solutions Portfolio</h2>
       <p>
-        Advisory, marketing, payments, financing, and real estate — all built to support owner-led businesses.
+        Marketing is just one part of how we help businesses thrive. Konectd Solutions offers a complete ecosystem of services—built to support small and medium-sized companies.
       </p>
 
       <div class="row g-4 justify-content-center">
-
         <div class="col-lg-2 col-md-4 col-6">
           <div class="service-card highlighted-card">
             <i class="bi bi-briefcase-fill service-icon"></i>
-            <div class="service-title">Advisory & Consulting</div>
-            <p class="service-desc">Strategic growth & exit readiness.</p>
+            <div class="service-title">Advisory &amp; Consulting</div>
+            <p class="service-desc">Strategic guidance to scale smarter—from operations to growth planning.</p>
           </div>
         </div>
 
         <div class="col-lg-2 col-md-4 col-6">
           <div class="service-card">
             <i class="bi bi-credit-card-2-front-fill service-icon"></i>
-            <div class="service-title">Payment & Payroll</div>
-            <p class="service-desc">Streamlined payments & payroll.</p>
+            <div class="service-title">Payment &amp; Payroll</div>
+            <p class="service-desc">Secure payments and payroll—save time and reduce errors.</p>
           </div>
         </div>
 
@@ -421,7 +348,7 @@
           <div class="service-card">
             <i class="bi bi-building-fill service-icon"></i>
             <div class="service-title">Real Estate</div>
-            <p class="service-desc">Leasing & property strategy.</p>
+            <p class="service-desc">Property solutions, leasing support, and strategy tailored for business owners.</p>
           </div>
         </div>
 
@@ -429,7 +356,7 @@
           <div class="service-card">
             <i class="bi bi-bank2 service-icon"></i>
             <div class="service-title">Financing</div>
-            <p class="service-desc">Capital & funding solutions.</p>
+            <p class="service-desc">Access to capital, lines of credit, and funding options to fuel your next step.</p>
           </div>
         </div>
 
@@ -437,21 +364,20 @@
           <div class="service-card">
             <i class="bi bi-megaphone-fill service-icon"></i>
             <div class="service-title">
-              <a href="https://konectd.com" target="_blank">Marketing</a>
+              <a href="https://konectd.com" target="_blank" rel="noopener">Marketing</a>
             </div>
-            <p class="service-desc">AI-powered customer acquisition.</p>
+            <p class="service-desc">AI-powered customer acquisition, reputation, local SEO, social, and re-engagement.</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
 
-      <h5>Konectd Advisory & Consulting</h5>
+      <h5>Konectd Advisory &amp; Consulting</h5>
 
       <p class="footer-intro">
         Confidential exit readiness and sell-side advisory for owner-led companies.
@@ -462,20 +388,21 @@
         <li><a href="why-us.html">Why Us</a></li>
         <li><a href="industries.html">Industries</a></li>
         <li><a href="exit-readiness-checklist.html">Exit Readiness Checklist</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html">Contact / Book a Call</a></li>
       </ul>
 
       <div class="footer-newsletter">
         <h6>Newsletter Signup</h6>
-        <p>Exit readiness insights and valuation guidance.</p>
+        <p>Exit readiness insights, valuation levers, and diligence preparation guidance—no spam.</p>
         <form class="newsletter-form" data-newsletter="true">
-          <input type="email" placeholder="Email address" required>
+          <input type="email" name="email" placeholder="Email address" required>
           <button type="submit">Sign Up</button>
         </form>
+        <p class="small mt-2" style="color:var(--gray);">Unsubscribe anytime.</p>
       </div>
 
       <div class="footer-contact">
-        Call: <a href="tel:+15075095368">(507) 509-5368</a> |
+        Call: <a href="tel:+15075095368">(507) 509-5368</a><br>
         Email: <a href="mailto:hello@konectd.solutions">hello@konectd.solutions</a>
       </div>
 
@@ -485,7 +412,7 @@
       </div>
 
       <div class="footer-copyright">
-        &copy; 2026 Konectd Advisory & Consulting
+        &copy; 2026 Konectd Advisory &amp; Consulting
       </div>
 
     </div>
@@ -494,6 +421,5 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/site.js"></script>
-
 </body>
 </html>
