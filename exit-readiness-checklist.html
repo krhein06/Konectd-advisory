@@ -3,15 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Exit Readiness Checklist: prepare your company for a confidential sell-side process by reducing diligence risk and strengthening valuation drivers." />
   <title>Exit Readiness Checklist | Konectd Advisory & Consulting</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <!-- ✅ Site-wide stylesheet -->
   <link rel="stylesheet" href="assets/site.css" />
+
+  <!-- Minimal page-specific layout helpers (structure only; checklist content unchanged) -->
+  <style>
+    .page-hero{
+      padding: calc(var(--stack-h) + 70px) 1rem 35px;
+      background: linear-gradient(rgba(15,23,42,0.92), rgba(15,23,42,0.92));
+      border-bottom: 1px solid rgba(30,41,59,0.6);
+      text-align:center;
+    }
+    .page-hero h1{
+      font-weight: 900;
+      color: #fff;
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      margin:0 0 0.6rem;
+      line-height:1.1;
+    }
+    .page-hero p{ color: var(--gray); max-width: 980px; margin:0 auto; font-size:1.05rem; }
+
+    .section-padding{ padding: 60px 1rem; }
+    .sheet{
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--dark-light);
+      border: 1px solid rgba(148,163,184,0.14);
+      border-radius: 18px;
+      padding: 2rem 1.6rem;
+    }
+
+    .group-title{
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1.35rem;
+      margin: 1.6rem 0 0.8rem;
+    }
+    .subnote{ color: var(--gray); margin: 0 0 0.75rem; }
+
+    .checklist{
+      list-style:none;
+      padding-left:0;
+      margin:0;
+    }
+    .checklist li{
+      display:flex;
+      gap:0.75rem;
+      align-items:flex-start;
+      padding: 0.7rem 0.6rem;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,0.12);
+      margin-bottom: 0.6rem;
+      background: rgba(15,23,42,0.45);
+    }
+    .checklist i{
+      color: #a5f3fc;
+      font-size: 1.15rem;
+      margin-top: 0.1rem;
+      flex: 0 0 auto;
+    }
+    .checklist strong{ color:#fff; }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.75rem;
+      margin-top: 1.25rem;
+      justify-content:center;
+    }
+    .btnpill{
+      border-radius:9999px;
+      padding:0.85rem 1.2rem;
+      font-weight: 900;
+      text-decoration:none;
+      display:inline-block;
+      border: 1px solid rgba(14,165,233,0.45);
+      color:#a5f3fc;
+      background: rgba(15,23,42,0.35);
+    }
+    .btnpill.primary{
+      background: var(--primary);
+      color: #0f172a;
+      border-color: transparent;
+    }
+    .btnpill:hover{ transform: translateY(-1px); }
+
+    /* Print-friendly */
+    @media print{
+      .top-bar, .site-header, .actions, .services-strip, .site-footer { display:none !important; }
+      body{ padding-top:0 !important; background:#fff !important; color:#000 !important; }
+      .sheet{ border:none !important; background:#fff !important; }
+      .group-title{ color:#000 !important; }
+      .checklist li{ background:#fff !important; border: 1px solid #ddd !important; }
+    }
+
+    @media (max-width: 768px){
+      .page-hero{ padding: calc(var(--stack-h) + 55px) 1rem 28px; }
+      .section-padding{ padding: 50px 1rem; }
+    }
+  </style>
 </head>
 
 <body>
+
   <!-- Top Bar -->
   <div class="top-bar">
     <div class="container">
@@ -24,7 +123,8 @@
   <header class="site-header">
     <div class="container">
       <div class="nav-wrap">
-        <a href="index.html" class="brand-lockup" aria-label="Konectd Advisory & Consulting Home">
+
+        <a href="index.html" class="brand-lockup text-decoration-none" aria-label="Konectd Advisory & Consulting Home">
           <div class="brand-title-row">
             <span class="brand-wordmark">Konectd</span>
             <span class="brand-inline-suffix">Advisory &amp; Consulting</span>
@@ -47,6 +147,7 @@
         <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false">
           <i class="bi bi-list"></i><span>Menu</span>
         </button>
+
       </div>
     </div>
   </header>
@@ -56,7 +157,7 @@
 
   <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
     <div class="container">
-      <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex justify-content-between align-items-center">
         <div class="drawer-title">Menu</div>
         <button class="menu-btn" id="menuCloseBtn" type="button" aria-label="Close menu">
           <i class="bi bi-x-lg"></i><span>Close</span>
@@ -74,233 +175,148 @@
   </div>
 
   <main>
-    <!-- HERO -->
-    <section class="hero" style="padding: 210px 1rem 120px; background:
-      linear-gradient(rgba(15,23,42,0.88), rgba(15,23,42,0.88)),
-      url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80')
-      no-repeat center/cover;">
-      <div class="container text-center">
+
+    <section class="page-hero">
+      <div class="container">
         <h1>Exit Readiness Checklist</h1>
-        <p class="mx-auto" style="max-width: 980px;">
-          Use this checklist to strengthen valuation drivers, reduce diligence risk, and prepare for a confidential sell-side process.
-        </p>
-
-        <div class="proof-chips">
-          <span class="proof-chip">Reduce diligence risk</span>
-          <span class="proof-chip">Improve valuation drivers</span>
-          <span class="proof-chip">Move confidently</span>
-        </div>
-
-        <a href="#checklist" class="btn-pill primary">Jump to the checklist</a>
-        <a href="contact.html" class="secondary-cta">Book a confidential fit call →</a>
-      </div>
-    </section>
-
-    <section class="section-padding" id="checklist">
-      <div class="container">
-        <h2 class="section-title">Checklist Categories</h2>
-
-        <div class="row g-4">
-          <div class="col-lg-6">
-            <div class="card-dark">
-              <div class="kicker">Financial Readiness</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-bar-chart-line-fill me-2" style="color:var(--primary);"></i>Financial Clarity
-              </h3>
-              <ul style="color:#cbd5e1;margin:0;">
-                <li>Monthly P&amp;L, Balance Sheet, and Cash Flow (24–36 months)</li>
-                <li>Documented add-backs (owner comp, one-time items, non-recurring)</li>
-                <li>Revenue breakdown by customer, segment, and service line</li>
-                <li>Gross margin by service line (and location if multi-site)</li>
-                <li>AR/AP aging + collections discipline</li>
-                <li>Tax returns aligned with reporting</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="card-dark">
-              <div class="kicker">Leadership Bench</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-people-fill me-2" style="color:var(--primary);"></i>Team &amp; Org Depth
-              </h3>
-              <ul style="color:#cbd5e1;margin:0;">
-                <li>Org chart + role clarity (who owns what)</li>
-                <li>Management cadence (weekly scorecards / KPI reviews)</li>
-                <li>Owner transition plan + succession coverage</li>
-                <li>Comp plans + incentives documented</li>
-                <li>Hiring and training playbooks</li>
-                <li>Key-person risk mitigation</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="card-dark">
-              <div class="kicker">Operational Control</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-gear-fill me-2" style="color:var(--primary);"></i>Operations &amp; Delivery
-              </h3>
-              <ul style="color:#cbd5e1;margin:0;">
-                <li>Standard operating procedures for core workflows</li>
-                <li>Job costing discipline (where applicable)</li>
-                <li>Quality control + customer satisfaction loop</li>
-                <li>Vendor list + key supplier dependencies</li>
-                <li>Capacity planning + utilization reporting</li>
-                <li>Safety/compliance documentation (as relevant)</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="card-dark">
-              <div class="kicker">Risk Reduction</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-shield-lock-fill me-2" style="color:var(--primary);"></i>Diligence Readiness
-              </h3>
-              <ul style="color:#cbd5e1;margin:0;">
-                <li>Entity docs, ownership, licenses, good standing</li>
-                <li>Customer contracts, MSAs, SOWs centralized</li>
-                <li>Insurance summary + claims history</li>
-                <li>Real estate leases and equipment schedules</li>
-                <li>IP/software licenses + security posture (if relevant)</li>
-                <li>Disputes/litigation/warranty exposure documented</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="card-dark">
-              <div class="kicker">Narrative</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-megaphone-fill me-2" style="color:var(--primary);"></i>Growth Story
-              </h3>
-              <ul style="color:#cbd5e1;margin:0;">
-                <li>Positioning: who you serve and why you win</li>
-                <li>Repeatable acquisition channels + sales process</li>
-                <li>Pricing strategy and margin expansion levers</li>
-                <li>Expansion roadmap (geo, services, cross-sell)</li>
-                <li>Competitive landscape summary</li>
-                <li>Case studies, testimonials, references</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="card-dark">
-              <div class="kicker">Execution</div>
-              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
-                <i class="bi bi-bullseye me-2" style="color:var(--primary);"></i>Process Planning
-              </h3>
-              <ul style="color:#cbd5e1;margin:0;">
-                <li>Confidentiality plan (who knows, when, and why)</li>
-                <li>Data room structure (financial, legal, HR, ops, customers)</li>
-                <li>Target buyer profile definition</li>
-                <li>Management presentation outline</li>
-                <li>Timeline and workload expectations</li>
-                <li>Negotiation priorities (price, structure, rollover, earn-outs)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-5">
-          <a href="contact.html" class="btn-pill primary">Book a confidential fit call</a>
-          <div class="mt-3">
-            <a href="industries.html" class="btn-pill">See our industries focus</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Strip -->
-    <section class="services-strip">
-      <div class="container">
-        <h2>The Full Konectd Solutions Portfolio</h2>
         <p>
-          Marketing is just one part of how we help businesses thrive. Konectd Solutions offers a complete ecosystem of services—designed to support small and medium-sized companies.
+          Use this to quickly identify what increases valuation, what slows diligence, and what commonly triggers a retrade.
+          You can print this page or save as PDF from your browser.
         </p>
+      </div>
+    </section>
 
-        <div class="row g-4 justify-content-center">
-          <div class="col-lg-2 col-md-4 col-6">
-            <div class="service-card highlighted-card">
-              <i class="bi bi-briefcase-fill service-icon"></i>
-              <div class="service-title">Advisory &amp; Consulting</div>
-              <p class="service-desc">Strategic guidance to scale smarter—from operations to growth planning.</p>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6">
-            <div class="service-card">
-              <i class="bi bi-credit-card-2-front-fill service-icon"></i>
-              <div class="service-title">Payment &amp; Payroll</div>
-              <p class="service-desc">Secure, streamlined payments and payroll—save time and reduce errors.</p>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6">
-            <div class="service-card">
-              <i class="bi bi-building-fill service-icon"></i>
-              <div class="service-title">Real Estate</div>
-              <p class="service-desc">Property solutions, leasing support, and investment guidance for owners.</p>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6">
-            <div class="service-card">
-              <i class="bi bi-bank2 service-icon"></i>
-              <div class="service-title">Financing</div>
-              <p class="service-desc">Access to capital, lines of credit, and funding options to fuel growth.</p>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-6">
-            <div class="service-card">
-              <i class="bi bi-megaphone-fill service-icon"></i>
-              <div class="service-title"><a href="https://konectd.com" target="_blank" rel="noopener">Marketing</a></div>
-              <p class="service-desc">AI-powered acquisition, reputation, local SEO, and re-engagement.</p>
-            </div>
-          </div>
+    <section class="section-padding">
+      <div class="sheet">
+        <div class="subnote">
+          <strong style="color:#fff;">How to use:</strong> If you’re “Yes” on most items, you’re likely ready for confidential market outreach. If not, a short readiness sprint can materially improve terms and certainty.
+        </div>
+
+        <div class="group-title">1) Financial Readiness</div>
+        <p class="subnote">Buyers need clean, explainable results and confidence in cash flow quality.</p>
+        <ul class="checklist">
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>3 years of financial statements</strong> (P&amp;L, balance sheet, cash flow) with consistent chart of accounts.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Monthly financials within 15–20 days</strong> of month-end close (or a defined close process).</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>EBITDA normalization bridge</strong> (owner comp, one-time items, discretionary add-backs) with documentation.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Revenue segmentation</strong>: recurring vs. project, customer cohort trends, churn/retention (where applicable).</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Customer concentration analysis</strong> (top 10 customers + % of revenue/gross profit).</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Working capital visibility</strong>: A/R aging, WIP (if applicable), seasonality, and cash conversion cycle.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Forecasting model</strong> with assumptions buyers can underwrite (capacity, pricing, volume, margin).</div></li>
+        </ul>
+
+        <div class="group-title">2) Operational Readiness</div>
+        <p class="subnote">Buyers pay more for businesses that scale without the owner as the bottleneck.</p>
+        <ul class="checklist">
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Documented SOPs</strong> for sales, delivery/ops, customer service, billing, and quality control.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Leadership bench</strong> (ops lead, sales lead, finance/bookkeeping) with defined responsibilities.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>KPI cadence</strong>: weekly scorecards, utilization, win rates, gross margin, backlog, on-time delivery, etc.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Pricing discipline</strong>: documented pricing logic, discount approvals, margin guardrails.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Technology stack clarity</strong>: CRM, accounting, dispatch/PSA, reporting, security controls.</div></li>
+        </ul>
+
+        <div class="group-title">3) Legal, Compliance &amp; Risk</div>
+        <p class="subnote">Diligence friction here is where deals slow—or get repriced.</p>
+        <ul class="checklist">
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Contract repository</strong>: customer, vendor, lease, insurance, and employment agreements centralized.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Assignability</strong>: key contracts reviewed for change-of-control language.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Licensing/permits</strong> documented and current; safety and training logs in place.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Insurance coverage</strong> appropriate to operations; claims history organized.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Any known issues documented</strong> (disputes, audits, litigation, regulatory inquiries) with mitigation plan.</div></li>
+        </ul>
+
+        <div class="group-title">4) Commercial Strength &amp; “Why You Win”</div>
+        <p class="subnote">Buyers underwrite the “why now” growth story, not just the past.</p>
+        <ul class="checklist">
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Clear positioning</strong>: who you serve, what you do better, and why customers choose you.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Lead flow diversity</strong>: no single channel is a point of failure.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Customer retention metrics</strong>: repeat rates, contract renewals, NPS/reviews, referral sources.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Growth levers defined</strong>: pricing, geographic expansion, add-on services, route density, sales team scaling.</div></li>
+        </ul>
+
+        <div class="group-title">5) Buyer Readiness Materials</div>
+        <p class="subnote">These reduce buyer uncertainty and protect leverage.</p>
+        <ul class="checklist">
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>One-page “at-a-glance”</strong> overview (financial highlights, service lines, geography, team, customers).</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Confidential information memo</strong> (CIM) draft or outline with compelling narrative.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Data room plan</strong>: folder structure + owner assigned to document collection.</div></li>
+          <li><i class="bi bi-check-circle-fill"></i><div><strong>Transaction goals</strong>: target timeline, preferred structure, role post-close, and “must-haves.”</div></li>
+        </ul>
+
+        <div class="actions">
+          <a class="btnpill primary" href="contact.html">Book a confidential fit call</a>
+          <a class="btnpill" href="#" onclick="window.print(); return false;">Print / Save as PDF</a>
+          <a class="btnpill" href="industries.html">View industry focus</a>
         </div>
       </div>
     </section>
+
   </main>
+
+  <!-- Services Strip -->
+  <section class="services-strip">
+    <div class="container">
+      <h2>The Full Konectd Solutions Portfolio</h2>
+      <p>
+        Marketing is just one part of how we help businesses thrive. Konectd Solutions offers a complete ecosystem of services—built to support small and medium-sized companies.
+      </p>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card highlighted-card">
+            <i class="bi bi-briefcase-fill service-icon"></i>
+            <div class="service-title">Advisory &amp; Consulting</div>
+            <p class="service-desc">Strategic guidance to scale smarter—from operations to growth planning.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-credit-card-2-front-fill service-icon"></i>
+            <div class="service-title">Payment &amp; Payroll</div>
+            <p class="service-desc">Secure payments and payroll—save time and reduce errors.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-building-fill service-icon"></i>
+            <div class="service-title">Real Estate</div>
+            <p class="service-desc">Property solutions, leasing support, and strategy tailored for business owners.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-bank2 service-icon"></i>
+            <div class="service-title">Financing</div>
+            <p class="service-desc">Access to capital, lines of credit, and funding options to fuel your next step.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6">
+          <div class="service-card">
+            <i class="bi bi-megaphone-fill service-icon"></i>
+            <div class="service-title">
+              <a href="https://konectd.com" target="_blank" rel="noopener">Marketing</a>
+            </div>
+            <p class="service-desc">AI-powered customer acquisition, reputation, local SEO, social, and re-engagement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
+
       <h5>Konectd Advisory &amp; Consulting</h5>
 
       <p class="footer-intro">
-        Confidential exit readiness and sell-side advisory for $5M–$75M revenue business owners. Strengthen valuation drivers, reduce diligence risk, and reach qualified buyers—without turning your business into a public listing.
+        Confidential exit readiness and sell-side advisory for owner-led companies.
       </p>
 
       <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="why-us.html">Why Us</a></li>
-        <li><a href="industries.html">Industries</a></li>
-        <li><a href="exit-readiness-checklist.html">Exit Readiness Checklist</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-      <div class="footer-newsletter">
-        <h6>Newsletter Signup</h6>
-        <p>Exit readiness insights, valuation levers, and diligence preparation guidance—no spam.</p>
-        <form class="newsletter-form" data-newsletter="true" action="#" method="post">
-          <input type="email" name="email" placeholder="Email address" required />
-          <button type="submit">Sign Up</button>
-        </form>
-      </div>
-
-      <div class="footer-contact">
-        Call: <a href="tel:+15075095368">(507) 509-5368</a> &nbsp;|&nbsp;
-        Email: <a href="mailto:hello@konectd.solutions">hello@konectd.solutions</a>
-      </div>
-
-      <div class="footer-powered">
-        Powered by Konectd Solutions <img src="logo.png" alt="Konectd Solutions Logo" />
-      </div>
-      <div class="footer-copyright">&copy; 2026 Konectd Advisory &amp; Consulting</div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/site.js"></script>
-</body>
-</html>
+        <li><a href="industries.html
