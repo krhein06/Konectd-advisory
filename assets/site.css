@@ -503,3 +503,15 @@ body.menu-open{ overflow:hidden; }
   .brand-powered img{ height:16px; }
   .newsletter-form input{ min-width: 200px; }
 }
+
+.pillrow{ display:flex; flex-wrap:wrap; gap:0.5rem; margin-top: 0.75rem; }
+.pill{
+  border: 1px solid rgba(14,165,233,0.45);
+  color:#a5f3fc;
+  background: rgba(15,23,42,0.35);
+  border-radius: 9999px;
+  padding: 0.35rem 0.65rem;
+  font-weight: 900;
+  font-size: 0.8rem;
+  white-space:nowrap;
+}
