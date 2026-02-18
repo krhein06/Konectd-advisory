@@ -3,569 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Industries we focus on for confidential sell-side advisory and exit readiness: durable, recurring-revenue, compliance-aware businesses attractive to strategic and financial buyers." />
+  <meta name="description" content="Industries Konectd Advisory & Consulting supports with confidential exit readiness and sell-side advisory." />
   <title>Industries | Konectd Advisory & Consulting</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-
-    :root{
-      --primary:#0ea5e9;
-      --primary2:#38bdf8;
-      --dark:#0f172a;
-      --dark2:#1e293b;
-      --gray:#94a3b8;
-      --light:#e2e8f0;
-
-      --topbar-h:0px;
-      --header-h:0px;
-      --stack-h:0px;
-    }
-
-    *{ box-sizing:border-box; }
-
-    body{
-      font-family:'Roboto', sans-serif;
-      background: var(--dark);
-      color: var(--light);
-      margin:0;
-      line-height:1.6;
-      padding-top: var(--stack-h);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* ===== Top Bar (inline on mobile) ===== */
-    .top-bar{
-      position:fixed; top:0; left:0; right:0;
-      z-index:1100;
-      background: rgba(15,23,42,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom:1px solid rgba(30,41,59,0.6);
-      font-size:0.9rem;
-      padding:0.55rem 1rem;
-    }
-    .top-bar .container{
-      display:flex;
-      flex-wrap:nowrap;
-      justify-content:flex-end;
-      align-items:center;
-      gap:1.25rem;
-      overflow-x:auto;
-      -webkit-overflow-scrolling:touch;
-      scrollbar-width:none;
-    }
-    .top-bar .container::-webkit-scrollbar{ display:none; }
-    .top-bar a{
-      color:var(--light);
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      gap:0.5rem;
-      white-space:nowrap;
-      transition: color 0.2s;
-      font-weight: 800;
-    }
-    .top-bar a:hover{ color:var(--primary); }
-
-    /* ===== Header / Brand / Nav ===== */
-    .site-header{
-      position:fixed; left:0; right:0;
-      top: var(--topbar-h);
-      z-index:1000;
-      background: rgba(15,23,42,0.88);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid rgba(30,41,59,0.5);
-      padding:0.9rem 1rem;
-    }
-    .nav-wrap{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
-    }
-
-    .brand-lockup{
-      display:grid;
-      gap:0.25rem;
-      text-decoration:none;
-    }
-    .brand-title-row{
-      display:inline-flex;
-      align-items:baseline;
-      gap:0.55rem;
-      white-space:nowrap;
-      line-height:1.05;
-    }
-    .brand-wordmark{
-      font-size: clamp(1.55rem, 3.8vw, 2.1rem);
-      font-weight: 900;
-      letter-spacing: -0.8px;
-      line-height: 1;
-      background: linear-gradient(90deg, var(--primary) 0%, var(--primary2) 45%, #a5f3fc 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position:relative;
-      display:inline-block;
-    }
-    .brand-wordmark::after{
-      content:"";
-      position:absolute;
-      inset:-6px -10px;
-      background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.18) 35%, rgba(255,255,255,0) 70%);
-      transform: translateX(-45%);
-      pointer-events:none;
-      mix-blend-mode: screen;
-      filter: blur(0.2px);
-      animation: sheen 7.5s ease-in-out infinite;
-      opacity:0;
-    }
-    @keyframes sheen{
-      0%,55%{ transform: translateX(-45%); opacity:0; }
-      65%{ opacity:0.9; }
-      100%{ transform: translateX(45%); opacity:0; }
-    }
-    .brand-inline-suffix{
-      font-size: clamp(1.05rem, 2.6vw, 1.25rem);
-      font-weight: 900;
-      color:#e2e8f0;
-      letter-spacing:-0.2px;
-    }
-    .brand-powered{
-      display:flex;
-      align-items:center;
-      gap:0.5rem;
-      font-size:0.85rem;
-      color: var(--gray);
-      white-space:nowrap;
-      font-weight: 700;
-    }
-    .brand-powered img{ height:18px; width:auto; object-fit:contain; }
-
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:1.25rem;
-      margin:0;
-      padding:0;
-      list-style:none;
-    }
-    .nav-links a{
-      color: var(--light);
-      text-decoration:none;
-      font-weight: 900;
-      letter-spacing:-0.1px;
-      padding:0.35rem 0.25rem;
-      border-radius:10px;
-      transition: color 0.2s, background-color 0.2s, transform 0.2s;
-      white-space:nowrap;
-    }
-    .nav-links a:hover{
-      color:#a5f3fc;
-      background: rgba(30,41,59,0.65);
-      transform: translateY(-1px);
-    }
-    .nav-cta{
-      background: var(--primary);
-      color:#0f172a !important;
-      padding:0.55rem 0.95rem !important;
-      border-radius:9999px !important;
-      font-weight: 900 !important;
-    }
-    .nav-cta:hover{
-      background: var(--primary2) !important;
-      color:#0f172a !important;
-    }
-
-    /* Mobile menu button + drawer */
-    .menu-btn{
-      display:none;
-      border:1px solid rgba(148,163,184,0.25);
-      background: rgba(15,23,42,0.35);
-      color: var(--light);
-      border-radius:12px;
-      padding:0.55rem 0.75rem;
-      font-weight:900;
-      line-height:1;
-    }
-    .menu-btn:hover{
-      border-color: rgba(14,165,233,0.55);
-      color:#a5f3fc;
-    }
-
-    .menu-overlay{
-      display:none;
-      position:fixed;
-      inset:0;
-      z-index:1040;
-      background: rgba(0,0,0,0.45);
-    }
-
-    .mobile-drawer{
-      display:none;
-      position:fixed;
-      top: var(--stack-h);
-      left:0; right:0;
-      z-index:1050;
-      background: rgba(15,23,42,0.98);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(148,163,184,0.18);
-      padding: 1rem 1rem 1.25rem;
-    }
-    .drawer-title{ color:#fff; font-weight:900; }
-    .drawer-links{
-      display:grid;
-      gap:0.5rem;
-      margin-top:0.75rem;
-    }
-    .drawer-links a{
-      color: var(--light);
-      text-decoration:none;
-      font-weight:900;
-      padding:0.9rem 0.9rem;
-      border-radius:14px;
-      background: rgba(30,41,59,0.55);
-      border: 1px solid rgba(148,163,184,0.16);
-    }
-    .drawer-links a:hover{
-      border-color: rgba(14,165,233,0.55);
-      color:#a5f3fc;
-    }
-    .drawer-links a.drawer-cta{
-      background: var(--primary);
-      color:#0f172a;
-      border-color:transparent;
-    }
-    .drawer-links a.drawer-cta:hover{
-      background: var(--primary2);
-      color:#0f172a;
-    }
-
-    .is-open .menu-overlay{ display:block; }
-    .is-open .mobile-drawer{ display:block; }
-    body.menu-open{ overflow:hidden; }
-
-    @media (max-width: 992px){
-      .nav-links{ display:none; }
-      .menu-btn{ display:inline-flex; align-items:center; gap:0.55rem; }
-    }
-    @media (max-width: 768px){
-      .top-bar{ font-size:0.85rem; }
-      .top-bar .container{ justify-content:center; gap:0.85rem; }
-    }
-
-    /* ===== Page hero ===== */
-    .page-hero{
-      padding: 95px 1rem 55px;
-      text-align:center;
-      background:
-        linear-gradient(rgba(15,23,42,0.92), rgba(15,23,42,0.92)),
-        url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80')
-        no-repeat center / cover;
-      background-attachment: fixed;
-      border-bottom: 1px solid rgba(30,41,59,0.6);
-    }
-    .page-hero h1{
-      font-size: clamp(2rem, 5.6vw, 3.4rem);
-      font-weight: 900;
-      color:#fff;
-      margin:0 0 0.9rem;
-      line-height:1.12;
-    }
-    .page-hero p{
-      max-width: 980px;
-      margin:0 auto;
-      color:#cbd5e1;
-      font-size: 1.05rem;
-    }
-
-    @media (max-width: 992px){
-      .page-hero{ background-attachment: scroll; background-position: center top; }
-    }
-
-    /* ===== Sections ===== */
-    .section-padding{ padding: 80px 1rem; }
-    .section-title{
-      font-size: clamp(2rem, 6vw, 3rem);
-      font-weight: 900;
-      color:#fff;
-      text-align:center;
-      margin-bottom:3rem;
-    }
-
-    .panel{
-      background: rgba(30,41,59,0.55);
-      border: 1px solid rgba(148,163,184,0.14);
-      border-radius: 18px;
-      padding: 1.5rem 1.35rem;
-      height:100%;
-    }
-    .panel h3{
-      color:#fff;
-      font-weight: 900;
-      margin:0 0 0.5rem;
-      font-size: 1.25rem;
-    }
-    .panel p{ color: var(--gray); margin:0; }
-
-    .industry-card{
-      background: var(--dark2);
-      border-radius:16px;
-      padding: 1.8rem 1.4rem;
-      border: 1px solid rgba(148,163,184,0.12);
-      height:100%;
-      transition: transform 0.25s, border-color 0.25s;
-    }
-    .industry-card:hover{
-      transform: translateY(-6px);
-      border-color: rgba(14,165,233,0.55);
-    }
-    .industry-head{
-      display:flex;
-      align-items:flex-start;
-      gap:0.9rem;
-      margin-bottom: 0.75rem;
-    }
-    .industry-icon{
-      font-size: 2.2rem;
-      color: var(--primary2);
-      line-height:1;
-      margin-top: 0.1rem;
-    }
-    .industry-title{
-      margin:0;
-      color:#fff;
-      font-weight: 900;
-      font-size: 1.25rem;
-      line-height:1.2;
-    }
-    .industry-sub{
-      margin:0.2rem 0 0;
-      color: var(--gray);
-      font-size: 0.95rem;
-    }
-
-    .pillrow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:0.5rem;
-      margin: 0.9rem 0 1.1rem;
-    }
-    .pill{
-      border: 1px solid rgba(14,165,233,0.45);
-      color: #a5f3fc;
-      background: rgba(15,23,42,0.35);
-      border-radius: 9999px;
-      padding: 0.35rem 0.65rem;
-      font-weight: 900;
-      font-size: 0.8rem;
-      white-space:nowrap;
-    }
-
-    .list-title{
-      color: var(--primary2);
-      font-weight: 900;
-      margin: 1.05rem 0 0.45rem;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing:0.3px;
-    }
-    .ul{
-      margin:0;
-      padding-left: 1.15rem;
-      color: #cbd5e1;
-      font-size: 0.98rem;
-    }
-    .ul li{ margin-bottom: 0.45rem; }
-    .ul li span{ color: var(--gray); }
-
-    .cta-band{
-      margin-top: 3.5rem;
-      background: rgba(30,41,59,0.45);
-      border: 1px solid rgba(14,165,233,0.25);
-      border-radius: 18px;
-      padding: 1.7rem 1.4rem;
-      text-align:center;
-    }
-    .cta-band h3{
-      color:#fff;
-      font-weight: 900;
-      margin:0 0 0.5rem;
-    }
-    .cta-band p{
-      color: var(--gray);
-      margin:0 auto 1.1rem;
-      max-width: 900px;
-    }
-    .btn-pill{
-      display:inline-block;
-      padding: 0.9rem 1.2rem;
-      border-radius: 9999px;
-      font-weight: 900;
-      text-decoration:none;
-      border: 1px solid rgba(14,165,233,0.4);
-      background: rgba(15,23,42,0.35);
-      color:#a5f3fc;
-      transition: transform 0.2s, background-color 0.2s, color 0.2s;
-      margin: 0.25rem;
-    }
-    .btn-pill:hover{ transform: translateY(-2px); }
-    .btn-pill.primary{
-      background: var(--primary);
-      color: #0f172a;
-      border-color: transparent;
-    }
-    .btn-pill.primary:hover{
-      background: var(--primary2);
-      color: #0f172a;
-    }
-
-    /* ===== Footer + Portfolio + Newsletter ===== */
-    footer{
-      background:#0f172a;
-      padding: 70px 1rem 40px;
-      border-top: 1px solid #1e293b;
-    }
-    .footer-grid{
-      display:grid;
-      grid-template-columns: 1.3fr 1fr 1.3fr;
-      gap: 1.25rem;
-      align-items:start;
-    }
-    .footer-box{
-      background: rgba(30,41,59,0.45);
-      border: 1px solid rgba(148,163,184,0.14);
-      border-radius: 16px;
-      padding: 1.25rem 1.15rem;
-      height:100%;
-    }
-    .footer-box h6{
-      color:#fff;
-      font-weight: 900;
-      margin:0 0 0.6rem;
-      font-size:1.05rem;
-    }
-    .footer-box p, .footer-box li{
-      color: var(--gray);
-      margin:0;
-      font-size:0.95rem;
-    }
-    .footer-links{
-      list-style:none;
-      padding:0;
-      margin:0.25rem 0 0;
-      display:grid;
-      gap:0.45rem;
-    }
-    .footer-links a{
-      color: var(--light);
-      text-decoration:none;
-      font-weight:800;
-    }
-    .footer-links a:hover{ color: var(--primary2); }
-
-    .newsletter-form{
-      display:flex;
-      gap:0.6rem;
-      margin-top:0.7rem;
-      flex-wrap:wrap;
-    }
-    .newsletter-input{
-      flex: 1 1 180px;
-      background: rgba(15,23,42,0.65);
-      border: 1px solid rgba(148,163,184,0.18);
-      color:#fff;
-      border-radius: 12px;
-      padding: 0.75rem 0.85rem;
-      outline:none;
-    }
-    .newsletter-input:focus{ border-color: rgba(14,165,233,0.65); }
-    .newsletter-btn{
-      flex: 0 0 auto;
-      background: var(--primary);
-      border:none;
-      color:#0f172a;
-      font-weight: 900;
-      border-radius: 9999px;
-      padding: 0.75rem 1rem;
-    }
-    .newsletter-btn:hover{ background: var(--primary2); }
-
-    .portfolio-title{
-      color:#fff;
-      font-weight: 900;
-      text-align:center;
-      font-size: clamp(1.8rem, 4.5vw, 2.35rem);
-      margin: 3.2rem 0 1.25rem;
-    }
-    .portfolio-sub{
-      text-align:center;
-      max-width: 900px;
-      margin: 0 auto 2rem;
-      color: #cbd5e1;
-      font-size:1.03rem;
-    }
-
-    .service-card{
-      background: var(--dark2);
-      border-radius: 16px;
-      padding: 1.6rem 1.1rem;
-      text-align:center;
-      border: 1px solid rgba(148,163,184,0.12);
-      height:100%;
-      transition: transform 0.25s, background-color 0.25s, border-color 0.25s;
-    }
-    .service-card:hover{
-      background:#334155;
-      transform: translateY(-5px);
-      border-color: rgba(14,165,233,0.45);
-    }
-    .service-icon{
-      font-size: 2.7rem;
-      color: var(--primary2);
-      margin-bottom: 0.9rem;
-      display:block;
-    }
-    .service-title{
-      color: var(--primary2);
-      font-weight: 900;
-      font-size: 1.1rem;
-      margin-bottom: 0.45rem;
-    }
-    .service-title a{
-      color: var(--primary2);
-      text-decoration:none;
-    }
-    .service-title a:hover{ text-decoration: underline; }
-    .service-desc{ color: var(--gray); font-size:0.92rem; margin:0; }
-    .highlighted-card{ border: 2px solid var(--primary) !important; }
-
-    .powered-strip{
-      text-align:center;
-      margin-top: 2.5rem;
-      color:#cbd5e1;
-      font-size: 1rem;
-    }
-    .powered-strip img{
-      height: 28px;
-      vertical-align: middle;
-      margin-left: 0.6rem;
-    }
-    .copyright{
-      text-align:center;
-      color: var(--gray);
-      margin-top: 0.9rem;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 992px){
-      .footer-grid{ grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="site.css" />
 </head>
 
 <body>
@@ -581,7 +24,7 @@
   <header class="site-header">
     <div class="container">
       <div class="nav-wrap">
-        <a href="index.html" class="brand-lockup">
+        <a href="index.html" class="brand-lockup" aria-label="Konectd Advisory & Consulting Home">
           <div class="brand-title-row">
             <span class="brand-wordmark">Konectd</span>
             <span class="brand-inline-suffix">Advisory &amp; Consulting</span>
@@ -602,21 +45,20 @@
         </nav>
 
         <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false">
-          <i class="bi bi-list" style="font-size:1.2rem;"></i> Menu
+          <i class="bi bi-list"></i><span>Menu</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile overlay + drawer -->
+  <!-- Mobile Menu Overlay + Drawer -->
   <div class="menu-overlay" id="menuOverlay" tabindex="-1" aria-hidden="true"></div>
-
   <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
     <div class="container">
       <div class="d-flex align-items-center justify-content-between">
         <div class="drawer-title">Menu</div>
         <button class="menu-btn" id="menuCloseBtn" type="button" aria-label="Close menu">
-          <i class="bi bi-x-lg" style="font-size:1.05rem;"></i> Close
+          <i class="bi bi-x-lg"></i><span>Close</span>
         </button>
       </div>
 
@@ -630,442 +72,238 @@
     </div>
   </div>
 
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="container">
-      <h1>Industry Focus</h1>
-      <p>
-        We focus on sectors where buyers consistently deploy capital: recurring revenue, essential services, compliance-aware operations,
-        and fragmented markets where consolidation creates value. Below are core categories we often serve—and the buyer logic behind them.
-      </p>
-    </div>
-  </section>
-
-  <!-- WHY THESE INDUSTRIES -->
-  <section class="section-padding">
-    <div class="container">
-      <h2 class="section-title">Why These Industries Are Being Acquired</h2>
-
-      <div class="row g-4">
-        <div class="col-lg-4">
-          <div class="panel">
-            <h3><i class="bi bi-repeat" style="color:var(--primary2);margin-right:0.5rem;"></i>Recurring &amp; Repeatable Revenue</h3>
-            <p>
-              Buyers pay premiums for revenue they can forecast: contracts, subscriptions, repeat purchasing, and embedded customer relationships.
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="panel">
-            <h3><i class="bi bi-shield-check" style="color:var(--primary2);margin-right:0.5rem;"></i>Lower Diligence Risk</h3>
-            <p>
-              Strong SOPs, compliance posture, clear reporting, and reduced concentration minimize retrade leverage and accelerate closing.
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="panel">
-            <h3><i class="bi bi-diagram-3" style="color:var(--primary2);margin-right:0.5rem;"></i>Platform + Add-On Potential</h3>
-            <p>
-              Scalable businesses enable expansion: new geographies, new services, tuck-ins, cross-sell, and operational leverage.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cta-band">
-        <h3>Not sure if your business is a fit?</h3>
-        <p>
-          Many companies become attractive to buyers when positioned correctly. A short assessment can identify the valuation drivers to emphasize
-          and the risks to neutralize.
+  <main>
+    <!-- HERO -->
+    <section class="hero" style="padding: 210px 1rem 120px; background:
+      linear-gradient(rgba(15,23,42,0.88), rgba(15,23,42,0.88)),
+      url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80')
+      no-repeat center/cover;">
+      <div class="container text-center">
+        <h1>Industries We Know</h1>
+        <p class="mx-auto" style="max-width: 980px;">
+          We focus on durable, mission-critical, and service-driven businesses where professionalization, reporting clarity, and operational leverage can create meaningful valuation lift.
         </p>
-        <a class="btn-pill primary" href="contact.html">Book a confidential fit call</a>
-        <a class="btn-pill" href="exit-readiness-checklist.html">Get the exit checklist</a>
+
+        <div class="proof-chips">
+          <span class="proof-chip">Recurring demand</span>
+          <span class="proof-chip">Operational leverage</span>
+          <span class="proof-chip">Fragmented markets</span>
+        </div>
+
+        <a href="contact.html" class="btn-pill primary">Book a confidential fit call</a>
+        <a href="#focus" class="secondary-cta">Explore our focus areas ↓</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- INDUSTRIES GRID -->
-  <section class="section-padding" style="background:#111c33;">
-    <div class="container">
-      <h2 class="section-title">Core Industry Categories</h2>
+    <!-- Content -->
+    <section class="section-padding" id="focus">
+      <div class="container">
+        <h2 class="section-title">Where We Focus</h2>
 
-      <div class="row g-4">
-        <!-- Home Services -->
-        <div class="col-lg-6">
-          <div class="industry-card">
-            <div class="industry-head">
-              <div class="industry-icon"><i class="bi bi-house-gear-fill"></i></div>
-              <div>
-                <h3 class="industry-title">Home &amp; Commercial Services</h3>
-                <p class="industry-sub">HVAC, plumbing, electrical, restoration, pest, roofing, and essential services</p>
-              </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="card-dark">
+              <div class="kicker">Services</div>
+              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
+                <i class="bi bi-house-gear-fill me-2" style="color:var(--primary);"></i>Home Services
+              </h3>
+              <p style="color:var(--gray);margin:0;">
+                HVAC, plumbing, electrical, restoration, pest control, roofing, and related categories with consistent local demand. Buyers are attracted to fragmentation, route density, and the ability to standardize operations.
+              </p>
+              <ul class="mt-3" style="color:#cbd5e1;">
+                <li><strong>Why acquired:</strong> consolidation + repeatability + cross-sell potential</li>
+                <li><strong>Key drivers:</strong> membership plans, attach rates, utilization, reviews</li>
+                <li><strong>Diligence focus:</strong> job costing, warranty exposure, dispatch discipline</li>
+              </ul>
             </div>
+          </div>
 
-            <div class="pillrow">
-              <span class="pill">Non-discretionary demand</span>
-              <span class="pill">Local brand moat</span>
-              <span class="pill">Route density</span>
-              <span class="pill">Maintenance plans</span>
+          <div class="col-lg-4 col-md-6">
+            <div class="card-dark">
+              <div class="kicker">Contracts</div>
+              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
+                <i class="bi bi-building-check me-2" style="color:var(--primary);"></i>B2B &amp; Facility Services
+              </h3>
+              <p style="color:var(--gray);margin:0;">
+                Commercial cleaning, security, fire/life safety, specialty maintenance, and compliance-heavy services. Attractive when contracts are sticky and delivery is standardized.
+              </p>
+              <ul class="mt-3" style="color:#cbd5e1;">
+                <li><strong>Why acquired:</strong> predictable revenue + multi-location expansion</li>
+                <li><strong>Key drivers:</strong> renewal rates, SLA performance, contract length</li>
+                <li><strong>Diligence focus:</strong> labor mix, churn, service-level penalties</li>
+              </ul>
             </div>
+          </div>
 
-            <div class="list-title">Why it’s being acquired</div>
-            <ul class="ul">
-              <li><strong>Essential spend:</strong> <span>repairs and replacements happen regardless of cycles.</span></li>
-              <li><strong>Scale efficiencies:</strong> <span>dispatch, pricing, marketing, purchasing, and training centralize well.</span></li>
-              <li><strong>Repeat revenue:</strong> <span>service plans stabilize cash flow and improve valuation.</span></li>
-              <li><strong>Fragmentation:</strong> <span>platform + tuck-in strategies create outsized value.</span></li>
-            </ul>
+          <div class="col-lg-4 col-md-6">
+            <div class="card-dark">
+              <div class="kicker">Field Ops</div>
+              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
+                <i class="bi bi-wrench-adjustable-circle me-2" style="color:var(--primary);"></i>Industrial &amp; Field Services
+              </h3>
+              <p style="color:var(--gray);margin:0;">
+                Maintenance, repair, testing/inspection, and specialized field operations. Buyers favor strong safety culture, utilization reporting, and durable customer relationships.
+              </p>
+              <ul class="mt-3" style="color:#cbd5e1;">
+                <li><strong>Why acquired:</strong> mission-critical demand + geographic expansion</li>
+                <li><strong>Key drivers:</strong> backlog visibility, utilization, safety record</li>
+                <li><strong>Diligence focus:</strong> insurance history, key-person dependency</li>
+              </ul>
+            </div>
+          </div>
 
-            <div class="list-title">What buyers look for</div>
-            <ul class="ul">
-              <li><span>call booking rate, average ticket, margin by service line.</span></li>
-              <li><span>technician productivity, reviews, lead source mix.</span></li>
-              <li><span>service agreement penetration and renewal discipline.</span></li>
-            </ul>
+          <div class="col-lg-4 col-md-6">
+            <div class="card-dark">
+              <div class="kicker">Recurring Need</div>
+              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
+                <i class="bi bi-heart-pulse-fill me-2" style="color:var(--primary);"></i>Healthcare Services
+              </h3>
+              <p style="color:var(--gray);margin:0;">
+                Service models supported by demographic demand and recurring utilization where compliance and documentation are strong.
+              </p>
+              <ul class="mt-3" style="color:#cbd5e1;">
+                <li><strong>Why acquired:</strong> demand tailwinds + platform/add-on expansion</li>
+                <li><strong>Key drivers:</strong> retention, referrals, multi-site playbook</li>
+                <li><strong>Diligence focus:</strong> compliance, credentialing, payer mix</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="card-dark">
+              <div class="kicker">Efficiency</div>
+              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
+                <i class="bi bi-diagram-3-fill me-2" style="color:var(--primary);"></i>Tech-Enabled Services
+              </h3>
+              <p style="color:var(--gray);margin:0;">
+                Services businesses that leverage software, data, automation, or workflow tools to deliver outcomes more efficiently—especially with recurring contracts.
+              </p>
+              <ul class="mt-3" style="color:#cbd5e1;">
+                <li><strong>Why acquired:</strong> margin expansion + repeatable delivery model</li>
+                <li><strong>Key drivers:</strong> retention, ARPA growth, automation leverage</li>
+                <li><strong>Diligence focus:</strong> churn drivers, security posture, rev rec</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="card-dark">
+              <div class="kicker">Standardization</div>
+              <h3 style="color:#fff;font-weight:900;margin-bottom:0.75rem;">
+                <i class="bi bi-clipboard-data-fill me-2" style="color:var(--primary);"></i>Professional Services
+              </h3>
+              <p style="color:var(--gray);margin:0;">
+                Specialized professional service lines where delivery can be standardized and customer concentration is controlled.
+              </p>
+              <ul class="mt-3" style="color:#cbd5e1;">
+                <li><strong>Why acquired:</strong> recurring revenue + roll-up potential</li>
+                <li><strong>Key drivers:</strong> delivery playbooks, leadership depth</li>
+                <li><strong>Diligence focus:</strong> founder dependence, pipeline quality</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <!-- B2B Services -->
-        <div class="col-lg-6">
-          <div class="industry-card">
-            <div class="industry-head">
-              <div class="industry-icon"><i class="bi bi-building-fill-check"></i></div>
-              <div>
-                <h3 class="industry-title">B2B Services</h3>
-                <p class="industry-sub">Recurring services with long-term customer relationships and predictable demand</p>
-              </div>
-            </div>
-
-            <div class="pillrow">
-              <span class="pill">High retention</span>
-              <span class="pill">Contracted revenue</span>
-              <span class="pill">Low churn</span>
-              <span class="pill">Cross-sell</span>
-            </div>
-
-            <div class="list-title">Why it’s being acquired</div>
-            <ul class="ul">
-              <li><strong>Stickiness:</strong> <span>embedded workflows create switching costs.</span></li>
-              <li><strong>Predictability:</strong> <span>contracts and repeat behavior improve underwriting confidence.</span></li>
-              <li><strong>Scalable growth:</strong> <span>repeatable go-to-market and add-ons expand wallet share.</span></li>
-              <li><strong>Operational leverage:</strong> <span>standardization can lift margins at scale.</span></li>
-            </ul>
-
-            <div class="list-title">What buyers look for</div>
-            <ul class="ul">
-              <li><span>renewals, contract terms, pricing discipline.</span></li>
-              <li><span>pipeline reporting, CAC logic, upsell motion.</span></li>
-              <li><span>key-person risk and leadership bench depth.</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Financial / specialized -->
-        <div class="col-lg-6">
-          <div class="industry-card">
-            <div class="industry-head">
-              <div class="industry-icon"><i class="bi bi-cash-coin"></i></div>
-              <div>
-                <h3 class="industry-title">Specialty &amp; Compliance-Aware Services</h3>
-                <p class="industry-sub">Services tied to compliance, reporting, risk management, or regulated operations</p>
-              </div>
-            </div>
-
-            <div class="pillrow">
-              <span class="pill">Repeat demand</span>
-              <span class="pill">Process maturity</span>
-              <span class="pill">High trust</span>
-              <span class="pill">Lower churn</span>
-            </div>
-
-            <div class="list-title">Why it’s being acquired</div>
-            <ul class="ul">
-              <li><strong>Durable demand:</strong> <span>compliance and risk don’t disappear in downturns.</span></li>
-              <li><strong>Trust relationships:</strong> <span>referrals and repeat engagements support growth.</span></li>
-              <li><strong>Cleaner diligence:</strong> <span>documentation and controls reduce friction and delays.</span></li>
-              <li><strong>Cross-sell:</strong> <span>buyers add new services across the same client base.</span></li>
-            </ul>
-
-            <div class="list-title">What buyers look for</div>
-            <ul class="ul">
-              <li><span>client concentration, documented controls, process ownership.</span></li>
-              <li><span>repeat engagement patterns and pricing ladder clarity.</span></li>
-              <li><span>team utilization, workflow capacity planning.</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Healthcare services -->
-        <div class="col-lg-6">
-          <div class="industry-card">
-            <div class="industry-head">
-              <div class="industry-icon"><i class="bi bi-heart-pulse-fill"></i></div>
-              <div>
-                <h3 class="industry-title">Healthcare &amp; Health Services</h3>
-                <p class="industry-sub">Service lines with stable demand, operating repeatability, and scalable expansion</p>
-              </div>
-            </div>
-
-            <div class="pillrow">
-              <span class="pill">Stable demand</span>
-              <span class="pill">Process-driven</span>
-              <span class="pill">Capacity expansion</span>
-              <span class="pill">Compliance</span>
-            </div>
-
-            <div class="list-title">Why it’s being acquired</div>
-            <ul class="ul">
-              <li><strong>Structural demand:</strong> <span>ongoing needs support long-term growth.</span></li>
-              <li><strong>Platform expansion:</strong> <span>multi-location rollouts and adjacent service line growth.</span></li>
-              <li><strong>Operational improvements:</strong> <span>systems + staffing optimization can lift margins.</span></li>
-              <li><strong>Quality + controls:</strong> <span>mature operations reduce buyer risk.</span></li>
-            </ul>
-
-            <div class="list-title">What buyers look for</div>
-            <ul class="ul">
-              <li><span>compliance posture, staffing stability, clean reporting.</span></li>
-              <li><span>unit economics, scheduling efficiency, utilization.</span></li>
-              <li><span>documentation quality and repeatable workflows.</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Tech-enabled -->
-        <div class="col-lg-6">
-          <div class="industry-card">
-            <div class="industry-head">
-              <div class="industry-icon"><i class="bi bi-cpu-fill"></i></div>
-              <div>
-                <h3 class="industry-title">Tech-Enabled Services</h3>
-                <p class="industry-sub">Operational services improved by software, automation, analytics, or integrations</p>
-              </div>
-            </div>
-
-            <div class="pillrow">
-              <span class="pill">Scalable delivery</span>
-              <span class="pill">Data visibility</span>
-              <span class="pill">Process leverage</span>
-              <span class="pill">Upsell</span>
-            </div>
-
-            <div class="list-title">Why it’s being acquired</div>
-            <ul class="ul">
-              <li><strong>Margin expansion:</strong> <span>automation reduces cost-to-serve as the base grows.</span></li>
-              <li><strong>Operational moat:</strong> <span>integrations and workflows increase stickiness.</span></li>
-              <li><strong>Productized delivery:</strong> <span>repeatable service packages scale faster.</span></li>
-              <li><strong>Faster underwriting:</strong> <span>good reporting improves buyer confidence.</span></li>
-            </ul>
-
-            <div class="list-title">What buyers look for</div>
-            <ul class="ul">
-              <li><span>onboarding time, churn/retention, and expansion revenue.</span></li>
-              <li><span>unit economics, pricing discipline, delivery repeatability.</span></li>
-              <li><span>security posture (if relevant).</span></li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Industrial / Field -->
-        <div class="col-lg-6">
-          <div class="industry-card">
-            <div class="industry-head">
-              <div class="industry-icon"><i class="bi bi-wrench-adjustable-circle-fill"></i></div>
-              <div>
-                <h3 class="industry-title">Industrial &amp; Field Services</h3>
-                <p class="industry-sub">Inspection, maintenance, repair, compliance-driven fieldwork and uptime services</p>
-              </div>
-            </div>
-
-            <div class="pillrow">
-              <span class="pill">Mission-critical</span>
-              <span class="pill">Compliance demand</span>
-              <span class="pill">Repeat customers</span>
-              <span class="pill">Specialized labor</span>
-            </div>
-
-            <div class="list-title">Why it’s being acquired</div>
-            <ul class="ul">
-              <li><strong>Critical service need:</strong> <span>customers prioritize uptime, safety, and compliance.</span></li>
-              <li><strong>Predictable cycles:</strong> <span>recurring inspections and maintenance intervals.</span></li>
-              <li><strong>Scale + coverage:</strong> <span>buyers expand geography and service capability.</span></li>
-              <li><strong>Pricing power:</strong> <span>expertise + reliability support premium pricing.</span></li>
-            </ul>
-
-            <div class="list-title">What buyers look for</div>
-            <ul class="ul">
-              <li><span>job profitability tracking and standardized quoting.</span></li>
-              <li><span>workforce utilization, safety posture, SOP maturity.</span></li>
-              <li><span>customer concentration and contract quality.</span></li>
-            </ul>
+        <div class="text-center mt-5">
+          <a href="exit-readiness-checklist.html" class="btn-pill primary">Download the Exit Readiness Checklist</a>
+          <div class="mt-3">
+            <a href="contact.html" class="btn-pill">Book a fit call</a>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="cta-band">
-        <h3>We’ll help you position for the right buyers</h3>
+    <!-- Services Strip -->
+    <section class="services-strip">
+      <div class="container">
+        <h2>The Full Konectd Solutions Portfolio</h2>
         <p>
-          Whether you’re 6 months out or exploring now, we can help tighten the story, organize diligence materials,
-          and build a controlled outreach plan that protects confidentiality.
+          Marketing is just one part of how we help businesses thrive. Konectd Solutions offers a complete ecosystem of services—designed to support small and medium-sized companies.
         </p>
-        <a class="btn-pill primary" href="contact.html">Book a fit call</a>
-        <a class="btn-pill" href="exit-readiness-checklist.html">Download the checklist</a>
-      </div>
-    </div>
-  </section>
 
-  <!-- FOOTER (with full services portfolio at bottom) -->
-  <footer>
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-2 col-md-4 col-6">
+            <div class="service-card highlighted-card">
+              <i class="bi bi-briefcase-fill service-icon"></i>
+              <div class="service-title">Advisory &amp; Consulting</div>
+              <p class="service-desc">Strategic guidance to scale smarter—from operations to growth planning.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <div class="service-card">
+              <i class="bi bi-credit-card-2-front-fill service-icon"></i>
+              <div class="service-title">Payment &amp; Payroll</div>
+              <p class="service-desc">Secure, streamlined payments and payroll—save time and reduce errors.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <div class="service-card">
+              <i class="bi bi-building-fill service-icon"></i>
+              <div class="service-title">Real Estate</div>
+              <p class="service-desc">Property solutions, leasing support, and investment guidance for owners.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <div class="service-card">
+              <i class="bi bi-bank2 service-icon"></i>
+              <div class="service-title">Financing</div>
+              <p class="service-desc">Access to capital, lines of credit, and funding options to fuel growth.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <div class="service-card">
+              <i class="bi bi-megaphone-fill service-icon"></i>
+              <div class="service-title"><a href="https://konectd.com" target="_blank" rel="noopener">Marketing</a></div>
+              <p class="service-desc">AI-powered acquisition, reputation, local SEO, and re-engagement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-box">
-          <h6>Konectd Advisory &amp; Consulting</h6>
-          <p>Confidential sell-side advisory and exit readiness for owner-led companies. We help strengthen valuation drivers, reduce diligence risk, and reach qualified buyers.</p>
-          <p class="mt-3">
-            <strong style="color:#fff;">Phone:</strong> <a href="tel:+15075095368" style="color:var(--primary2);text-decoration:none;font-weight:900;">(507) 509-5368</a><br/>
-            <strong style="color:#fff;">Email:</strong> <a href="mailto:hello@konectd.solutions" style="color:var(--primary2);text-decoration:none;font-weight:900;">hello@konectd.solutions</a>
-          </p>
-        </div>
-
-        <div class="footer-box">
-          <h6>Quick Links</h6>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="why-us.html">Why Us</a></li>
-            <li><a href="industries.html">Industries</a></li>
-            <li><a href="exit-readiness-checklist.html">Exit Readiness Checklist</a></li>
-            <li><a href="contact.html">Contact / Book a Call</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-box">
-          <h6>Newsletter</h6>
-          <p>Get practical exit readiness insights, valuation levers, and diligence preparation guidance—no spam.</p>
-          <form class="newsletter-form" action="#" method="post">
-            <input class="newsletter-input" type="email" name="email" placeholder="Email address" required />
-            <button class="newsletter-btn" type="submit">Sign Up</button>
-          </form>
-          <p class="mt-2" style="color:var(--gray);font-size:0.85rem;">By subscribing, you agree to receive emails from Konectd. You can unsubscribe anytime.</p>
-        </div>
-      </div>
-
-      <h2 class="portfolio-title">The Full Konectd Solutions Portfolio</h2>
-      <p class="portfolio-sub">
-        Marketing is just one part of how we help businesses thrive. Konectd Solutions offers a complete ecosystem of services—built to support small and medium-sized companies.
+      <h5>Konectd Advisory &amp; Consulting</h5>
+      <p class="footer-intro">
+        Confidential exit readiness and sell-side advisory for $5M–$75M revenue business owners. Strengthen valuation drivers, reduce diligence risk, and reach qualified buyers—without turning your business into a public listing.
       </p>
 
-      <div class="row g-4 justify-content-center">
-        <div class="col-lg-2 col-md-4 col-6">
-          <div class="service-card highlighted-card">
-            <i class="bi bi-briefcase-fill service-icon"></i>
-            <div class="service-title">Advisory &amp; Consulting</div>
-            <p class="service-desc">Strategic guidance to scale smarter—from operations to growth planning.</p>
-          </div>
-        </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="why-us.html">Why Us</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="exit-readiness-checklist.html">Exit Readiness Checklist</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
 
-        <div class="col-lg-2 col-md-4 col-6">
-          <div class="service-card">
-            <i class="bi bi-credit-card-2-front-fill service-icon"></i>
-            <div class="service-title">Payment &amp; Payroll</div>
-            <p class="service-desc">Secure payments and payroll—save time and reduce errors.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-6">
-          <div class="service-card">
-            <i class="bi bi-building-fill service-icon"></i>
-            <div class="service-title">Real Estate</div>
-            <p class="service-desc">Leasing support and property strategy tailored for business owners.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-6">
-          <div class="service-card">
-            <i class="bi bi-bank2 service-icon"></i>
-            <div class="service-title">Financing</div>
-            <p class="service-desc">Access to capital and funding options to fuel your next step.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-6">
-          <div class="service-card">
-            <i class="bi bi-megaphone-fill service-icon"></i>
-            <div class="service-title"><a href="https://konectd.com" target="_blank" rel="noopener">Marketing</a></div>
-            <p class="service-desc">AI-powered acquisition, local SEO, reputation, and re-engagement.</p>
-          </div>
-        </div>
+      <div class="footer-newsletter">
+        <h6>Newsletter Signup</h6>
+        <p>Exit readiness insights, valuation levers, and diligence preparation guidance—no spam.</p>
+        <form class="newsletter-form" id="newsletterForm" action="#" method="post">
+          <input type="email" name="email" placeholder="Email address" required>
+          <button type="submit">Sign Up</button>
+        </form>
       </div>
 
-      <div class="powered-strip">
-        Powered by Konectd Solutions <img src="logo.png" alt="Konectd Solutions Logo" />
+      <div class="footer-contact">
+        Call: <a href="tel:+15075095368">(507) 509-5368</a> &nbsp;|&nbsp;
+        Email: <a href="mailto:hello@konectd.solutions">hello@konectd.solutions</a>
       </div>
-      <div class="copyright">&copy; 2026 Konectd Advisory &amp; Consulting</div>
+
+      <div class="footer-powered">
+        Powered by Konectd Solutions <img src="logo.png" alt="Konectd Solutions Logo">
+      </div>
+      <div class="footer-copyright">&copy; 2026 Konectd Advisory &amp; Consulting</div>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    // Offsets for fixed topbar + header
-    (function(){
-      const topBar = document.querySelector('.top-bar');
-      const header = document.querySelector('.site-header');
-
-      function setOffsets(){
-        const topH = topBar ? Math.ceil(topBar.getBoundingClientRect().height) : 0;
-        const headH = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
-        document.documentElement.style.setProperty('--topbar-h', topH + 'px');
-        document.documentElement.style.setProperty('--header-h', headH + 'px');
-        document.documentElement.style.setProperty('--stack-h', (topH + headH) + 'px');
-      }
-
-      window.addEventListener('load', setOffsets);
-      window.addEventListener('resize', setOffsets);
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(setOffsets).catch(()=>{});
-      }
-    })();
-
-    // Mobile menu
-    (function(){
-      const root = document.documentElement;
-      const body = document.body;
-
-      const menuBtn = document.getElementById('menuBtn');
-      const menuCloseBtn = document.getElementById('menuCloseBtn');
-      const overlay = document.getElementById('menuOverlay');
-      const drawer = document.getElementById('mobileDrawer');
-
-      function openMenu(){
-        body.classList.add('menu-open');
-        root.classList.add('is-open');
-        menuBtn?.setAttribute('aria-expanded','true');
-        menuCloseBtn?.focus();
-      }
-      function closeMenu(){
-        body.classList.remove('menu-open');
-        root.classList.remove('is-open');
-        menuBtn?.setAttribute('aria-expanded','false');
-        menuBtn?.focus();
-      }
-
-      menuBtn?.addEventListener('click', openMenu);
-      menuCloseBtn?.addEventListener('click', closeMenu);
-      overlay?.addEventListener('click', closeMenu);
-
-      document.addEventListener('keydown', (e)=>{
-        if (e.key === 'Escape' && root.classList.contains('is-open')) closeMenu();
-      });
-
-      drawer?.addEventListener('click', (e)=>{
-        const t = e.target;
-        if (t && t.tagName === 'A') closeMenu();
-      });
-
-      window.addEventListener('resize', ()=>{
-        if (window.innerWidth > 992 && root.classList.contains('is-open')) closeMenu();
-      });
-    })();
-  </script>
+  <script src="site.js"></script>
 </body>
 </html>
