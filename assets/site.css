@@ -286,54 +286,6 @@ body.menu-open{ overflow:hidden; }
   text-transform:uppercase;
   margin-bottom:0.5rem;
 }
-/* ===== HERO (Advisory-style) ===== */
-.hero{
-  padding: 140px 1rem 120px;
-  text-align:center;
-  background:
-    linear-gradient(rgba(15,23,42,0.88), rgba(15,23,42,0.88)),
-    url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')
-    no-repeat center / cover;
-  background-attachment: fixed;
-}
-
-.hero h1{
-  font-size: clamp(2.2rem, 6.5vw, 4.2rem);
-  font-weight: 900;
-  color: #fff;
-  margin: 0 0 1.2rem;
-  line-height: 1.1;
-}
-
-.hero p{
-  font-size: clamp(1.05rem, 3.6vw, 1.45rem);
-  max-width: 980px;
-  margin: 0 auto 1.9rem;
-  color: var(--light);
-}
-
-.proof-chips{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:0.75rem;
-  margin: 1.25rem 0 2.2rem;
-}
-
-.proof-chip{
-  background: rgba(30, 41, 59, 0.6);
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  padding: 0.5rem 1rem;
-  border-radius: 9999px;
-  font-size: 0.9rem;
-  font-weight: 800;
-}
-
-/* Optional: make hero feel tighter on mobile */
-@media (max-width: 768px){
-  .hero{ padding: 110px 1rem 90px; background-attachment: scroll; }
-}
 /* Buttons */
 .btn-pill{
   display:inline-block;
